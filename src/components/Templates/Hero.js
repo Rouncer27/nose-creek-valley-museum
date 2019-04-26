@@ -74,7 +74,7 @@ const HeroStyled = styled.section`
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 25%;
+    width: 30%;
     height: 75%;
     padding: 0 4rem;
     z-index: 500;
@@ -172,8 +172,8 @@ const HeroStyled = styled.section`
     background: linear-gradient(
       to right,
       ${props => props.theme.grape} 0%,
-      ${props => props.theme.grape} 25%,
-      ${props => props.theme.deepSea} 25%,
+      ${props => props.theme.grape} 30%,
+      ${props => props.theme.deepSea} 30%,
       ${props => props.theme.deepSea} 100%
     );
     opacity: 0.9;

@@ -137,21 +137,17 @@ class Intro extends Component {
             </div>
             <div
               className="intro__content--paragraphs"
-              dangerouslySetInnerHTML={{ __html: this.props.content }}
+              dangerouslySetInnerHTML={{ __html: this.props.mainContent }}
             />
           </div>
 
           <div className="intro__hours">
             <div className="intro__hours--title">
-              <h3>/ Museum Hours </h3>
+              <h3>/ {this.props.sideTitle} </h3>
             </div>
             <div
               className="intro__hours--details"
-              dangerouslySetInnerHTML={{ __html: this.props.hours }}
-            />
-            <div
-              className="intro__hours--location"
-              dangerouslySetInnerHTML={{ __html: this.props.location }}
+              dangerouslySetInnerHTML={{ __html: this.props.sideContent }}
             />
           </div>
         </FullScreenWrapper>

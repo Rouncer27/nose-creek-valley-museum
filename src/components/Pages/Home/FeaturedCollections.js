@@ -47,6 +47,7 @@ const SlideWordsOut = keyframes`
 
 const FeaturedCollectionsSection = styled.section`
   position: relative;
+  margin: -10rem auto 0;
 
   @media (min-width: ${props => props.theme.bpDesksm}) {
     max-width: 100rem;
