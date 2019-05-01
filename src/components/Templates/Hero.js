@@ -183,7 +183,13 @@ const HeroStyled = styled.section`
 class Hero extends Component {
   render() {
     let actionSection = false
-    if (this.props.location.pathname === "/") {
+
+    const slug =
+      this.props.location.pathname.split("/").join("") === ""
+        ? "/"
+        : this.props.location.pathname.split("/").join("")
+
+    if (slug === "/") {
       actionSection = (
         <div className="pagehero__action">
           <Link to="/experience">
@@ -192,37 +198,37 @@ class Hero extends Component {
           </Link>
         </div>
       )
-    } else if (this.props.location.pathname === "/experience") {
+    } else if (slug === "experience") {
       actionSection = (
         <div className="pagehero__action--title">
           <h1>Experience Us</h1>
         </div>
       )
-    } else if (this.props.location.pathname === "/programs") {
+    } else if (slug === "programs") {
       actionSection = (
         <div className="pagehero__action--title">
           <h1>Programs</h1>
         </div>
       )
-    } else if (this.props.location.pathname === "/support") {
+    } else if (slug === "support") {
       actionSection = (
         <div className="pagehero__action--title">
           <h1>Support</h1>
         </div>
       )
-    } else if (this.props.location.pathname === "/about") {
+    } else if (slug === "about") {
       actionSection = (
         <div className="pagehero__action--title">
           <h1>About</h1>
         </div>
       )
-    } else if (this.props.location.pathname === "/stories") {
+    } else if (slug === "stories") {
       actionSection = (
         <div className="pagehero__action--title">
           <h1>Stories</h1>
         </div>
       )
-    } else if (this.props.location.pathname === "/connect") {
+    } else if (slug === "connect") {
       actionSection = (
         <div className="pagehero__action--title">
           <h1>Connect</h1>

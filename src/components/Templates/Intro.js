@@ -2,8 +2,8 @@ import React, { Component } from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-import { FullScreenWrapper } from "../../../components/styles/Commons/Wrappers"
-import { BigHeadlines } from "../../../components/styles/Commons/Titles"
+import { FullScreenWrapper } from "../styles/Commons/Wrappers"
+import { BigHeadlines } from "../styles/Commons/Titles"
 
 const IntroStyled = styled.section`
   position: relative;

@@ -71,14 +71,18 @@ const MainNavigation = styled.nav`
 class Header extends Component {
   render() {
     let heroPage = false
+    const slug =
+      this.props.location.split("/").join("") === ""
+        ? "/"
+        : this.props.location.split("/").join("")
     if (
-      this.props.location === "/" ||
-      this.props.location === "/experience" ||
-      this.props.location === "/programs" ||
-      this.props.location === "/support" ||
-      this.props.location === "/about" ||
-      this.props.location === "/stories" ||
-      this.props.location === "/connect"
+      slug === "/" ||
+      slug === "experience" ||
+      slug === "programs" ||
+      slug === "support" ||
+      slug === "about" ||
+      slug === "stories" ||
+      slug === "connect"
     ) {
       heroPage = " hero-header-page"
     }
