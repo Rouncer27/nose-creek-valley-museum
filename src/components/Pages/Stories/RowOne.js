@@ -9,6 +9,22 @@ import {
 } from "../../../components/styles/Commons/StoryCard"
 
 const RowOneStyled = styled.section`
+  .rone__title {
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 5rem;
+
+    h2 {
+      margin: 0;
+      font-weight: 700;
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        font-size: 15rem;
+      }
+    }
+  }
+
   .rone__container {
     display: flex;
     flex-wrap: wrap;
@@ -23,12 +39,15 @@ class RowOne extends Component {
     return (
       <RowOneStyled className="rone">
         <div className="rone__wrapper">
-          <div className="rone__title">
+          <BigHeadlines className="rone__title">
             <h2>Stories.</h2>
-          </div>
+          </BigHeadlines>
 
           <div className="rone__container">
-            <StoryCardLarge className="rone__atricleone">
+            <StoryCardLarge
+              to={`/stories/${this.props.postOne.node.slug}`}
+              className="rone__atricleone"
+            >
               <div className="rone__atricleone--image storyCardImage">
                 <Img
                   fluid={
@@ -46,7 +65,10 @@ class RowOne extends Component {
               </div>
             </StoryCardLarge>
 
-            <StoryCardSmall className="rone__atricletwo">
+            <StoryCardSmall
+              to={`/stories/${this.props.postTwo.node.slug}`}
+              className="rone__atricletwo"
+            >
               <div className="rone__atricletwo--image storyCardImage">
                 <Img
                   fluid={

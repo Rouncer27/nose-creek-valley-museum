@@ -28,7 +28,10 @@ class RowFive extends Component {
     return (
       <RowFiveStyled>
         <div className="rfive__container">
-          <StoryCardSmall className="rfive__atriclenine">
+          <StoryCardSmall
+            to={`/stories/${this.props.postnine.node.slug}`}
+            className="rfive__atriclenine"
+          >
             <div className="rfive__atriclenine--image storyCardImage">
               <Img
                 fluid={
@@ -43,7 +46,10 @@ class RowFive extends Component {
             </div>
           </StoryCardSmall>
 
-          <StoryCardSmall className="rfive__atricleten">
+          <StoryCardSmall
+            to={`/stories/${this.props.postTen.node.slug}`}
+            className="rfive__atricleten"
+          >
             <div className="rfive__atricleten--image storyCardImage">
               <Img
                 fluid={
@@ -58,7 +64,10 @@ class RowFive extends Component {
             </div>
           </StoryCardSmall>
 
-          <StoryCardMedium className="rfive__atricleeleven">
+          <StoryCardMedium
+            to={`/stories/${this.props.postEleven.node.slug}`}
+            className="rfive__atricleeleven"
+          >
             <div className="rfive__atricleeleven--image storyCardImage">
               <Img
                 fluid={

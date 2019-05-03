@@ -8,6 +8,7 @@ const RowTwoStyled = styled.section`
   .rtwo__container {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
     justify-content: space-evenly;
     width: 100%;
@@ -15,8 +16,35 @@ const RowTwoStyled = styled.section`
 
   .rtwo__testimoinals {
     width: 100%;
+    padding: 5rem 10rem;
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: 50%;
+    }
+
+    &--item {
+      &--content {
+        text-align: center;
+
+        p {
+          color: ${props => props.theme.deepSea};
+          font-family: ${props => props.theme.fontSec};
+          font-style: italic;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.8rem;
+          }
+        }
+      }
+
+      &--author {
+        text-align: center;
+        p {
+          margin: 0;
+          color: ${props => props.theme.deepSea};
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+      }
     }
   }
 `
@@ -29,9 +57,12 @@ class RowTwo extends Component {
           <div className="rtwo__testimoinals">
             {this.props.testimonials.map((test, index) => {
               return (
-                <div key={index}>
-                  <div dangerouslySetInnerHTML={{ __html: test.testimonial }} />
-                  <div>
+                <div key={index} className="rtwo__testimoinals--item">
+                  <div
+                    className="rtwo__testimoinals--item--content"
+                    dangerouslySetInnerHTML={{ __html: test.testimonial }}
+                  />
+                  <div className="rtwo__testimoinals--item--author">
                     <p>{test.name}</p>
                   </div>
                 </div>
@@ -39,7 +70,10 @@ class RowTwo extends Component {
             })}
           </div>
 
-          <StoryCardMedium className="rtwo__atriclethree">
+          <StoryCardMedium
+            to={`/stories/${this.props.postThree.node.slug}`}
+            className="rtwo__atriclethree"
+          >
             <div className="rtwo__atriclethree--image storyCardImage">
               <Img
                 fluid={

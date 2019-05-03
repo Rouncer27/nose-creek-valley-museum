@@ -1,6 +1,8 @@
 import styled from "styled-components"
+import { Link } from "gatsby"
 
-const StoryCardSmall = styled.div`
+const StoryCardSmall = styled(Link)`
+  display: block;
   width: 100%;
   border: solid 1px #ebecec;
 
@@ -52,7 +54,8 @@ const StoryCardSmall = styled.div`
   }
 `
 
-const StoryCardMedium = styled.div`
+const StoryCardMedium = styled(Link)`
+  display: block;
   position: relative;
   width: 100%;
   border: solid 1px #ebecec;
@@ -114,7 +117,8 @@ const StoryCardMedium = styled.div`
   }
 `
 
-const StoryCardLarge = styled.div`
+const StoryCardLarge = styled(Link)`
+  display: block;
   position: relative;
   width: 100%;
   border: solid 1px #ebecec;

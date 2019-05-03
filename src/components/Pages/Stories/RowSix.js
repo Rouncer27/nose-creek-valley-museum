@@ -23,7 +23,11 @@ class RowSix extends Component {
         <div className="rsix__container">
           {this.props.remainingPosts.map((post, index) => {
             return (
-              <StoryCardSmall key={index} className="rsix__atricle">
+              <StoryCardSmall
+                to={`/stories/${post.node.slug}`}
+                key={index}
+                className="rsix__atricle"
+              >
                 <div className="rsix__atricle--image storyCardImage">
                   <Img
                     fluid={

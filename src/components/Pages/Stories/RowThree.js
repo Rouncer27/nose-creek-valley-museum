@@ -21,7 +21,10 @@ class RowThree extends Component {
     return (
       <RowThreeStyled>
         <div className="rthree__container">
-          <StoryCardMedium className="rthree__atriclefour">
+          <StoryCardMedium
+            to={`/stories/${this.props.postFour.node.slug}`}
+            className="rthree__atriclefour"
+          >
             <div className="rthree__atriclefour--image storyCardImage">
               <Img
                 fluid={
@@ -37,7 +40,10 @@ class RowThree extends Component {
             </div>
           </StoryCardMedium>
 
-          <StoryCardSmall className="rthree__atriclefive">
+          <StoryCardSmall
+            to={`/stories/${this.props.postFive.node.slug}`}
+            className="rthree__atriclefive"
+          >
             <div className="rthree__atriclefive--image storyCardImage">
               <Img
                 fluid={
@@ -52,7 +58,10 @@ class RowThree extends Component {
             </div>
           </StoryCardSmall>
 
-          <StoryCardSmall className="rthree__atriclesix">
+          <StoryCardSmall
+            to={`/stories/${this.props.postSix.node.slug}`}
+            className="rthree__atriclesix"
+          >
             <div className="rthree__atriclesix--image storyCardImage">
               <Img
                 fluid={

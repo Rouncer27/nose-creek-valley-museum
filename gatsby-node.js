@@ -17,6 +17,14 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
+
+          allWordpressPost {
+            edges {
+              node {
+                slug
+              }
+            }
+          }
         }
       `
     ).then(result => {
@@ -79,6 +87,16 @@ exports.createPages = ({ graphql, actions }) => {
             },
           })
         }
+      })
+
+      result.data.allWordpressPost.edges.forEach(edge => {
+        createPage({
+          path: `/stories/${edge.node.slug}`,
+          component: path.resolve(`./src/templates/SinglePost.js`),
+          context: {
+            slug: edge.node.slug,
+          },
+        })
       })
     })
     resolve()

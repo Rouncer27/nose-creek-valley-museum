@@ -30,7 +30,10 @@ class RowFour extends Component {
     return (
       <RowFourStyled>
         <div className="rfour__container">
-          <StoryCardSmall className="rfour__atricleseven">
+          <StoryCardSmall
+            to={`/stories/${this.props.postSeven.node.slug}`}
+            className="rfour__atricleseven"
+          >
             <div className="rfour__atricleseven--image storyCardImage">
               <Img
                 fluid={
@@ -47,7 +50,10 @@ class RowFour extends Component {
             </div>
           </StoryCardSmall>
 
-          <StoryCardLarge className="rfour__atricleeight">
+          <StoryCardLarge
+            to={`/stories/${this.props.postEight.node.slug}`}
+            className="rfour__atricleeight"
+          >
             <div className="rfour__atricleeight--image storyCardImage">
               <Img
                 fluid={
