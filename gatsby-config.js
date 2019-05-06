@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === "development") {
   BASE_URL = "localhost/nosecreekvalleymuseum"
   PORTOCOL = "http"
 } else {
-  BASE_URL = "localhost/nosecreekvalleymuseum"
+  BASE_URL = "dedi105.canspace.ca/~swbecreekvalleym"
   PORTOCOL = "http"
 }
 

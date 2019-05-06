@@ -35,7 +35,9 @@ class Layout extends Component {
                   <SiteWrapper className="ncvm-site-wrapper">
                     <Header
                       siteTitle={data.site.siteMetadata.title}
-                      location={this.props.location.pathname}
+                      location={
+                        this.props.location ? this.props.location.pathname : "/"
+                      }
                     />
                     <main>{this.props.children}</main>
                   </SiteWrapper>
