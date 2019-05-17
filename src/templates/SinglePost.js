@@ -260,9 +260,6 @@ export const query = graphql`
       slug
       content
       date
-      author {
-        name
-      }
       acf {
         _ncvm_featured_image {
           alt_text
@@ -297,9 +294,6 @@ export const query = graphql`
     allWordpressPost(limit: 4) {
       edges {
         node {
-          author {
-            name
-          }
           slug
           title
           excerpt
