@@ -86,7 +86,9 @@ class RowTwo extends Component {
               />
             </div>
             <div className="rtwo__atriclethree--title storyCardTitle">
-              <p>Written By</p>
+              <p>
+                Written By {this.props.postThree.node.acf._ncvm_post_author}
+              </p>
               <h2>{this.props.postThree.node.title}</h2>
             </div>
           </StoryCardMedium>

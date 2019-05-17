@@ -13,6 +13,7 @@ import { StandardWrapper } from "../components/styles/Commons/Wrappers"
 
 const ArticleStyled = styled.article`
   .singleStory__header {
+    position: relative;
     width: 100%;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -24,7 +25,7 @@ const ArticleStyled = styled.article`
       font-family: ${props => props.theme.fontSec};
     }
 
-    p {
+    &--author {
       color: ${props => props.theme.neptune};
       text-transform: uppercase;
 
@@ -32,6 +33,31 @@ const ArticleStyled = styled.article`
       }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
+      }
+    }
+
+    &--date {
+      position: absolute;
+      top: 40rem;
+      left: -2rem;
+      margin: 0;
+      transform-origin: center left;
+      transform: rotate(-90deg);
+      color: ${props => props.theme.deco};
+      font-family: ${props => props.theme.fontSec};
+      font-style: italic;
+      font-size: 2rem;
+      z-index: 100;
+      line-height: 1;
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        font-size: 2rem;
+      }
+
+      span {
+        font-family: ${props => props.theme.fontPrim};
+        font-style: normal;
+        text-transform: uppercase;
       }
     }
 
@@ -180,7 +206,13 @@ class SinglePost extends Component {
           <StandardWrapper className="singleStory__wrapper">
             <header className="singleStory__header">
               <h1>{this.props.data.wordpressPost.title}</h1>
-              <p>{this.props.data.wordpressPost.acf._ncvm_post_author}</p>
+              <p className="singleStory__header--author">
+                {this.props.data.wordpressPost.acf._ncvm_post_author}
+              </p>
+              <p className="singleStory__header--date">
+                <span>Date / </span>
+                {moment(this.props.data.wordpressPost.date).format("LL")}
+              </p>
               <Img
                 fluid={
                   this.props.data.wordpressPost.acf._ncvm_featured_image
@@ -234,7 +266,7 @@ class SinglePost extends Component {
                     </div>
                     <div className="otherExhibits__item--title">
                       <h2>{post.node.title}</h2>
-                      <p>{post.node.acf._ncvm_post_author}</p>
+                      <p>Blog Written By {post.node.acf._ncvm_post_author}</p>
                     </div>
                     <div
                       className="otherExhibits__item--excerpt"

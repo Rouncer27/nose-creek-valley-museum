@@ -46,6 +46,9 @@ class RowFour extends Component {
               />
             </div>
             <div className="rfour__atricleseven--title storyCardTitle">
+              <p>
+                Written By {this.props.postSeven.node.acf._ncvm_post_author}
+              </p>
               <h2>{this.props.postSeven.node.title}</h2>
             </div>
           </StoryCardSmall>
@@ -66,6 +69,9 @@ class RowFour extends Component {
               />
             </div>
             <div className="rfour__atricleeight--title storyCardTitle">
+              <p>
+                Written By {this.props.postEight.node.acf._ncvm_post_author}
+              </p>
               <h2>{this.props.postEight.node.title}</h2>
             </div>
           </StoryCardLarge>

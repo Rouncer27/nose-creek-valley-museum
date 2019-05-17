@@ -60,7 +60,9 @@ class RowOne extends Component {
                 />
               </div>
               <div className="rone__atricleone--title storyCardTitle">
-                <p>Written By</p>
+                <p>
+                  Written By {this.props.postOne.node.acf._ncvm_post_author}
+                </p>
                 <h2>{this.props.postOne.node.title}</h2>
               </div>
             </StoryCardLarge>
@@ -81,6 +83,9 @@ class RowOne extends Component {
                 />
               </div>
               <div className="rone__atricletwo--title storyCardTitle">
+                <p>
+                  Written By {this.props.postTwo.node.acf._ncvm_post_author}
+                </p>
                 <h2>{this.props.postTwo.node.title}</h2>
               </div>
             </StoryCardSmall>

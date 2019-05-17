@@ -42,6 +42,7 @@ class RowFive extends Component {
               />
             </div>
             <div className="rfive__atriclenine--title storyCardTitle">
+              <p>Written By {this.props.postnine.node.acf._ncvm_post_author}</p>
               <h2>{this.props.postnine.node.title}</h2>
             </div>
           </StoryCardSmall>
@@ -60,6 +61,7 @@ class RowFive extends Component {
               />
             </div>
             <div className="rfive__atricleten--title storyCardTitle">
+              <p>Written By {this.props.postTen.node.acf._ncvm_post_author}</p>
               <h2>{this.props.postTen.node.title}</h2>
             </div>
           </StoryCardSmall>
@@ -80,7 +82,9 @@ class RowFive extends Component {
               />
             </div>
             <div className="rfive__atricleeleven--title storyCardTitle">
-              <p>Written By</p>
+              <p>
+                Written By {this.props.postEleven.node.acf._ncvm_post_author}
+              </p>
               <h2>{this.props.postEleven.node.title}</h2>
             </div>
           </StoryCardMedium>

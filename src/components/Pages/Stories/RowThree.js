@@ -35,7 +35,7 @@ class RowThree extends Component {
               />
             </div>
             <div className="rthree__atriclefour--title storyCardTitle">
-              <p>Written By</p>
+              <p>Written By {this.props.postFour.node.acf._ncvm_post_author}</p>
               <h2>{this.props.postFour.node.title}</h2>
             </div>
           </StoryCardMedium>
@@ -54,6 +54,7 @@ class RowThree extends Component {
               />
             </div>
             <div className="rthree__atriclefive--title storyCardTitle">
+              <p>Written By {this.props.postFive.node.acf._ncvm_post_author}</p>
               <h2>{this.props.postFive.node.title}</h2>
             </div>
           </StoryCardSmall>
@@ -72,6 +73,7 @@ class RowThree extends Component {
               />
             </div>
             <div className="rthree__atriclesix--title storyCardTitle">
+              <p>Written By {this.props.postSix.node.acf._ncvm_post_author}</p>
               <h2>{this.props.postSix.node.title}</h2>
             </div>
           </StoryCardSmall>

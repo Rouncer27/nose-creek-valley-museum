@@ -38,6 +38,7 @@ class RowSix extends Component {
                   />
                 </div>
                 <div className="rsix__atricle--title storyCardTitle">
+                  <p>Written By {post.node.acf._ncvm_post_author}</p>
                   <h2>{post.node.title}</h2>
                 </div>
               </StoryCardSmall>
