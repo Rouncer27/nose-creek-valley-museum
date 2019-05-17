@@ -24,7 +24,7 @@ class Experience extends Component {
     heroData.imgalt = acf ? acf._ncvm_hero_image.alt_text : false
 
     const speicalExhibits = this.props.data.allWordpressWpSpecialExhibit.edges
-    const pastExhibits = this.props.data.allWordpressAcfPastExhibits.edges
+    const pastExhibits = this.props.data.allWordpressWpPastExhibits.edges
 
     const collectionsTop = {}
     collectionsTop.leftCat = acf ? acf._ncvm_coll_left_cat : false
@@ -304,6 +304,7 @@ export const query = graphql`
     allWordpressWpSpecialExhibit {
       edges {
         node {
+          slug
           acf {
             _ncvm_title
             _ncvm_exhibit_opening
@@ -327,9 +328,10 @@ export const query = graphql`
       }
     }
 
-    allWordpressAcfPastExhibits {
+    allWordpressWpPastExhibits {
       edges {
         node {
+          slug
           acf {
             _ncvm_title
             _ncvm_excerpt

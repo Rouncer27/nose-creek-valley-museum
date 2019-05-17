@@ -25,6 +25,24 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
+
+          allWordpressWpSpecialExhibit {
+            edges {
+              node {
+                wordpress_id
+                slug
+              }
+            }
+          }
+
+          allWordpressWpPastExhibits {
+            edges {
+              node {
+                wordpress_id
+                slug
+              }
+            }
+          }
         }
       `
     ).then(result => {
@@ -93,6 +111,26 @@ exports.createPages = ({ graphql, actions }) => {
         createPage({
           path: `/stories/${edge.node.slug}`,
           component: path.resolve(`./src/templates/SinglePost.js`),
+          context: {
+            slug: edge.node.slug,
+          },
+        })
+      })
+
+      result.data.allWordpressWpSpecialExhibit.edges.forEach(edge => {
+        createPage({
+          path: `/special-exhibits/${edge.node.slug}`,
+          component: path.resolve(`./src/templates/SpecialExhibit.js`),
+          context: {
+            slug: edge.node.slug,
+          },
+        })
+      })
+
+      result.data.allWordpressWpPastExhibits.edges.forEach(edge => {
+        createPage({
+          path: `/past-exhibits/${edge.node.slug}`,
+          component: path.resolve(`./src/templates/PastExhibit.js`),
           context: {
             slug: edge.node.slug,
           },

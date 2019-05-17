@@ -272,7 +272,7 @@ class PastExhibits extends Component {
                     }}
                   />
                   <div className="special-learnmore">
-                    <Link to="/experience">
+                    <Link to={`/past-exhibits/${exhibit.node.slug}`}>
                       Learn More <span className="btn-circle" />
                     </Link>
                   </div>

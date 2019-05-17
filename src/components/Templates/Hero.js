@@ -183,11 +183,9 @@ const HeroStyled = styled.section`
 class Hero extends Component {
   render() {
     let actionSection = false
-
+    const splitURL = this.props.location.pathname.split("/")
     const slug =
-      this.props.location.pathname.split("/").join("") === ""
-        ? "/"
-        : this.props.location.pathname.split("/").join("")
+      splitURL.slice(1, 2).join("") === "" ? "/" : splitURL.slice(1, 2).join("")
 
     if (slug === "/") {
       actionSection = (
@@ -198,7 +196,8 @@ class Hero extends Component {
           </Link>
         </div>
       )
-    } else if (slug === "experience") {
+    } else if (slug === "experience" || slug === "special-exhibits") {
+      console.log("YES!!")
       actionSection = (
         <div className="pagehero__action--title">
           <h1>Experience Us</h1>

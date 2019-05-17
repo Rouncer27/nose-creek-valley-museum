@@ -272,6 +272,7 @@ class SpecialExhibit extends Component {
           dots={true}
         >
           {this.props.speicalExhibits.map((exhibit, index) => {
+            console.log(exhibit)
             return (
               <div key={index} className="specialex__slider--item">
                 <div className="specialex__slider--item--image">
@@ -305,7 +306,7 @@ class SpecialExhibit extends Component {
                   />
 
                   <div className="special-learnmore">
-                    <Link to="/experience">
+                    <Link to={`/special-exhibits/${exhibit.node.slug}`}>
                       Learn More <span className="btn-circle" />
                     </Link>
                   </div>
