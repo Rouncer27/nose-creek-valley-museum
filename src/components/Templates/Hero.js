@@ -196,7 +196,11 @@ class Hero extends Component {
           </Link>
         </div>
       )
-    } else if (slug === "experience" || slug === "special-exhibits") {
+    } else if (
+      slug === "experience" ||
+      slug === "special-exhibits" ||
+      slug === "past-exhibits"
+    ) {
       console.log("YES!!")
       actionSection = (
         <div className="pagehero__action--title">

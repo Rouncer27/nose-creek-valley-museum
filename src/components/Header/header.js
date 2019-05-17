@@ -78,6 +78,7 @@ class Header extends Component {
       slug === "/" ||
       slug === "experience" ||
       slug === "special-exhibits" ||
+      slug === "past-exhibits" ||
       slug === "programs" ||
       slug === "support" ||
       slug === "about" ||
