@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import Slider from "react-slick"
 
 import Layout from "../components/layout"
 import SEO from "../components/Head/seo"
@@ -244,6 +245,17 @@ class PastExhibit extends Component {
     const otherSpecialExhibits = this.props.data.allWordpressWpPastExhibits
       .edges
 
+    const sliderImages = []
+    if (
+      this.props.data.wordpressWpPastExhibits.acf._ncvm_slider_images !== null
+    ) {
+      this.props.data.wordpressWpPastExhibits.acf._ncvm_slider_images.forEach(
+        slide => {
+          sliderImages.push(slide)
+        }
+      )
+    }
+
     return (
       <Layout location={this.props.location}>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -253,16 +265,43 @@ class PastExhibit extends Component {
             <header className="specialExhibit__header">
               <h1>{this.props.data.wordpressWpPastExhibits.acf._ncvm_title}</h1>
               <p>{this.props.data.wordpressWpPastExhibits.acf._ncvm_author}</p>
-              <Img
-                fluid={
-                  this.props.data.wordpressWpPastExhibits.acf
-                    ._ncvm_featured_image.localFile.childImageSharp.fluid
-                }
-                alt={
-                  this.props.data.wordpressWpPastExhibits.acf
-                    ._ncvm_featured_image.alt_text
-                }
-              />
+              {sliderImages.length <= 0 ? (
+                <Img
+                  fluid={
+                    this.props.data.wordpressWpPastExhibits.acf
+                      ._ncvm_featured_image.localFile.childImageSharp.fluid
+                  }
+                  alt={
+                    this.props.data.wordpressWpPastExhibits.acf
+                      ._ncvm_featured_image.alt_text
+                  }
+                />
+              ) : (
+                <Slider
+                  className="specialex__slider"
+                  slidesToShow={1}
+                  autoplay={true}
+                  autoplaySpeed={10000}
+                  speed={750}
+                  arrows={false}
+                  vertical={true}
+                  adaptiveHeight={false}
+                  centerPadding={`0px`}
+                  centerMode={false}
+                  dots={true}
+                >
+                  {sliderImages.map((img, index) => {
+                    return (
+                      <div key={index}>
+                        <Img
+                          fluid={img.image.localFile.childImageSharp.fluid}
+                          alt={img.image.alt_text}
+                        />
+                      </div>
+                    )
+                  })}
+                </Slider>
+              )}
             </header>
             <section className="specialExhibit__mainContent">
               <div

@@ -201,7 +201,6 @@ class Hero extends Component {
       slug === "special-exhibits" ||
       slug === "past-exhibits"
     ) {
-      console.log("YES!!")
       actionSection = (
         <div className="pagehero__action--title">
           <h1>Experience Us</h1>
