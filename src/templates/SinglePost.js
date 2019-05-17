@@ -180,7 +180,7 @@ class SinglePost extends Component {
           <StandardWrapper className="singleStory__wrapper">
             <header className="singleStory__header">
               <h1>{this.props.data.wordpressPost.title}</h1>
-              <p>{this.props.data.wordpressPost.author}</p>
+              <p>{this.props.data.wordpressPost.acf._ncvm_post_author}</p>
               <Img
                 fluid={
                   this.props.data.wordpressPost.acf._ncvm_featured_image
@@ -234,7 +234,7 @@ class SinglePost extends Component {
                     </div>
                     <div className="otherExhibits__item--title">
                       <h2>{post.node.title}</h2>
-                      <p>{post.node.author}</p>
+                      <p>{post.node.acf._ncvm_post_author}</p>
                     </div>
                     <div
                       className="otherExhibits__item--excerpt"
@@ -261,6 +261,7 @@ export const query = graphql`
       content
       date
       acf {
+        _ncvm_post_author
         _ncvm_featured_image {
           alt_text
           localFile {
@@ -298,6 +299,7 @@ export const query = graphql`
           title
           excerpt
           acf {
+            _ncvm_post_author
             _ncvm_featured_image {
               alt_text
               localFile {

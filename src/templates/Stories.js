@@ -101,6 +101,7 @@ export const query = graphql`
           title
           slug
           acf {
+            _ncvm_post_author
             _ncvm_featured_image {
               alt_text
               localFile {
