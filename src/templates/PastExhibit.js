@@ -315,7 +315,7 @@ class PastExhibit extends Component {
               ) {
                 return (
                   <Link
-                    to={`/special-exhibits/${exhibit.node.slug}`}
+                    to={`/past-exhibits/${exhibit.node.slug}`}
                     key={index}
                     className="otherExhibits__item"
                   >
