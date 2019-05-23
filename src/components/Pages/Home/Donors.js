@@ -5,16 +5,29 @@ import styled from "styled-components"
 import { FullScreenWrapper } from "../../../components/styles/Commons/Wrappers"
 
 const DonorsStyled = styled.section`
+  .donors__wrapper {
+    padding: 0;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      padding: 2rem;
+    }
+  }
+
   .donors__title {
     width: 100%;
 
     &--container {
       margin: 2rem auto;
-      padding: 10rem 2rem 4rem;
+      padding: 4rem 2rem;
       background: ${props => props.theme.deepSea};
       text-align: center;
 
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        padding: 10rem 2rem 4rem;
+      }
+
       @media (min-width: ${props => props.theme.bpDesksm}) {
+        padding: 10rem 2rem 4rem;
         width: 65rem;
       }
 
@@ -60,14 +73,18 @@ const DonorsStyled = styled.section`
     width: 100%;
 
     &--item {
-      width: 75%;
+      width: 50%;
+      padding: 1rem;
+
       @media (min-width: ${props => props.theme.bpTablet}) {
         width: 33.3333%;
+        padding: 1rem;
       }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         width: calc(20% - 8rem);
         margin: 2rem 4rem;
+        padding: 0;
       }
     }
   }

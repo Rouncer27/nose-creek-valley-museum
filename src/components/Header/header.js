@@ -10,23 +10,29 @@ const MainHeader = styled.header`
   display: block;
   position: relative;
   width: 100%;
-  z-index: 1000;
+  z-index: 99999999999;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    position: relative;
+  }
 
   .mainheader__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      to right,
-      ${props => props.theme.grape} 0%,
-      ${props => props.theme.grape} 25%,
-      ${props => props.theme.deepSea} 25%,
-      ${props => props.theme.deepSea} 100%
-    );
-    opacity: 0.9;
-    z-index: 9999;
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        ${props => props.theme.grape} 0%,
+        ${props => props.theme.grape} 25%,
+        ${props => props.theme.deepSea} 25%,
+        ${props => props.theme.deepSea} 100%
+      );
+      opacity: 0.9;
+      z-index: 9999;
+    }
   }
 
   &.hero-header-page {

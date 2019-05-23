@@ -9,48 +9,13 @@ import "../../../../node_modules/slick-carousel/slick/slick-theme.css"
 
 import { FullScreenWrapper } from "../../../components/styles/Commons/Wrappers"
 
-const SlideWordsIn = keyframes`
-  0% {
-    transform: translateY(200%);
-  }
-  25% {
-    transform: translateY(150%);
-  }
-  50% {
-    transform: translateY(100%);
-  }
-  75% {
-    transform: translateY(50%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-`
-
-const SlideWordsOut = keyframes`
-  0% {
-    transform: translateY(0%);
-  }
-  25% {
-    transform: translateY(-50%);
-  }
-  50% {
-    transform: translateY(-100%);
-  }
-  75% {
-    transform: translateY(-150%);
-  }
-  100% {
-    transform: translateY(-200%);
-  }
-`
-
 const FeaturedCollectionsSection = styled.section`
   position: relative;
-  margin: -10rem auto 0;
+  margin: 0 auto;
 
   @media (min-width: ${props => props.theme.bpDesksm}) {
     max-width: 100rem;
+    margin: -10rem auto 0;
   }
   .featuredcollections__wrapper {
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -59,14 +24,19 @@ const FeaturedCollectionsSection = styled.section`
   }
 
   .slider-content {
-    position: absolute;
-    right: 0;
-    bottom: 0.6rem;
-    left: 50%;
-    width: 50%;
+    position: relative;
+
     background: ${props => props.theme.kenyanCopper};
     opacity: 0.9;
     z-index: 9999;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      position: absolute;
+      right: 0;
+      bottom: 0.6rem;
+      left: 50%;
+      width: 50%;
+    }
 
     .slick-arrow {
     }
@@ -123,7 +93,6 @@ const FeaturedSliderContent = styled(Slider)`
         overflow: hidden;
         h2 {
           margin-bottom: 1.5rem;
-          transform: translateY(200%);
           color: #d67c5b;
           font-family: ${props => props.theme.fontSec};
           font-style: italic;
@@ -141,7 +110,6 @@ const FeaturedSliderContent = styled(Slider)`
         p {
           display: block;
 
-          transform: translateY(200%);
           color: ${props => props.theme.white};
           font-family: ${props => props.theme.fontTer};
           font-weight: 100;
@@ -157,7 +125,6 @@ const FeaturedSliderContent = styled(Slider)`
         overflow: hidden;
         a {
           display: inline-block;
-          transform: translateY(200%);
           color: #d67c5b;
 
           span:first-of-type {
@@ -178,28 +145,6 @@ const FeaturedSliderContent = styled(Slider)`
   }
 
   #slider-after-change {
-  }
-
-  .slider-before-change .fcslider__slide--content {
-    p {
-      animation: 0.6s ${SlideWordsOut} linear forwards 0s;
-    }
-
-    h2,
-    a {
-      animation: 0.3s ${SlideWordsOut} ease-in-out forwards 0s;
-    }
-  }
-
-  .slick-active.slick-current .fcslider__slide--content {
-    p {
-      animation: 0.6s ${SlideWordsIn} linear forwards 0s;
-    }
-
-    h2,
-    a {
-      animation: 0.3s ${SlideWordsIn} ease-in-out forwards 0s;
-    }
   }
 `
 
@@ -247,7 +192,7 @@ class FeaturedCollections extends Component {
   }
 
   render() {
-    var settings = {
+    const settings = {
       slidesToShow: 1,
       slidesToScroll: 1,
       dots: false,

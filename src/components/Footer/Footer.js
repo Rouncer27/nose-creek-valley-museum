@@ -20,11 +20,21 @@ const MainFooterStyled = styled.footer`
   }
 
   .mainfooter__phone {
+    display: none;
     position: absolute;
     top: -17.5rem;
     right: 0;
     width: 20rem;
     height: 25.6rem;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      display: block;
+    }
+
+    &--experience,
+    &--programs {
+      display: none;
+    }
 
     .gatsby-image-wrapper {
       position: absolute;
@@ -48,10 +58,14 @@ const MainFooterStyled = styled.footer`
 
   .mainfooter__links {
     width: 100%;
+    margin-bottom: 5rem;
     align-self: center;
+    text-align: center;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: 35%;
+      margin-bottom: 0;
+      text-align: left;
     }
 
     a {
@@ -143,8 +157,14 @@ const MainFooterStyled = styled.footer`
     }
 
     &--item {
+      width: 100%;
+      margin-bottom: 5rem;
+      text-align: center;
+
       @media (min-width: ${props => props.theme.bpTablet}) {
         width: calc(33.3333%);
+        margin-bottom: 0;
+        text-align: left;
       }
     }
 
@@ -308,6 +328,11 @@ class Footer extends Component {
           }
         `}
         render={data => {
+          const splitURL = this.props.location.split("/")
+          const slug =
+            splitURL.slice(1, 2).join("") === ""
+              ? "/"
+              : splitURL.slice(1, 2).join("")
           const currator = data.wordpressAcfOptions.options.ncvm_curator
           const phone = data.wordpressAcfOptions.options.ncvm_phone_number
           const email = data.wordpressAcfOptions.options.ncvm_email_address
@@ -444,7 +469,7 @@ class Footer extends Component {
                     <a href="https://www.gatsbyjs.org">Gatsby</a>
                   </p>
                 </div>
-                <div className="mainfooter__phone">
+                <div className={`mainfooter__phone mainfooter__phone--${slug}`}>
                   <Img
                     fluid={data.vintagePhone.childImageSharp.fluid}
                     alt="Contact The Nose Creek Valley Museum"

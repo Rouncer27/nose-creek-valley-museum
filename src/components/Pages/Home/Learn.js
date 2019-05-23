@@ -27,20 +27,27 @@ const LearnStyled = styled.section`
 
   .learn__content {
     width: 100%;
+    text-align: center;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: calc(60% - 6rem);
       margin-right: 3rem;
       margin-left: 3rem;
+      text-align: left;
     }
   }
 
   .learn__image {
-    width: 100%;
+    width: calc(60% - 6rem);
+    max-width: 30rem;
+    margin-top: 3rem;
+    margin-right: 3rem;
+    margin-left: 3rem;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: calc(40% - 6rem);
       max-width: 20rem;
+      margin-top: 0;
       margin-right: 3rem;
       margin-left: 3rem;
     }

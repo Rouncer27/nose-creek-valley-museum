@@ -9,7 +9,7 @@ const HeroStyled = styled.section`
 
   .pagehero__wrapper {
     position: relative;
-    min-height: 45rem;
+    min-height: 60rem;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       min-height: 65rem;
@@ -23,14 +23,21 @@ const HeroStyled = styled.section`
 
   .pagehero__tagline {
     position: absolute;
-    top: 50%;
-    right: 10rem;
-    left: 60%;
+    top: calc(30% + 5rem);
+    right: 2rem;
+    left: 2rem;
     height: 50%;
     z-index: 99999;
 
-    @media (min-width: ${props => props.theme.bpDesksm}) {
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      top: 50%;
+      right: 10rem;
+      left: 45%;
       width: 50rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      left: 60%;
     }
 
     &--top {
@@ -43,9 +50,11 @@ const HeroStyled = styled.section`
         font-family: ${props => props.theme.fontSec};
         font-size: 4rem;
         line-height: 1.25;
+        text-align: center;
 
-        @media (min-width: ${props => props.theme.bpDesksm}) {
+        @media (min-width: ${props => props.theme.bpTablet}) {
           font-size: 5rem;
+          text-align: left;
         }
       }
     }
@@ -55,6 +64,12 @@ const HeroStyled = styled.section`
         margin: 0;
         padding: 0;
         color: ${props => props.theme.deco};
+        text-align: center;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          text-align: left;
+        }
+
         span:first-of-type {
           text-transform: uppercase;
         }
@@ -68,27 +83,50 @@ const HeroStyled = styled.section`
   }
 
   .pagehero__acronym {
-    display: flex;
+    display: none;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    width: 30%;
-    height: 75%;
+    width: 100%;
+    height: 30%;
     padding: 0 4rem;
     z-index: 500;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      display: flex;
+      align-items: flex-end;
+      top: auto;
+      bottom: 0;
+      width: 30%;
+      height: 75%;
+    }
 
     h2 {
       margin: 0;
       color: ${props => props.theme.white};
       font-family: ${props => props.theme.fontSec};
-      font-size: 18.25rem;
+      font-size: 7rem;
       text-align: center;
       line-height: 1;
 
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 12rem;
+        line-height: 1;
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        font-size: 18.25rem;
+        line-height: 1;
+      }
+
       span {
-        display: block;
+        display: inline;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          display: block;
+        }
       }
     }
   }
@@ -100,6 +138,9 @@ const HeroStyled = styled.section`
     left: 0;
     background: ${props => props.theme.deco};
     z-index: 99999;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+    }
 
     h1 {
       display: block;
@@ -117,17 +158,33 @@ const HeroStyled = styled.section`
 
   .pagehero__action {
     position: absolute;
+    right: 0;
     bottom: 0;
     left: 0;
+    max-width: 40rem;
+    margin: auto;
     z-index: 99999;
 
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      right: -6rem;
+      max-width: calc(100% - 6rem);
+      margin: 0;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 200%;
+    }
+
     a {
-      display: inline-block;
+      position: relative;
+      display: block;
       padding: 2.5rem 8rem;
       background: ${props => props.theme.deco};
+      text-align: center;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
         font-size: 2rem;
+        text-align: left;
       }
 
       span:first-of-type {
@@ -138,6 +195,65 @@ const HeroStyled = styled.section`
         font-family: ${props => props.theme.fontSec};
         font-style: italic;
         font-weight: 300;
+      }
+
+      span.btn-circle {
+        display: block;
+        position: absolute;
+        bottom: 2rem;
+        right: 5rem;
+        width: 4rem;
+        height: 4rem;
+        margin: auto;
+        transition: all 0.3s ease-in-out;
+        color: ${props => props.theme.deepSea};
+        text-align: center;
+
+        &::before {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100%;
+          height: 100%;
+          transform: translate(-50%, -50%);
+          transition: all 0.3s ease-in-out;
+          border: 0.2rem solid ${props => props.theme.deepSea};
+          border-radius: 50%;
+          content: "";
+        }
+
+        &::after {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0%;
+          transform: translate(0%, -50%);
+          transition: all 0.3s ease-in-out;
+          font-family: ${props => props.theme.fontAwesome};
+          font-size: 3rem;
+          font-weight: 100;
+          content: "\f178";
+        }
+
+        @media (min-width: ${props => props.theme.bpDesksm}) {
+          right: 25rem;
+        }
+      }
+
+      &:hover {
+        color: ${props => props.theme.kenyanCopper};
+        background: ${props => props.theme.neptune};
+
+        span {
+          color: ${props => props.theme.kenyanCopper};
+
+          &::after,
+          &::before {
+            color: ${props => props.theme.kenyanCopper};
+            border-color: ${props => props.theme.kenyanCopper};
+          }
+        }
       }
     }
   }
@@ -170,13 +286,23 @@ const HeroStyled = styled.section`
     width: 100%;
     height: 100%;
     background: linear-gradient(
-      to right,
+      to bottom,
       ${props => props.theme.grape} 0%,
       ${props => props.theme.grape} 30%,
       ${props => props.theme.deepSea} 30%,
       ${props => props.theme.deepSea} 100%
     );
     opacity: 0.9;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      background: linear-gradient(
+        to right,
+        ${props => props.theme.grape} 0%,
+        ${props => props.theme.grape} 30%,
+        ${props => props.theme.deepSea} 30%,
+        ${props => props.theme.deepSea} 100%
+      );
+    }
   }
 `
 
@@ -192,6 +318,7 @@ class Hero extends Component {
         <div className="pagehero__action">
           <Link to="/experience">
             <span>Go To / </span>
+            <span className="btn-circle" />
             <span>Exhibits</span>
           </Link>
         </div>

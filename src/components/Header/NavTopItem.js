@@ -7,6 +7,18 @@ const NavTopItemStyled = styled.li`
   margin: 0 1.5rem;
   padding: 1rem 2rem;
 
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    margin: 0 0.5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+  }
+
+  @media (min-width: ${props => props.theme.bpDesksm}) {
+    margin: 0 1.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+  }
+
   a {
     transition: all 0.3s ease;
     color: ${props => props.theme.deco};

@@ -9,6 +9,7 @@ const theme = {
   manatee: "#9a9b9f",
   frenchGrey: "#ceced0",
   white: "#fff",
+  black: "#000",
   grey: "#797e83",
   paraGrey: "#696969;",
   greyLight: "#eee",

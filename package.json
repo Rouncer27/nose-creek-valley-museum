@@ -20,6 +20,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-slick": "^0.24.0",
+    "react-spring": "^8.0.20",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.2.0",
     "styled-normalize": "^8.0.6"

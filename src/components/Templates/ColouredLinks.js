@@ -3,6 +3,8 @@ import { Link, StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
+import ColouredLinkItem from "./ColouredLinkItem"
+
 const ColouredLinksStyled = styled.section`
   display: flex;
   flex-wrap: wrap;
@@ -95,110 +97,90 @@ const ColouredLinksStyled = styled.section`
   }
 `
 
-class ColouredLinks extends Component {
-  render() {
-    return (
-      <StaticQuery
-        query={graphql`
-          {
-            faqs: file(relativePath: { eq: "ncvm-icons-w_faqs.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-
-            membership: file(
-              relativePath: { eq: "ncvm-icons-w_membership.png" }
-            ) {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-
-            build: file(relativePath: { eq: "ncvm-icons-w_rentals.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-
-            seniors: file(relativePath: { eq: "ncvm-icons-w_seniors.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-
-            tours: file(relativePath: { eq: "ncvm-icons-w_tours.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-
-            volunteer: file(
-              relativePath: { eq: "ncvm-icons-w_volunteer.png" }
-            ) {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
+const ColouredLinks = props => {
+  return (
+    <StaticQuery
+      query={graphql`
+        {
+          faqs: file(relativePath: { eq: "ncvm-icons-w_faqs.png" }) {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
-        `}
-        render={data => {
-          return (
-            <ColouredLinksStyled className="colorlink">
-              {this.props.links.map((link, index) => {
-                let iconImg = false
-                if (link.icon === "Build") {
-                  iconImg = data.build.childImageSharp.fluid
-                } else if (link.icon === "show") {
-                  iconImg = data.tours.childImageSharp.fluid
-                } else if (link.icon === "dino") {
-                  iconImg = data.seniors.childImageSharp.fluid
-                } else if (link.icon === "radio") {
-                  iconImg = data.faqs.childImageSharp.fluid
-                } else if (link.icon === "person") {
-                  iconImg = data.volunteer.childImageSharp.fluid
-                } else if (link.icon === "ticket") {
-                  iconImg = data.membership.childImageSharp.fluid
-                }
-                return (
-                  <Link
-                    key={index}
-                    to={link.link.post_name}
-                    className={`colorlink__box colorlink__box--${link.colour}`}
-                  >
-                    <div className="colorlink__content">
-                      <div className="colorlink__title">
-                        <h2>{link.title}</h2>
-                      </div>
-                      <div
-                        className={`colorlink__icon colorlink__icon--${
-                          link.icon
-                        }`}
-                      >
-                        {iconImg && <Img fluid={iconImg} alt={link.title} />}
-                      </div>
-                    </div>
-                  </Link>
-                )
-              })}
-            </ColouredLinksStyled>
-          )
-        }}
-      />
-    )
-  }
+
+          membership: file(
+            relativePath: { eq: "ncvm-icons-w_membership.png" }
+          ) {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+
+          build: file(relativePath: { eq: "ncvm-icons-w_rentals.png" }) {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+
+          seniors: file(relativePath: { eq: "ncvm-icons-w_seniors.png" }) {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+
+          tours: file(relativePath: { eq: "ncvm-icons-w_tours.png" }) {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+
+          volunteer: file(relativePath: { eq: "ncvm-icons-w_volunteer.png" }) {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      `}
+      render={data => {
+        return (
+          <ColouredLinksStyled className="colorlink">
+            {props.links.map((link, index) => {
+              let iconImg = false
+              if (link.icon === "Build") {
+                iconImg = data.build.childImageSharp.fluid
+              } else if (link.icon === "show") {
+                iconImg = data.tours.childImageSharp.fluid
+              } else if (link.icon === "dino") {
+                iconImg = data.seniors.childImageSharp.fluid
+              } else if (link.icon === "radio") {
+                iconImg = data.faqs.childImageSharp.fluid
+              } else if (link.icon === "person") {
+                iconImg = data.volunteer.childImageSharp.fluid
+              } else if (link.icon === "ticket") {
+                iconImg = data.membership.childImageSharp.fluid
+              }
+
+              return (
+                <ColouredLinkItem key={index} link={link} iconImg={iconImg} />
+              )
+            })}
+          </ColouredLinksStyled>
+        )
+      }}
+    />
+  )
 }
 
 export default ColouredLinks

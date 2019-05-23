@@ -41,7 +41,11 @@ class Layout extends Component {
                     />
                     <main>{this.props.children}</main>
                   </SiteWrapper>
-                  <Footer />
+                  <Footer
+                    location={
+                      this.props.location ? this.props.location.pathname : "/"
+                    }
+                  />
                 </React.Fragment>
               </ThemeProvider>
             </>

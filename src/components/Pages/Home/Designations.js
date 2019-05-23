@@ -23,9 +23,11 @@ const DesignationsStyled = styled.section`
   .designations__thanks {
     position: relative;
     width: 100%;
+    min-height: 45rem;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
-      width: 33.33%;
+      width: 40%;
+      min-height: 55rem;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -143,12 +145,13 @@ const DesignationsStyled = styled.section`
     width: 100%;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
-      width: 66.66%;
-      padding: 5rem 10rem;
+      width: 60%;
+      padding: 5rem 2rem;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: 66.66%;
+      padding: 5rem 10rem;
     }
 
     @media (min-width: ${props => props.theme.bpDeskmd}) {
@@ -157,6 +160,21 @@ const DesignationsStyled = styled.section`
 
     &--title {
       width: 100%;
+      margin-top: 2rem;
+      text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        margin-top: 0;
+        text-align: left;
+      }
+
+      h2 {
+        font-size: 4rem;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          padding-left: 1rem;
+        }
+      }
     }
 
     &--container {
@@ -168,6 +186,7 @@ const DesignationsStyled = styled.section`
 
     &--item {
       width: 50%;
+      padding: 2rem;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
         width: 33.33%;
