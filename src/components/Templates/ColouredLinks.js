@@ -14,14 +14,18 @@ const ColouredLinksStyled = styled.section`
   .colorlink__box {
     display: flex;
     position: relative;
-    flex-wrap: wrap;
+    flex-wrap: no-wrap;
     align-items: center;
     justify-content: center;
     width: 100%;
+    max-width: 45rem;
+    height: 45rem;
+    margin: 0 auto;
     text-align: center;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: 33.3333%;
+      max-width: 100%;
       height: 33.3333vw;
     }
 

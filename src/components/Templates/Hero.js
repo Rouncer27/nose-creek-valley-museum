@@ -133,25 +133,42 @@ const HeroStyled = styled.section`
 
   .pagehero__action--title {
     position: absolute;
-    right: -6rem;
+    right: 0;
     bottom: 0;
     left: 0;
     background: ${props => props.theme.deco};
     z-index: 99999;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
+      right: 0;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      right: 3rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDeskmd}) {
+      right: -3rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesklg}) {
+      right: -6rem;
     }
 
     h1 {
       display: block;
       width: 100%;
       margin: 0;
-      padding: 1.5rem 2rem;
+      padding: 1.5rem 0.5rem;
       color: ${props => props.theme.deepSea};
       text-align: center;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
         font-size: 3.4rem;
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        padding: 1.5rem 1rem;
       }
     }
   }

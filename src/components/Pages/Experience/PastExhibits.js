@@ -16,7 +16,6 @@ const PastExhibitStyled = styled.section`
   .pastex__slider {
     display: flex;
     position: relative;
-
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
@@ -60,13 +59,21 @@ const PastExhibitStyled = styled.section`
     &--item {
       display: flex !important;
       align-items: center;
-      flex-direction: row-reverse;
       flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
       width: 100%;
       height: 60rem;
-      min-height: 60rem;
-      max-height: 60rem;
+      min-height: 70rem;
+      z-index: 100;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        justify-content: center;
+        flex-direction: row-reverse;
+        min-height: 60rem;
+        max-height: 60rem;
+      }
 
       &:focus {
         outline: none !important;
@@ -74,8 +81,16 @@ const PastExhibitStyled = styled.section`
 
       &--image {
         position: relative;
-        width: 50%;
-        height: 100%;
+        width: 100%;
+        height: 40%;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          width: 50%;
+          height: 100%;
+        }
+
+        @media (min-width: ${props => props.theme.bpDesksm}) {
+        }
 
         .gatsby-image-wrapper {
           position: absolute !important;
@@ -86,6 +101,10 @@ const PastExhibitStyled = styled.section`
           width: 100% !important;
           height: 100% !important;
           overflow: visible;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            height: 100% !important;
+          }
         }
 
         &--title {
@@ -115,18 +134,16 @@ const PastExhibitStyled = styled.section`
       }
 
       &--info {
-        width: 50%;
-        padding: 4rem;
+        width: 100%;
+        padding: 2rem 4rem 6rem;
         text-align: center;
 
-        .special-category {
-          margin: 0;
-          color: ${props => props.theme.deepSea};
-          font-family: ${props => props.theme.fontSec};
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          padding: 4rem;
+          width: 50%;
+        }
 
-          @media (min-width: ${props => props.theme.bpDesksm}) {
-            font-size: 4rem;
-          }
+        @media (min-width: ${props => props.theme.bpDesksm}) {
         }
 
         h2 {

@@ -60,11 +60,20 @@ const SpecialExhibitStyled = styled.section`
       display: flex !important;
       align-items: center;
       flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
       width: 100%;
       height: 60rem;
-      min-height: 60rem;
-      max-height: 60rem;
+      min-height: 70rem;
+      z-index: 100;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        justify-content: center;
+        flex-direction: row;
+        min-height: 60rem;
+        max-height: 60rem;
+      }
 
       &:focus {
         outline: none !important;
@@ -72,8 +81,16 @@ const SpecialExhibitStyled = styled.section`
 
       &--image {
         position: relative;
-        width: 50%;
-        height: 100%;
+        width: 100%;
+        height: 40%;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          width: 50%;
+          height: 100%;
+        }
+
+        @media (min-width: ${props => props.theme.bpDesksm}) {
+        }
 
         .gatsby-image-wrapper {
           position: absolute !important;
@@ -84,6 +101,10 @@ const SpecialExhibitStyled = styled.section`
           width: 100% !important;
           height: 100% !important;
           overflow: visible;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            height: 100% !important;
+          }
         }
 
         &--title {
@@ -113,14 +134,27 @@ const SpecialExhibitStyled = styled.section`
       }
 
       &--info {
-        width: 50%;
-        padding: 4rem;
+        width: 100%;
+        padding: 2rem 4rem 6rem;
         text-align: center;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          padding: 4rem;
+          width: 50%;
+        }
+
+        @media (min-width: ${props => props.theme.bpDesksm}) {
+        }
 
         .special-category {
           margin: 0;
           color: ${props => props.theme.deepSea};
           font-family: ${props => props.theme.fontSec};
+          font-size: 3rem;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 4rem;
+          }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 4rem;
@@ -133,7 +167,12 @@ const SpecialExhibitStyled = styled.section`
           color: ${props => props.theme.deepSea};
           font-family: ${props => props.theme.fontPrim};
           font-weight: 700;
+          font-size: 1.8rem;
           text-transform: uppercase;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.8rem;
+          }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 1.8rem;
@@ -145,6 +184,11 @@ const SpecialExhibitStyled = styled.section`
           color: ${props => props.theme.deepSea};
           font-family: ${props => props.theme.fontPrim};
           font-weight: 700;
+          font-size: 1.4rem;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.8rem;
+          }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 1.8rem;
@@ -154,12 +198,21 @@ const SpecialExhibitStyled = styled.section`
         .special-excerpt {
           width: 100%;
           max-width: 35rem;
-          margin: 2rem auto 0;
+          margin: 1rem auto 0;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            margin: 2rem auto 0;
+          }
 
           p {
             color: ${props => props.theme.paraGrey};
             font-family: ${props => props.theme.fontTer};
             font-weight: 100;
+            font-size: 1.4rem;
+
+            @media (min-width: ${props => props.theme.bpTablet}) {
+              font-size: 1.6rem;
+            }
           }
         }
 
@@ -167,6 +220,10 @@ const SpecialExhibitStyled = styled.section`
           width: 100%;
           max-width: 35rem;
           margin: 1rem auto 0;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            display: block;
+          }
 
           p {
             color: ${props => props.theme.deepSea};
@@ -261,7 +318,7 @@ class SpecialExhibit extends Component {
         <Slider
           className="specialex__slider"
           slidesToShow={1}
-          autoplay={true}
+          autoplay={false}
           autoplaySpeed={10000}
           speed={750}
           arrows={false}

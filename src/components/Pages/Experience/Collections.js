@@ -6,6 +6,12 @@ const CollectionsStyled = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 55rem;
+  margin: 0 auto;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    max-width: 100%;
+  }
 
   .collectiontop__left {
     width: 100%;
@@ -19,19 +25,52 @@ const CollectionsStyled = styled.section`
     width: 100%;
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: 25%;
-      padding: 0.1rem;
+      border: 0.1rem solid ${props => props.theme.greyLight};
+    }
+
+    &--image {
+      position: relative;
+      width: 100%;
+      height: 35rem;
+      max-height: 35rem;
+      overflow: hidden;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        height: auto;
+        max-height: 100%;
+      }
+
+      .gatsby-image-wrapper {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          position: relative !important;
+        }
+      }
     }
 
     &--title {
-      padding: 7.5rem 2rem;
+      padding: 2.5rem 2rem;
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        padding: 7.5rem 2rem;
+      }
       p {
         margin: 0;
         color: ${props => props.theme.neptune};
         font-family: ${props => props.theme.fontPrim};
         font-weight: 600;
+        font-size: 1.8rem;
         text-align: center;
         text-transform: uppercase;
         line-height: 1.25;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.6rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.6rem;
@@ -43,8 +82,13 @@ const CollectionsStyled = styled.section`
         color: ${props => props.theme.deepSea};
         font-family: ${props => props.theme.fontPrim};
         font-weight: 600;
+        font-size: 2.6rem;
         text-align: center;
         line-height: 1.25;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.8rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 2.6rem;
@@ -59,9 +103,22 @@ const CollectionsStyled = styled.section`
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: 50%;
       padding: 0.1rem;
+      border: 0.1rem solid ${props => props.theme.greyLight};
     }
 
     &--image {
+      position: relative;
+      width: 100%;
+      height: 35rem;
+      max-height: 35rem;
+      overflow: hidden;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        position: initial;
+        height: auto;
+        max-height: 100%;
+      }
+
       .gatsby-image-wrapper {
         position: absolute !important;
         top: 0;
