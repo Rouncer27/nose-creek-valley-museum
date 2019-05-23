@@ -89,10 +89,11 @@ const ColouredLinkItem = ({ link, iconImg }) => {
   const AnimatedBoxItem = animated(AnimatedBox)
 
   useChain(isHover ? [slideRef, textRef] : [textRef, slideRef])
+  console.log(link.link_slug)
 
   return (
     <AnimatedLinkItem
-      to={link.link.post_name}
+      to={link.link_slug}
       className={`colorlink__box colorlink__box--${link.colour}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}

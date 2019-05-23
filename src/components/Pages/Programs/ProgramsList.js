@@ -157,7 +157,7 @@ const ProgramsListStyled = styled.section`
 class ProgramsList extends Component {
   render() {
     return (
-      <ProgramsListStyled className="ptours">
+      <ProgramsListStyled id="programsList" className="ptours">
         <FullScreenWrapper className="ptours__wrapper">
           <div className="ptours__title">
             <h1>Programs</h1>

@@ -139,7 +139,10 @@ class Fees extends Component {
         render={data => {
           return (
             <ColouredLinksStyled className="colorlink">
-              <Link to="/" className={`colorlink__box colorlink__box--deepsea`}>
+              <Link
+                to="about/#faqsInfo"
+                className={`colorlink__box colorlink__box--deepsea`}
+              >
                 <div className="colorlink__content">
                   <div className="colorlink__title">
                     <h2>FAQs</h2>
@@ -164,7 +167,10 @@ class Fees extends Component {
                 </div>
               </div>
 
-              <Link to="/" className={`colorlink__box colorlink__box--grape`}>
+              <Link
+                to="/programs/#programsList"
+                className={`colorlink__box colorlink__box--grape`}
+              >
                 <div className="colorlink__content">
                   <div className="colorlink__title">
                     <h2>Programs</h2>

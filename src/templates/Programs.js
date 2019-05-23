@@ -109,6 +109,7 @@ export const query = graphql`
           link {
             post_name
           }
+          link_slug
         }
       }
     }

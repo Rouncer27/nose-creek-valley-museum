@@ -100,7 +100,7 @@ const FaqsStyled = styled.section`
 class Faqs extends Component {
   render() {
     return (
-      <FaqsStyled className="faqs">
+      <FaqsStyled id="faqsInfo" className="faqs">
         <StandardWrapper className="faqs__wrapper">
           <div className="faqs__title">
             <h2>Faqs</h2>

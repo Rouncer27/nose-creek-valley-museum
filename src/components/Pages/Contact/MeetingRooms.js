@@ -152,9 +152,8 @@ const MeetingRoomsStyled = styled.section`
 
 class MeetingRooms extends Component {
   render() {
-    console.log(this.props)
     return (
-      <MeetingRoomsStyled className="rooms">
+      <MeetingRoomsStyled id="factRentals" className="rooms">
         <FullScreenWrapper className="rooms__wrapper">
           <div className="rooms__container rooms__container--mainintro">
             <div className="">

@@ -107,7 +107,7 @@ const ThankYouStyled = styled.section`
 class ThankYou extends Component {
   render() {
     return (
-      <ThankYouStyled className="thankyou">
+      <ThankYouStyled id="thankYou" className="thankyou">
         <div className="thankyou__wrapper">
           <div className="thankyou__container">
             <div className="thankyou__container--image">

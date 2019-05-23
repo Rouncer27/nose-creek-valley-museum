@@ -90,7 +90,7 @@ const VolunteerStyled = styled.section`
 class Volunteer extends Component {
   render() {
     return (
-      <VolunteerStyled className="volunteer">
+      <VolunteerStyled id="volunteerInfo" className="volunteer">
         <StandardWrapper className="volunteer__wrapper">
           <div className="volunteer__title">
             <h2>Volunteer</h2>

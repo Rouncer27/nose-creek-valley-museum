@@ -314,7 +314,7 @@ const SpecialExhibitStyled = styled.section`
 class SpecialExhibit extends Component {
   render() {
     return (
-      <SpecialExhibitStyled className="specialex">
+      <SpecialExhibitStyled id="speicalExhibits" className="specialex">
         <Slider
           className="specialex__slider"
           slidesToShow={1}

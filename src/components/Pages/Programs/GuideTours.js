@@ -157,7 +157,7 @@ const GuideToursStyled = styled.section`
 class GuideTours extends Component {
   render() {
     return (
-      <GuideToursStyled className="gtours">
+      <GuideToursStyled id="guidedTours" className="gtours">
         <FullScreenWrapper className="gtours__wrapper">
           <div className="gtours__title">
             <h1>Guide Tours</h1>

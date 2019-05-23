@@ -115,7 +115,7 @@ const MembershipStyled = styled.section`
 class Membership extends Component {
   render() {
     return (
-      <MembershipStyled className="membership">
+      <MembershipStyled id="membershipInfo" className="membership">
         <FullScreenWrapper className="membership__wrapper">
           <div className="membership__content">
             <div className="membership__content--title">

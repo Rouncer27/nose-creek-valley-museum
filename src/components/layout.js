@@ -9,6 +9,11 @@ import Footer from "./Footer/Footer"
 import theme from "./styles/Theme"
 import GlobalStyle from "./styles/Golbal"
 
+// if (typeof window !== "undefined") {
+//   // eslint-disable-next-line global-require
+//   require("smooth-scroll")('a[href*="#"]')
+// }
+
 const SiteWrapper = styled.div`
   position: relative;
 `

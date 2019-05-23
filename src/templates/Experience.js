@@ -189,6 +189,7 @@ export const query = graphql`
           link {
             post_name
           }
+          link_slug
         }
 
         _ncvm_coll_left_cat_mid
@@ -297,6 +298,7 @@ export const query = graphql`
           link {
             post_name
           }
+          link_slug
         }
       }
     }
