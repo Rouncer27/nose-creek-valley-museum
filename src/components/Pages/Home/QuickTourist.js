@@ -15,7 +15,7 @@ const QuickTourist = props => {
   return (
     <Link
       className="quicklinks__container quicklinks__tourist"
-      to="/"
+      to="/programs/#touristInfo"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >

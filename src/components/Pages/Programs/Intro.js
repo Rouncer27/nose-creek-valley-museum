@@ -148,7 +148,7 @@ const IntroStyled = styled.section`
 class Intro extends Component {
   render() {
     return (
-      <IntroStyled className="intro">
+      <IntroStyled id="touristInfo" className="intro">
         <FullScreenWrapper className="intro__wrapper">
           <div className="intro__content">
             <div className="intro__content--title">

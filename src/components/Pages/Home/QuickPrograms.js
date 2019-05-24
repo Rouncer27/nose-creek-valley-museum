@@ -15,7 +15,7 @@ const QuickPrograms = props => {
 
   return (
     <Link
-      to="/"
+      to="/programs/#programsList"
       className="quicklinks__container quicklinks__programs"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}

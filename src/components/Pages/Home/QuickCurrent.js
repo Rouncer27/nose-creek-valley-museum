@@ -17,7 +17,7 @@ const QuickCurrent = props => {
   return (
     <Link
       className="quicklinks__container quicklinks__exhibits"
-      to="/"
+      to="/experience/#speicalExhibits"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
