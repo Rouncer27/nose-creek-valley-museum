@@ -18,6 +18,13 @@ const RowOneStyled = styled.section`
     h2 {
       margin: 0;
       font-weight: 700;
+      font-size: 7rem;
+      text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 10rem;
+        text-align: left;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 15rem;
