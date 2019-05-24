@@ -42,6 +42,10 @@ const FormsStyled = styled.section`
     }
 
     &--title {
+      padding: 0 2rem;
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        padding: 0;
+      }
       h2 {
         font-family: ${props => props.theme.fontSec};
         line-height: 1.25;
@@ -58,6 +62,10 @@ const FormsStyled = styled.section`
     }
 
     &--paragraphs {
+      padding: 0 2rem;
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        padding: 0;
+      }
       p {
         color: ${props => props.theme.paraGrey};
         font-family: ${props => props.theme.fontTer};
