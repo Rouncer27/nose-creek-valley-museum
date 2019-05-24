@@ -8,10 +8,19 @@ import { BigHeadlines } from "../../../components/styles/Commons/Titles"
 import { TwoSpanButtons } from "../../../components/styles/Commons/Buttons"
 
 const CurrentDonorsStyled = styled.section`
-  padding: 5rem 0 15rem;
+  padding: 0 0 5rem;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    padding: 5rem 0 15rem;
+  }
 
   .currdon__wrapper {
     align-items: center;
+    padding: 0;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      padding: 2rem;
+    }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       max-width: 105rem;
@@ -25,9 +34,13 @@ const CurrentDonorsStyled = styled.section`
   .currdon__thanks {
     position: relative;
     width: 100%;
+    padding: 2rem;
+    background: ${props => props.theme.grape};
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: 33.33%;
+      padding: 0;
+      background: transparent;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -40,13 +53,16 @@ const CurrentDonorsStyled = styled.section`
     }
 
     &--message {
-      position: absolute;
-      top: 50%;
-      left: 50%;
       width: 100%;
       padding: 2rem;
-      transform: translate(-50%, -50%);
       z-index: 5;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
       @media (min-width: ${props => props.theme.bpDeskmd}) {
         padding-right: 14rem;
@@ -72,8 +88,13 @@ const CurrentDonorsStyled = styled.section`
         color: ${props => props.theme.white};
         font-family: ${props => props.theme.fontTer};
         font-weight: 100;
+        font-size: 2.2rem;
         line-height: 1.3;
         letter-spacing: normal;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 2.2rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 2.2rem;
@@ -88,11 +109,14 @@ const CurrentDonorsStyled = styled.section`
     }
 
     &--button {
-      position: absolute;
-      bottom: -8rem;
-      right: 0;
       width: calc(100%);
       text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        position: absolute;
+        bottom: -8rem;
+        right: 0;
+      }
 
       a {
         display: block;
@@ -108,12 +132,14 @@ const CurrentDonorsStyled = styled.section`
     }
 
     &--bgimg {
-      position: absolute;
-      top: 0;
-      left: -90%;
-      width: 190%;
-      height: 100%;
-      z-index: 1;
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        position: absolute;
+        top: 0;
+        left: -90%;
+        width: 190%;
+        height: 100%;
+        z-index: 1;
+      }
 
       .gatsby-image-wrapper {
         position: absolute !important;
@@ -125,30 +151,35 @@ const CurrentDonorsStyled = styled.section`
       }
 
       &--color {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 500%;
-        height: 100%;
-        background: ${props => props.theme.grape};
-        z-index: 1;
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 500%;
+          height: 100%;
+          background: ${props => props.theme.grape};
+          z-index: 1;
+        }
       }
     }
 
     &--background {
-      position: absolute;
-      top: 0;
-      left: -300%;
-      width: 400%;
-      height: 100%;
-      background: ${props => props.theme.grape};
-      opacity: 0.9;
-      z-index: 2;
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        position: absolute;
+        top: 0;
+        left: -300%;
+        width: 400%;
+        height: 100%;
+        background: ${props => props.theme.grape};
+        opacity: 0.9;
+        z-index: 2;
+      }
     }
   }
 
   .currdon__logos {
     width: 100%;
+    padding: 2rem 3rem;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: 66.66%;
@@ -167,6 +198,8 @@ const CurrentDonorsStyled = styled.section`
       width: 100%;
 
       h2 {
+        font-size: 3rem;
+
         @media (min-width: ${props => props.theme.bpTablet}) {
           font-size: 4rem;
         }
@@ -182,6 +215,7 @@ const CurrentDonorsStyled = styled.section`
 
     &--item {
       width: 50%;
+      padding: 1.5rem;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
         width: 33.33%;

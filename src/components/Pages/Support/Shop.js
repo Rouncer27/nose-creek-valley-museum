@@ -6,7 +6,7 @@ import { StandardWrapper } from "../../../components/styles/Commons/Wrappers"
 import shopTag from "../../../images/support/ncvm-shop-tag.png"
 
 const ShopStyled = styled.section`
-  padding: 10rem 0;
+  padding: 10rem 0 0;
   background: linear-gradient(
     to top,
     #f8f8f8 0%,
@@ -14,6 +14,10 @@ const ShopStyled = styled.section`
     transparent 80%,
     transparent 100%
   );
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    padding: 10rem 0;
+  }
 
   .shop__wrapper {
     position: relative;
@@ -32,7 +36,12 @@ const ShopStyled = styled.section`
       margin-bottom: 3rem;
       color: ${props => props.theme.deepSea};
       font-family: ${props => props.theme.fontSec};
+      font-size: 5rem;
       line-height: 1.25;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 5rem;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 8rem;
@@ -43,6 +52,7 @@ const ShopStyled = styled.section`
       color: ${props => props.theme.paraGrey};
       font-family: ${props => props.theme.fontTer};
       font-weight: 300;
+      font-size: 2rem;
       line-height: 1.2;
       opacity: 0.85;
 
@@ -54,9 +64,9 @@ const ShopStyled = styled.section`
 
   .shop__image {
     position: absolute;
-    top: -15rem;
-    right: 0;
-    width: 100%;
+    top: -35rem;
+    right: 7.5rem;
+    width: 18rem;
     height: 60rem;
     background-image: url(${shopTag});
     background-repeat: no-repeat;
@@ -64,6 +74,8 @@ const ShopStyled = styled.section`
     background-position: center;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
+      top: -15rem;
+      right: 0;
       width: calc(40% - 4rem);
     }
   }

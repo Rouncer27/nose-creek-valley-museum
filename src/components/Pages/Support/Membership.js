@@ -7,29 +7,36 @@ import buyMembership from "../../../images/support/ncvm-icons_buymember.png"
 import giftMembership from "../../../images/support/ncvm-icons_gift.png"
 
 const MembershipStyled = styled.section`
-  background: linear-gradient(
-    to right,
-    ${props => props.theme.deepSea} 0%,
-    ${props => props.theme.deepSea} 50%,
-    #ebecec 50%,
-    #ebecec 100%
-  );
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    background: linear-gradient(
+      to right,
+      ${props => props.theme.deepSea} 0%,
+      ${props => props.theme.deepSea} 50%,
+      #ebecec 50%,
+      #ebecec 100%
+    );
+  }
 
   .membership__wrapper {
     align-items: center;
+    padding: 0;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       min-height: 35vw;
+      padding: 2rem;
     }
   }
 
   .membership__content {
     width: 100%;
+    padding: 2rem;
     text-align: center;
+    background: ${props => props.theme.deepSea};
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: 50%;
       padding: 5rem;
+      background: transparent;
     }
 
     &--title {
@@ -89,15 +96,25 @@ const MembershipStyled = styled.section`
 
   .membership__gift {
     width: 100%;
-    padding-top: 7rem;
+    padding-top: 20rem;
+    padding-right: 2rem;
+    padding-bottom: 20rem;
+    padding-left: 2rem;
+    background-color: #ebecec;
     background-image: url(${giftMembership});
     background-size: 7rem;
-    background-position: top center;
+    background-position: 50% 12rem;
     background-repeat: no-repeat;
     text-align: center;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: 50%;
+      padding-top: 7rem;
+      padding-right: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+      background-color: transparent;
+      background-position: top center;
     }
 
     h2 {

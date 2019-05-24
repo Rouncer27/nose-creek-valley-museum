@@ -1,9 +1,36 @@
 import React, { Component } from "react"
+import styled from "styled-components"
+
+const StyledDonateAnimation = styled.div`
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 auto;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    max-width: 30rem;
+  }
+
+  @media (min-width: ${props => props.theme.bpDesksm}) {
+    max-width: 100%;
+  }
+
+  #Donate-product {
+    display: none;
+  }
+
+  #Donate-money {
+    display: none;
+  }
+
+  #Donate-volunteer {
+    display: none;
+  }
+`
 
 class DonateAnimation extends Component {
   render() {
     return (
-      <div>
+      <StyledDonateAnimation>
         <svg
           id="donate-animation"
           xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +164,7 @@ class DonateAnimation extends Component {
             />
           </g>
         </svg>
-      </div>
+      </StyledDonateAnimation>
     )
   }
 }

@@ -17,7 +17,12 @@ const VolunteerStyled = styled.section`
       margin: 0;
       color: ${props => props.theme.deco};
       font-family: ${props => props.theme.fontSec};
+      font-size: 5rem;
       line-height: 1.25;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 5rem;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 8rem;
@@ -28,6 +33,11 @@ const VolunteerStyled = styled.section`
       color: ${props => props.theme.deepSea};
       font-family: ${props => props.theme.fontSec};
       font-style: italic;
+      font-size: 1.8rem;
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        font-size: 1.6rem;
+      }
     }
   }
 
@@ -62,6 +72,7 @@ const VolunteerStyled = styled.section`
         color: ${props => props.theme.paraGrey};
         font-family: ${props => props.theme.fontTer};
         font-weight: 300;
+        font-size: 2rem;
         line-height: 1.2;
         opacity: 0.85;
 
@@ -74,10 +85,20 @@ const VolunteerStyled = styled.section`
     &--link {
       width: 100%;
       margin-top: 4rem;
+      margin-bottom: 4rem;
       text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        margin-bottom: 0;
+      }
 
       a {
         color: ${props => props.theme.deepSea};
+        font-size: 2.2rem;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.8rem;
+        }
 
         &:hover {
           color: ${props => props.theme.rawSienna};

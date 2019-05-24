@@ -1,9 +1,24 @@
 import React, { Component } from "react"
+import styled from "styled-components"
+
+const StyledVolunteerAnimation = styled.div`
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 auto;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    max-width: 30rem;
+  }
+
+  @media (min-width: ${props => props.theme.bpDesksm}) {
+    max-width: 100%;
+  }
+`
 
 class VolunteerAnimation extends Component {
   render() {
     return (
-      <div>
+      <StyledVolunteerAnimation>
         <svg
           id="volunteer-animation"
           xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +116,7 @@ class VolunteerAnimation extends Component {
             </g>
           </g>
         </svg>
-      </div>
+      </StyledVolunteerAnimation>
     )
   }
 }
