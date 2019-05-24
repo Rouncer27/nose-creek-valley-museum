@@ -27,6 +27,7 @@ const MeetingRoomsStyled = styled.section`
 
   .rooms__container {
     width: 100%;
+    margin: 2rem 3rem;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: ${props => props.theme.white};
 

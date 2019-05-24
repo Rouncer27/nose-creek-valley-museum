@@ -16,6 +16,7 @@ const ColouredLinksStyled = styled.section`
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 40rem;
     text-align: center;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
@@ -95,6 +96,7 @@ const ColouredLinksStyled = styled.section`
   }
 
   .colorlink__fees {
+    padding: 2rem;
     &--title {
       h2 {
         margin: 0;

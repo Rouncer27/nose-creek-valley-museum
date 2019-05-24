@@ -11,20 +11,24 @@ const FormsStyled = styled.section`
   padding-bottom: 10rem;
 
   .forms__wrapper {
+    padding: 0;
     @media (min-width: ${props => props.theme.bpTablet}) {
+      padding: 2rem;
       flex-direction: row-reverse;
     }
   }
 
   .forms__background {
-    position: absolute;
-    top: 0;
-    left: 0%;
-    width: 30%;
-    height: 100%;
-    background: ${props => props.theme.grape};
-    opacity: 0.95;
-    z-index: 1;
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      position: absolute;
+      top: 0;
+      left: 0%;
+      width: 30%;
+      height: 100%;
+      background: ${props => props.theme.grape};
+      opacity: 0.95;
+      z-index: 1;
+    }
   }
 
   .forms__story {
@@ -66,6 +70,7 @@ const FormsStyled = styled.section`
     }
 
     &--fields {
+      padding: 4rem;
       background: ${props => props.theme.neptune};
 
       @media (min-width: ${props => props.theme.bpTablet}) {
@@ -187,20 +192,28 @@ const FormsStyled = styled.section`
   .forms__curator {
     position: relative;
     width: 100%;
+    background: ${props => props.theme.grape};
     z-index: 5;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
-      width: calc(30% - 8rem);
+      width: calc(30% - 2rem);
       margin-right: 2rem;
-      margin-left: 6rem;
-      padding: 10rem 4rem;
+      margin-left: 0;
+      padding: 10rem 2rem;
+      background: transparent;
     }
 
     h2 {
-      margin-bottom: 2rem;
+      padding: 2rem;
       color: ${props => props.theme.deco};
       font-family: ${props => props.theme.fontSec};
+      font-size: 3rem;
       text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        margin-bottom: 2rem;
+        padding: 0;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 4rem;
@@ -208,6 +221,14 @@ const FormsStyled = styled.section`
     }
 
     &--details {
+      padding: 0 2rem;
+      text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        padding: 0;
+        text-align: left;
+      }
+
       p {
         margin-bottom: 2rem;
         color: ${props => props.theme.white};
@@ -221,15 +242,108 @@ const FormsStyled = styled.section`
       }
     }
 
-    &--location {
-      p {
-        color: ${props => props.theme.deco};
-        font-family: ${props => props.theme.fontSec};
-        font-style: italic;
-        font-weight: 100;
+    &--fields {
+      padding: 4rem;
+      background: ${props => props.theme.grape};
 
-        @media (min-width: ${props => props.theme.bpDesksm}) {
-          font-size: 1.8rem;
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        padding: 0;
+        background: transparent;
+      }
+
+      label {
+        display: block;
+        margin-top: 2rem;
+        color: ${props => props.theme.white};
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.2rem;
+        }
+      }
+
+      &--button {
+        width: 100%;
+        margin-top: 5rem;
+        text-align: center;
+
+        button {
+          display: inline-block;
+          position: relative;
+          padding: 1rem 0;
+          transition: all 0.3s ease-in-out;
+          background: transparent;
+          color: ${props => props.theme.deco};
+          border: none;
+          text-transform: uppercase;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+          }
+
+          @media (min-width: ${props => props.theme.bpDesksm}) {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+          }
+
+          .italic-btn {
+            font-family: ${props => props.theme.fontSec};
+            font-style: italic;
+            text-transform: capitalize;
+          }
+
+          .btn-circle {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: -4.5rem;
+            width: 3.2rem;
+            height: 3.2rem;
+            transform: translate(0%, -50%);
+            transition: all 0.3s ease-in-out;
+            color: ${props => props.theme.deco};
+            text-align: center;
+
+            &::before {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 100%;
+              height: 100%;
+              transform: translate(-50%, -50%);
+              transition: all 0.3s ease-in-out;
+              border: 0.2rem solid ${props => props.theme.deco};
+              border-radius: 50%;
+              content: "";
+            }
+
+            &::after {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 0%;
+              transform: translate(0%, -50%);
+              transition: all 0.3s ease-in-out;
+              font-family: ${props => props.theme.fontAwesome};
+              font-size: 2.2rem;
+              font-weight: 100;
+              content: "\f178";
+            }
+          }
+
+          &:hover {
+            color: ${props => props.theme.white};
+            cursor: pointer;
+
+            .btn-circle {
+              color: ${props => props.theme.white};
+              &::before {
+                border-color: ${props => props.theme.white};
+              }
+              &::after {
+                color: ${props => props.theme.white};
+              }
+            }
+          }
         }
       }
     }
@@ -326,12 +440,49 @@ class Forms extends Component {
             <div className="forms__curator--fields">
               <form>
                 {this.props.curatorForm.map((field, index) => {
+                  field.value = this.state[field.field_id]
+                    ? this.state[field.field_id]
+                    : ""
                   return (
                     <div key={index}>
-                      <label>{field.label}</label>
+                      <label htmlFor={field.field_id}>{field.label}</label>
+                      {field.field_type === "input" && (
+                        <TextField
+                          field={field}
+                          onChange={this.onChange}
+                          errors={[]}
+                        />
+                      )}
+                      {field.field_type === "email" && (
+                        <TextField
+                          field={field}
+                          onChange={this.onChange}
+                          errors={[]}
+                        />
+                      )}
+                      {field.field_type === "phone" && (
+                        <TextField
+                          field={field}
+                          onChange={this.onChange}
+                          errors={[]}
+                        />
+                      )}
+                      {field.field_type === "textarea" && (
+                        <TextArea
+                          field={field}
+                          onChange={this.onChange}
+                          errors={[]}
+                        />
+                      )}
                     </div>
                   )
                 })}
+                <div className="forms__curator--fields--button">
+                  <button>
+                    Curator / <span className="italic-btn">Submit</span>
+                    <span className="btn-circle" />
+                  </button>
+                </div>
               </form>
             </div>
           </div>

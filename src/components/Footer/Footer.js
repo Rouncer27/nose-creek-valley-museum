@@ -32,7 +32,8 @@ const MainFooterStyled = styled.footer`
     }
 
     &--experience,
-    &--programs {
+    &--programs,
+    &--connect {
       display: none;
     }
 
