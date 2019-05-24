@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import styled from "styled-components"
 
 import { FullScreenWrapper } from "../../../components/styles/Commons/Wrappers"
+import TextField from "../../../components/styles/Commons/FormParts/TextField"
+import TextArea from "../../../components/styles/Commons/FormParts/TextArea"
 
 const FormsStyled = styled.section`
   position: relative;
@@ -62,6 +64,124 @@ const FormsStyled = styled.section`
         }
       }
     }
+
+    &--fields {
+      background: ${props => props.theme.neptune};
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        padding: 4rem;
+      }
+
+      label {
+        display: block;
+        margin-top: 2rem;
+        color: ${props => props.theme.black};
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.2rem;
+        }
+      }
+
+      &--button {
+        width: 100%;
+        text-align: center;
+
+        button {
+          display: inline-block;
+          position: relative;
+          padding: 1rem 0;
+          transition: all 0.3s ease-in-out;
+          background: transparent;
+          color: ${props => props.theme.deepSea};
+          border: none;
+          text-transform: uppercase;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+          }
+
+          @media (min-width: ${props => props.theme.bpDesksm}) {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+          }
+
+          .italic-btn {
+            font-family: ${props => props.theme.fontSec};
+            font-style: italic;
+            text-transform: capitalize;
+          }
+
+          .btn-circle {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: -4.5rem;
+            width: 3.2rem;
+            height: 3.2rem;
+            transform: translate(0%, -50%);
+            transition: all 0.3s ease-in-out;
+            color: ${props => props.theme.deepSea};
+            text-align: center;
+
+            &::before {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 100%;
+              height: 100%;
+              transform: translate(-50%, -50%);
+              transition: all 0.3s ease-in-out;
+              border: 0.2rem solid ${props => props.theme.deepSea};
+              border-radius: 50%;
+              content: "";
+            }
+
+            &::after {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 0%;
+              transform: translate(0%, -50%);
+              transition: all 0.3s ease-in-out;
+              font-family: ${props => props.theme.fontAwesome};
+              font-size: 2.2rem;
+              font-weight: 100;
+              content: "\f178";
+            }
+          }
+
+          &:hover {
+            color: ${props => props.theme.deco};
+            cursor: pointer;
+
+            .btn-circle {
+              color: ${props => props.theme.deco};
+              &::before {
+                border-color: ${props => props.theme.deco};
+              }
+              &::after {
+                color: ${props => props.theme.deco};
+              }
+            }
+          }
+        }
+      }
+
+      &--smallprint {
+        margin-top: 4rem;
+
+        p {
+          color: ${props => props.theme.deepSea};
+          font-family: ${props => props.theme.fontTer};
+          font-style: italic;
+          font-weight: 300;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
   }
 
   .forms__curator {
@@ -117,6 +237,18 @@ const FormsStyled = styled.section`
 `
 
 class Forms extends Component {
+  constructor(props) {
+    super(props)
+    this.onChange = this.onChange.bind(this)
+    this.state = {
+      errors: [],
+    }
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
   render() {
     return (
       <FormsStyled className="forms">
@@ -132,15 +264,53 @@ class Forms extends Component {
             <div className="forms__story--fields">
               <form>
                 {this.props.storyForm.map((field, index) => {
+                  field.value = this.state[field.field_id]
+                    ? this.state[field.field_id]
+                    : ""
                   return (
                     <div key={index}>
-                      <label>{field.label}</label>
+                      <label htmlFor={field.field_id}>{field.label}</label>
+                      {field.field_type === "input" && (
+                        <TextField
+                          field={field}
+                          onChange={this.onChange}
+                          errors={[]}
+                        />
+                      )}
+                      {field.field_type === "email" && (
+                        <TextField
+                          field={field}
+                          onChange={this.onChange}
+                          errors={[]}
+                        />
+                      )}
+                      {field.field_type === "phone" && (
+                        <TextField
+                          field={field}
+                          onChange={this.onChange}
+                          errors={[]}
+                        />
+                      )}
+                      {field.field_type === "textarea" && (
+                        <TextArea
+                          field={field}
+                          onChange={this.onChange}
+                          errors={[]}
+                        />
+                      )}
                     </div>
                   )
                 })}
                 <div
+                  className="forms__story--fields--smallprint"
                   dangerouslySetInnerHTML={{ __html: this.props.storySmall }}
                 />
+                <div className="forms__story--fields--button">
+                  <button>
+                    Story / <span className="italic-btn">Submit</span>
+                    <span className="btn-circle" />
+                  </button>
+                </div>
               </form>
             </div>
           </div>
