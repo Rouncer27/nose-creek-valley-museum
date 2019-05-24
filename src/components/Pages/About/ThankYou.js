@@ -4,8 +4,12 @@ import Img from "gatsby-image"
 
 const ThankYouStyled = styled.section`
   position: relative;
-  margin-bottom: 15rem;
+  margin-bottom: 0;
   z-index: 10;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    margin-bottom: 15rem;
+  }
 
   .thankyou__wrapper {
     display: flex;
@@ -14,12 +18,12 @@ const ThankYouStyled = styled.section`
     justify-content: center;
     width: 100%;
     max-width: 45rem;
-    margin: ;
-    padding: 2rem;
-    padding-top: 0;
+    padding: 0;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       max-width: 70rem;
+      padding: 2rem;
+      padding-top: 0;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -31,13 +35,12 @@ const ThankYouStyled = styled.section`
     position: relative;
     width: 100%;
     max-width: 45rem;
-    height: 45rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       max-width: 70rem;
       height: 70rem;
+      margin-right: 5rem;
+      margin-left: 5rem;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -49,11 +52,13 @@ const ThankYouStyled = styled.section`
       width: 100%;
 
       .gatsby-image-wrapper {
-        position: absolute !important;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          position: absolute !important;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+        }
 
         img {
           object-fit: cover;
@@ -67,12 +72,15 @@ const ThankYouStyled = styled.section`
       align-items: center;
       flex-wrap: wrap;
       justify-content: center;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      max-width: 50%;
       padding: 5rem 2rem;
       background: ${props => props.theme.grape};
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        max-width: 50%;
+      }
     }
 
     h2 {
@@ -94,7 +102,12 @@ const ThankYouStyled = styled.section`
         color: ${props => props.theme.white};
         font-family: ${props => props.theme.fontTer};
         font-weight: 300;
+        font-size: 2rem;
         opacity: 0.8;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.6rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.6rem;

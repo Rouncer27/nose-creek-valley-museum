@@ -6,19 +6,29 @@ import glasses from "../../../images/about/ncvm-glasses-vintage.png"
 
 const OurMissionStyled = styled.section`
   position: relative;
-  margin-top: -10rem;
   z-index: 10;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    margin-top: -10rem;
+  }
 
   .mission__glasses {
     position: absolute;
-    top: -16rem;
-    right: -15rem;
-    width: 50rem;
-    height: 16rem;
+    top: 24rem;
+    right: -7rem;
+    width: 30rem;
+    height: 10rem;
     background-image: url(${glasses});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      top: -16rem;
+      right: -15rem;
+      width: 50rem;
+      height: 16rem;
+    }
   }
 
   .mission__wrapper {
@@ -29,10 +39,11 @@ const OurMissionStyled = styled.section`
     width: 100%;
     max-width: 45rem;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       max-width: 70rem;
+      padding: 2rem;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -43,14 +54,12 @@ const OurMissionStyled = styled.section`
   .mission__container {
     position: relative;
     width: 100%;
-    max-width: 45rem;
-    height: 45rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       max-width: 70rem;
       height: 70rem;
+      margin-right: 5rem;
+      margin-left: 5rem;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -62,11 +71,13 @@ const OurMissionStyled = styled.section`
       width: 100%;
 
       .gatsby-image-wrapper {
-        position: absolute !important;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          position: absolute !important;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+        }
 
         img {
           object-fit: cover;
@@ -80,12 +91,17 @@ const OurMissionStyled = styled.section`
       align-items: center;
       flex-wrap: wrap;
       justify-content: center;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      max-width: 50%;
-      padding: 5rem 2rem;
+      position: relative;
+      padding: 6rem 2rem;
       background: ${props => props.theme.kenyanCopper};
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        max-width: 50%;
+        padding: 5rem 2rem;
+      }
     }
 
     h2 {
@@ -95,6 +111,9 @@ const OurMissionStyled = styled.section`
       color: ${props => props.theme.rawSienna};
       font-family: ${props => props.theme.fontSec};
       font-style: italic;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 1.6rem;
@@ -118,12 +137,22 @@ const OurMissionStyled = styled.section`
 
   .mission__titles {
     width: 100%;
+    padding: 4rem 0;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      padding: 0;
+    }
     h2 {
       width: 100%;
       color: ${props => props.theme.neptune};
       font-family: ${props => props.theme.fontSec};
+      font-size: 3rem;
       text-align: center;
       line-height: 1.25;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 3.4rem;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 7.4rem;

@@ -19,7 +19,7 @@ const IntroStyled = styled.section`
       flex-direction: row-reverse;
       padding: 2rem;
     }
-  }}
+  }
 
   .intro__background {
     @media (min-width: ${props => props.theme.bpTablet}) {
@@ -75,6 +75,11 @@ const IntroStyled = styled.section`
         color: ${props => props.theme.paraGrey};
         font-family: ${props => props.theme.fontTer};
         font-weight: 300;
+        font-size: 2rem;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 2.2rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 2.2rem;

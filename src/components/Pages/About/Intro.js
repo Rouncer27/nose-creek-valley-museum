@@ -8,27 +8,37 @@ import { BigHeadlines } from "../../../components/styles/Commons/Titles"
 const IntroStyled = styled.section`
   position: relative;
   width: 100%;
-  padding-bottom: 10rem;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    padding-bottom: 10rem;
+  }
 
   .intro__wrapper {
+    padding: 0;
     @media (min-width: ${props => props.theme.bpTablet}) {
       flex-direction: row-reverse;
+      padding: 2rem;
     }
   }
 
   .intro__background {
-    position: absolute;
-    top: 0;
-    left: 0%;
-    width: 30%;
-    height: 100%;
-    background: ${props => props.theme.grape};
-    opacity: 0.95;
-    z-index: 1;
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      position: absolute;
+      top: 0;
+      right: auto;
+      bottom: auto;
+      left: 0%;
+      width: 30%;
+      height: 100%;
+      background: ${props => props.theme.grape};
+      opacity: 0.95;
+      z-index: 1;
+    }
   }
 
   .intro__content {
     width: 100%;
+    padding: 2rem;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: calc(70% - 10rem);
@@ -65,6 +75,11 @@ const IntroStyled = styled.section`
         color: ${props => props.theme.paraGrey};
         font-family: ${props => props.theme.fontTer};
         font-weight: 300;
+        font-size: 2rem;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 2.2rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 2.2rem;
@@ -76,13 +91,18 @@ const IntroStyled = styled.section`
   .intro__hours {
     position: relative;
     width: 100%;
+    padding: 2rem;
     z-index: 5;
+    background: ${props => props.theme.grape};
+    text-align: center;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: calc(30% - 8rem);
       margin-right: 2rem;
       margin-left: 6rem;
       padding: 10rem 4rem;
+      background: transparent;
+      text-align: left;
     }
 
     h3 {
@@ -102,6 +122,7 @@ const IntroStyled = styled.section`
         color: ${props => props.theme.white};
         font-family: ${props => props.theme.fontTer};
         font-weight: 100;
+        font-size: 2rem;
         opacity: 0.8;
 
         @media (min-width: ${props => props.theme.bpDesksm}) {

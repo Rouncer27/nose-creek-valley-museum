@@ -11,7 +11,13 @@ const DesignationsStyled = styled.section`
     h2 {
       color: ${props => props.theme.deco};
       font-family: ${props => props.theme.fontSec};
+      font-size: 4rem;
+      text-align: center;
       line-height: 1.25;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        text-align: left;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 6rem;
@@ -39,11 +45,14 @@ const DesignationsStyled = styled.section`
     }
 
     &--logo {
-      width: 100%;
+      width: calc(100% - 10rem);
+      margin: 0 5rem 2rem;
+      padding: 0 4rem;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
         width: calc(30% - 4rem);
         margin: 0 2rem;
+        padding: 0;
       }
     }
 
@@ -63,20 +72,29 @@ const DesignationsStyled = styled.section`
         font-family: ${props => props.theme.fontTer};
         font-weight: 700;
         line-height: 1.2;
-
-        @media (min-width: ${props => props.theme.bpTablet}) {
-          font-size: 1.8rem;
-        }
       }
 
       div {
         display: inline;
       }
 
+      h3 {
+        font-size: 2rem;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.8rem;
+        }
+      }
+
       p {
         display: inline;
         color: ${props => props.theme.paraGrey};
         font-weight: 100;
+        font-size: 2rem;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.8rem;
+        }
       }
     }
   }

@@ -4,8 +4,12 @@ import styled from "styled-components"
 import { StandardWrapper } from "../../../components/styles/Commons/Wrappers"
 
 const FaqsStyled = styled.section`
-  padding: 5rem 0;
+  padding: 0 0 2rem;
   background-color: #eaeaea;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    padding: 5rem 0;
+  }
 
   .faqs__title {
     width: 100%;
@@ -13,7 +17,12 @@ const FaqsStyled = styled.section`
     h2 {
       color: ${props => props.theme.deepSea};
       font-family: ${props => props.theme.fontSec};
+      font-size: 5rem;
       line-height: 1.25;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 7.5rem;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 7.5rem;
@@ -39,6 +48,8 @@ const FaqsStyled = styled.section`
       align-items: flex-start;
       flex-wrap: wrap;
       justify-content: center;
+      margin-bottom: 3rem;
+
       @media (min-width: ${props => props.theme.bpTablet}) {
         width: calc(50% - 4rem);
         margin: 2rem;
@@ -68,13 +79,14 @@ const FaqsStyled = styled.section`
       align-items: flex-start;
       flex-wrap: wrap;
       justify-content: center;
+
       @media (min-width: ${props => props.theme.bpTablet}) {
         width: calc(50% - 4rem);
         margin: 2rem;
       }
 
       &--title {
-        width: 100%;
+        width: 15%;
         margin: 0;
         color: ${props => props.theme.neptune};
         font-family: ${props => props.theme.fontSec};
@@ -87,7 +99,8 @@ const FaqsStyled = styled.section`
       }
 
       &--content {
-        width: 100%;
+        width: 85%;
+        margin: 0;
 
         p {
           margin: 0;
@@ -116,7 +129,7 @@ class Faqs extends Component {
                     </p>
                   </div>
                   <div className="faqs__item--answer">
-                    <p className="faqs__item--answer--title">Answer</p>
+                    <p className="faqs__item--answer--title">A</p>
                     <div
                       className="faqs__item--answer--content"
                       dangerouslySetInnerHTML={{ __html: faq.answer }}
