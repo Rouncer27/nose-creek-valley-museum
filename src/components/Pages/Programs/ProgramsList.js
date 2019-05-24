@@ -24,17 +24,25 @@ const ProgramsListStyled = styled.section`
 
   .ptours__title {
     width: 100%;
+    margin-bottom: 2rem;
     padding: 0 2rem;
-    text-align: left;
+    text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      margin-bottom: 0;
+      text-align: left;
+    }
 
     h1 {
-      margin: 1rem 0;
+      margin: 1rem 0 3rem;
       color: ${props => props.theme.deco};
       font-family: ${props => props.theme.fontSec};
       font-weight: 700;
+      font-size: 4rem;
       line-height: 1.25;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
+        margin: 1rem 0;
       }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -45,6 +53,7 @@ const ProgramsListStyled = styled.section`
 
   .ptours__tour {
     width: 100%;
+    margin: 3.5rem 1.5rem;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
     @media (min-width: ${props => props.theme.bpTablet}) {

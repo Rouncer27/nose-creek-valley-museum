@@ -10,7 +10,7 @@ import map from "../../../images/icons/map.png"
 import pillars from "../../../images/icons/pillars.png"
 
 const GuideToursStyled = styled.section`
-  margin-top: -10rem;
+  margin-top: 0;
   @media (min-width: ${props => props.theme.bpTablet}) {
     margin-top: -10rem;
   }
@@ -25,16 +25,22 @@ const GuideToursStyled = styled.section`
   .gtours__title {
     width: 100%;
     padding: 0 2rem;
-    text-align: right;
+    text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      text-align: right;
+    }
 
     h1 {
-      margin: 1rem 0;
+      margin: 1rem 0 3rem;
       color: ${props => props.theme.deco};
       font-family: ${props => props.theme.fontSec};
       font-weight: 700;
+      font-size: 4rem;
       line-height: 1.25;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
+        margin: 1rem 0;
       }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -45,6 +51,7 @@ const GuideToursStyled = styled.section`
 
   .gtours__tour {
     width: 100%;
+    margin: 3.5rem 1.5rem;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
     @media (min-width: ${props => props.theme.bpTablet}) {
@@ -86,6 +93,7 @@ const GuideToursStyled = styled.section`
         color: ${props => props.theme.deepSea};
         font-family: ${props => props.theme.fontPrim};
         font-weight: 700;
+        font-size: 2.4rem;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
           font-size: 2.8rem;
