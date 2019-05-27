@@ -5,6 +5,8 @@ import { FullScreenWrapper } from "../../../components/styles/Commons/Wrappers"
 import TextField from "../../../components/styles/Commons/FormParts/TextField"
 import TextArea from "../../../components/styles/Commons/FormParts/TextArea"
 
+import StoryForm from "./StoryForm"
+
 const FormsStyled = styled.section`
   position: relative;
   width: 100%;
@@ -384,56 +386,7 @@ class Forms extends Component {
               dangerouslySetInnerHTML={{ __html: this.props.story }}
             />
             <div className="forms__story--fields">
-              <form>
-                {this.props.storyForm.map((field, index) => {
-                  field.value = this.state[field.field_id]
-                    ? this.state[field.field_id]
-                    : ""
-                  return (
-                    <div key={index}>
-                      <label htmlFor={field.field_id}>{field.label}</label>
-                      {field.field_type === "input" && (
-                        <TextField
-                          field={field}
-                          onChange={this.onChange}
-                          errors={[]}
-                        />
-                      )}
-                      {field.field_type === "email" && (
-                        <TextField
-                          field={field}
-                          onChange={this.onChange}
-                          errors={[]}
-                        />
-                      )}
-                      {field.field_type === "phone" && (
-                        <TextField
-                          field={field}
-                          onChange={this.onChange}
-                          errors={[]}
-                        />
-                      )}
-                      {field.field_type === "textarea" && (
-                        <TextArea
-                          field={field}
-                          onChange={this.onChange}
-                          errors={[]}
-                        />
-                      )}
-                    </div>
-                  )
-                })}
-                <div
-                  className="forms__story--fields--smallprint"
-                  dangerouslySetInnerHTML={{ __html: this.props.storySmall }}
-                />
-                <div className="forms__story--fields--button">
-                  <button>
-                    Story / <span className="italic-btn">Submit</span>
-                    <span className="btn-circle" />
-                  </button>
-                </div>
-              </form>
+              <StoryForm storyForm={this.props.storyForm} />
             </div>
           </div>
 
