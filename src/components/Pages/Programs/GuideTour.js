@@ -1,8 +1,8 @@
 /* eslint-disable */
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import { useSpring, animated } from "react-spring"
+import { useSpring, animated, useChain } from "react-spring"
 
 import dino from "../../../images/icons/dino.png"
 import fossile from "../../../images/icons/fossile.png"
@@ -149,19 +149,29 @@ const StyledTour = styled.div`
   }
 
   .gtours__tour--modal {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    opacity: 0;
+    background: transparent;
+    opacity: 1;
     visibility: hidden;
     z-index: 150000;
+
+    &--background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: rgba(255, 255, 255, 1);
+      opacity: 0;
+    }
 
     &--image {
       position: relative;
@@ -190,10 +200,24 @@ const StyledTour = styled.div`
       opacity: 0;
 
       h3 {
+        margin: 0;
         color: ${props => props.theme.deepSea};
+        font-weight: bold;
       }
 
-      button {
+      p.tour-type {
+        color: ${props => props.theme.neptune};
+        text-transform: uppercase;
+      }
+
+      &--content {
+        p {
+          color: ${props => props.theme.paraGrey};
+          font-family: ${props => props.theme.fontTer};
+        }
+      }
+
+      button.close-modal {
         position: absolute;
         top: -5rem;
         right: 5rem;
@@ -220,10 +244,16 @@ const StyledTour = styled.div`
 
 const GuideTour = ({ tour }) => {
   const [isActive, setActive] = useState(false)
-
+  const showModelRef = useRef()
   const showModel = useSpring({
-    opacity: isActive ? 1 : 0,
+    ref: showModelRef,
     visibility: isActive ? "visible" : "hidden",
+  })
+
+  const showBackgroundRef = useRef()
+  const modelBackground = useSpring({
+    ref: showBackgroundRef,
+    opacity: isActive ? 1 : 0,
   })
 
   const slideImg = useSpring({
@@ -235,6 +265,12 @@ const GuideTour = ({ tour }) => {
     opacity: isActive ? 1 : 0,
     transform: isActive ? "translateX(0rem)" : "translateX(10rem)",
   })
+
+  useChain(
+    isActive
+      ? [showModelRef, showBackgroundRef]
+      : [showBackgroundRef, showModelRef]
+  )
 
   return (
     <StyledTour className="gtours__tour">
@@ -262,20 +298,31 @@ const GuideTour = ({ tour }) => {
         className="gtours__tour--modal"
         style={showModel}
       >
-        <animated.div className="gtours__tour--modal--image" style={slideImg}>
-          <Img
-            fluid={tour.featured_image.localFile.childImageSharp.fluid}
-            alt={tour.featured_image.alt_text}
-          />
-          <div className="image-square" />
-        </animated.div>
         <animated.div
-          className="gtours__tour--modal--details"
-          style={slideContent}
+          className="gtours__tour--modal--background"
+          style={modelBackground}
         >
-          <h3>{tour.name}</h3>
-          <div dangerouslySetInnerHTML={{ __html: tour.main_content }} />
-          <button onClick={() => setActive(false)}>&#x2715;</button>
+          <animated.div className="gtours__tour--modal--image" style={slideImg}>
+            <Img
+              fluid={tour.featured_image.localFile.childImageSharp.fluid}
+              alt={tour.featured_image.alt_text}
+            />
+            <div className="image-square" />
+          </animated.div>
+          <animated.div
+            className="gtours__tour--modal--details"
+            style={slideContent}
+          >
+            <h3>{tour.name}</h3>
+            <p className="tour-type">{tour.tour_type}</p>
+            <div
+              dangerouslySetInnerHTML={{ __html: tour.main_content }}
+              className="gtours__tour--modal--details--content"
+            />
+            <button className="close-modal" onClick={() => setActive(false)}>
+              &#x2715;
+            </button>
+          </animated.div>
         </animated.div>
       </animated.div>
     </StyledTour>
