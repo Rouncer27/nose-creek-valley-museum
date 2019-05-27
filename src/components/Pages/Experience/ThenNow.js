@@ -1,7 +1,6 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
 import Img from "gatsby-image"
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 import Slider from "react-slick"
 
 import "../../../../node_modules/slick-carousel/slick/slick.css"

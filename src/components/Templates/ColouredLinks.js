@@ -1,6 +1,5 @@
-import React, { Component } from "react"
-import { Link, StaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import ColouredLinkItem from "./ColouredLinkItem"

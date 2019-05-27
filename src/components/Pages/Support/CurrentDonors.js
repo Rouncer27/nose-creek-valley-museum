@@ -277,7 +277,11 @@ class CurrentDonors extends Component {
                   )
                 } else {
                   logoDisplay = (
-                    <a target="_blank" href={logo.url}>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={logo.url}
+                    >
                       <Img
                         fluid={logo.logo.localFile.childImageSharp.fluid}
                         alt={logo.logo.alt_text}

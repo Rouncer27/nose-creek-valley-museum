@@ -1,8 +1,5 @@
-import React, { Component, useState, useRef } from "react"
-import Img from "gatsby-image"
-import { Link } from "gatsby"
+import React from "react"
 import styled from "styled-components"
-import { useSpring, animated, useChain, config } from "react-spring"
 
 import { FullScreenWrapper } from "../../../components/styles/Commons/Wrappers"
 import galleryIcon from "../../../images/icons/gallery.png"

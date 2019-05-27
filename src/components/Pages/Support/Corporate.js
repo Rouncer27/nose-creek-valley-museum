@@ -155,7 +155,7 @@ class Corporate extends Component {
             </div>
           </div>
           <TwoSpanButtons className="corpspon__link">
-            <a target="_blank" href={this.props.link}>
+            <a target="_blank" rel="noopener noreferrer" href={this.props.link}>
               <span>Sponsor / </span>
               today
             </a>

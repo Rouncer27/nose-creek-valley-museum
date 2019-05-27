@@ -443,12 +443,20 @@ class Footer extends Component {
                         <span>{currator}</span>
                       </p>
                       <p>
-                        <a target="_blank" href={`tel:+1${phone}`}>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={`tel:+1${phone}`}
+                        >
                           {phone}
                         </a>
                       </p>
                       <p>
-                        <a target="_blank" href={`mailto:${email}`}>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={`mailto:${email}`}
+                        >
                           {email}
                         </a>
                       </p>
@@ -462,7 +470,11 @@ class Footer extends Component {
                 <div className="mainfooter__copy">
                   <p>
                     Built proudly in Airdrie Alberta by{" "}
-                    <a target="_blank" href="https://switchbackcreative.ca/">
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://switchbackcreative.ca/"
+                    >
                       Switchback Creative{" "}
                     </a>
                     © {new Date().getFullYear()}, with

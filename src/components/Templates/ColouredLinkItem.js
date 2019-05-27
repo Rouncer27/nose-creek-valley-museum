@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import { useSpring, animated, useChain, config } from "react-spring"
+import { useSpring, animated, useChain } from "react-spring"
 import styled from "styled-components"
 
 const AnimatedBox = styled.div`
@@ -89,7 +89,6 @@ const ColouredLinkItem = ({ link, iconImg }) => {
   const AnimatedBoxItem = animated(AnimatedBox)
 
   useChain(isHover ? [slideRef, textRef] : [textRef, slideRef])
-  console.log(link.link_slug)
 
   return (
     <AnimatedLinkItem

@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import Img from "gatsby-image"
-import styled from "styled-components"
 
 class BottomImage extends Component {
   render() {
