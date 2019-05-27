@@ -24,7 +24,7 @@ const StyledBookItForm = styled.div`
 
   .bookitform__title {
     text-align: center;
-    color: ${props => props.theme.neptune};
+    color: ${props => props.theme.deepSea};
 
     h3 {
       font-weight: 700;
@@ -50,7 +50,7 @@ const StyledBookItForm = styled.div`
 
       &:hover {
         cursor: pointer;
-        background: ${props => props.theme.neptune};
+        background: ${props => props.theme.deepSea};
         color: ${props => props.theme.kenyanCopper};
       }
 
@@ -84,7 +84,7 @@ const StyledBookItForm = styled.div`
         transition: all 0.3s ease-in-out;
         background: transparent;
         border: none;
-        color: ${props => props.theme.neptune};
+        color: ${props => props.theme.deepSea};
         font-weight: 700;
         text-transform: uppercase;
 
@@ -104,7 +104,7 @@ const StyledBookItForm = styled.div`
           height: 3.2rem;
           transform: translate(0%, -50%);
           transition: all 0.3s ease-in-out;
-          color: ${props => props.theme.neptune};
+          color: ${props => props.theme.deepSea};
           text-align: center;
 
           &::before {
@@ -116,7 +116,7 @@ const StyledBookItForm = styled.div`
             height: 100%;
             transform: translate(-50%, -50%);
             transition: all 0.3s ease-in-out;
-            border: 0.2rem solid ${props => props.theme.neptune};
+            border: 0.2rem solid ${props => props.theme.deepSea};
             border-radius: 50%;
             content: "";
           }
@@ -172,13 +172,13 @@ const StyledBookItForm = styled.div`
 
       &:focus {
         outline: none;
-        box-shadow: 0 0 0 0.2rem ${props => props.theme.neptune};
+        box-shadow: 0 0 0 0.2rem ${props => props.theme.deepSea};
       }
     }
   }
 `
 
-class BookItForm extends Component {
+class BookItFormPrograms extends Component {
   constructor(props) {
     super(props)
 
@@ -194,7 +194,6 @@ class BookItForm extends Component {
   }
   render() {
     const activeClassName = this.props.isActive ? "formActive" : ""
-
     return (
       <StyledBookItForm className={`${activeClassName}`}>
         <div className="bookitform__wrapper">
@@ -246,4 +245,4 @@ class BookItForm extends Component {
   }
 }
 
-export default BookItForm
+export default BookItFormPrograms
