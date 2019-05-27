@@ -33,7 +33,6 @@ const TextFieldStyled = styled.div`
 `
 
 const TextField = props => {
-  console.log("HERE ", props)
   let errorMessage = false
   props.errors.forEach(error => {
     if (error.idref === props.name) {
