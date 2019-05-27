@@ -11,7 +11,9 @@ import FormErrorsModal from "../Programs/FormErrorsModal"
 
 const StyledForm = styled.form`
   .storyForm__field {
+    position: relative;
     width: 100%;
+    padding-top: 1rem;
 
     label {
       display: block;
@@ -21,6 +23,16 @@ const StyledForm = styled.form`
       @media (min-width: ${props => props.theme.bpTablet}) {
         font-size: 2rem;
       }
+    }
+
+    .form-error-message {
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      color: red;
+      font-size: 1.2rem;
     }
 
     input,
@@ -157,6 +169,19 @@ class StoryForm extends Component {
     let yourEmailError = false
     let phoneNumberError = false
     let yourStoryError = false
+
+    this.state.errors.forEach(error => {
+      if (error.idref === "yourName") {
+        yourNameError = "Full Name is required"
+      } else if (error.idref === "yourEmail") {
+        yourEmailError = "email is required"
+      } else if (error.idref === "phoneNumber") {
+        phoneNumberError = "Phone number is required"
+      } else if (error.idref === "yourStory") {
+        yourStoryError = "Your Story is Required"
+      }
+    })
+
     return (
       <StyledForm className="storyForm" onSubmit={this.submitTheForm}>
         <div className="storyForm__field">
