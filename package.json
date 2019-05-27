@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "axios": "^0.18.0",
     "gatsby": "^2.7.1",
     "gatsby-image": "^2.0.41",
     "gatsby-plugin-manifest": "^2.1.1",
@@ -21,6 +22,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-slick": "^0.24.0",
+    "react-spinners": "^0.5.4",
     "react-spring": "^8.0.20",
     "slick-carousel": "^1.8.1",
     "smooth-scroll": "^16.0.3",
