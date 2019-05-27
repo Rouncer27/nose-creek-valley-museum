@@ -93,7 +93,7 @@ class StoryForm extends Component {
     bodyFormData.append("phoneNumber", this.state.phoneNumber)
     bodyFormData.append("yourStory", this.state.yourStory)
 
-    const baseURL = "http://dedi105.canspace.ca/~swbecreekvalleym/"
+    const baseURL = "https://dedi105.canspace.ca/~swbecreekvalleym/"
     const config = { headers: { "Content-Type": "multipart/form-data" } }
 
     axios

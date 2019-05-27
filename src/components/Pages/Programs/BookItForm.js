@@ -251,7 +251,7 @@ class BookItForm extends Component {
     bodyFormData.append("groupSize", this.state.groupSize)
     bodyFormData.append("requestedDate", this.state.requestedDate)
 
-    const baseURL = "http://dedi105.canspace.ca/~swbecreekvalleym/"
+    const baseURL = "https://dedi105.canspace.ca/~swbecreekvalleym/"
     const config = { headers: { "Content-Type": "multipart/form-data" } }
 
     axios
