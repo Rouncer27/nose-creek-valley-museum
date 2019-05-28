@@ -1,6 +1,9 @@
 import React, { Component } from "react"
 import styled from "styled-components"
 import axios from "axios"
+import moment from "moment"
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
 
 import SubmittingModal from "../Programs/SubmittingModal"
 import FormSentSuccess from "../Programs/FormSentSuccess"
@@ -75,6 +78,83 @@ const StyledMeetingRoomsForm = styled.div`
     &--select,
     &--textarea {
       width: 100%;
+    }
+
+    &--date,
+    &--time {
+      .react-datepicker-wrapper {
+        width: 100%;
+
+        .react-datepicker__input-container {
+          width: 100%;
+
+          input {
+            width: 100%;
+          }
+        }
+      }
+
+      .react-datepicker-popper {
+        width: 20rem;
+        .react-datepicker__time-container {
+          width: 20rem;
+        }
+        .react-datepicker-time__header {
+          font-family: ${props => props.theme.fontTer};
+          font-size: 2rem;
+        }
+        .react-datepicker__time-box {
+          width: 20rem;
+          .react-datepicker__time-list-item {
+            font-family: ${props => props.theme.fontTer};
+          }
+        }
+
+        .react-datepicker {
+          width: 20rem;
+
+          .react-datepicker__month-container {
+            width: 20rem;
+
+            .react-datepicker__header {
+              width: 20rem;
+
+              .react-datepicker__current-month {
+                font-size: 2rem;
+                font-family: ${props => props.theme.fontTer};
+              }
+
+              .react-datepicker__day-names {
+                width: 20rem;
+
+                .react-datepicker__day-name {
+                  width: 2.4rem;
+                  height: 2.4rem;
+                }
+              }
+
+              .react-datepicker__header__dropdown {
+                width: 20rem;
+                font-size: 1.4rem;
+                font-family: ${props => props.theme.fontTer};
+              }
+            }
+
+            .react-datepicker__month {
+              width: 20rem;
+
+              .react-datepicker__week {
+                width: 20rem;
+
+                .react-datepicker__day {
+                  width: 2.4rem;
+                  height: 2.4rem;
+                }
+              }
+            }
+          }
+        }
+      }
     }
 
     label {
@@ -210,6 +290,11 @@ class MeetingRoomsForm extends Component {
     this.resetTheForm = this.resetTheForm.bind(this)
     this.dismissError = this.dismissError.bind(this)
 
+    this.onChangeDateOne = this.onChangeDateOne.bind(this)
+    this.onChangeTimeOne = this.onChangeTimeOne.bind(this)
+    this.onChangeDateTwo = this.onChangeDateTwo.bind(this)
+    this.onChangeTimeTwo = this.onChangeTimeTwo.bind(this)
+
     this.state = {
       submitting: false,
       formHasErrors: false,
@@ -225,11 +310,14 @@ class MeetingRoomsForm extends Component {
       dateTwo: "",
       timeTwo: "",
       notes: "",
+      dateOnePicker: "",
+      timeOnePicker: "",
+      dateTwoPicker: "",
+      timeTwoPicker: "",
     }
   }
 
   componentDidMount() {
-    console.log(this.props.formRoom)
     this.setState(prevState => {
       return {
         ...prevState,
@@ -331,6 +419,10 @@ class MeetingRoomsForm extends Component {
         dateTwo: "",
         timeTwo: "",
         notes: "",
+        dateOnePicker: "",
+        timeOnePicker: "",
+        dateTwoPicker: "",
+        timeTwoPicker: "",
       }
     })
   }
@@ -340,6 +432,50 @@ class MeetingRoomsForm extends Component {
       return {
         ...prevState,
         formHasErrors: false,
+      }
+    })
+  }
+
+  onChangeDateOne(date) {
+    const newDate = moment(date).format("MMMM Do YYYY")
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        dateOne: newDate,
+        dateOnePicker: date,
+      }
+    })
+  }
+
+  onChangeTimeOne(date) {
+    const newDate = moment(date).format("h:mm a")
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        timeOne: newDate,
+        timeOnePicker: date,
+      }
+    })
+  }
+
+  onChangeDateTwo(date) {
+    const newDate = moment(date).format("MMMM Do YYYY")
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        dateTwo: newDate,
+        dateTwoPicker: date,
+      }
+    })
+  }
+
+  onChangeTimeTwo(date) {
+    const newDate = moment(date).format("h:mm a")
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        timeTwo: newDate,
+        timeTwoPicker: date,
       }
     })
   }
@@ -471,63 +607,66 @@ class MeetingRoomsForm extends Component {
               />
             </div>
 
-            <div className="meetingsForm__field">
+            <div className="meetingsForm__field meetingsForm__field--date">
               <label htmlFor="dateOne">Preferred Date</label>
               {dateOneError && (
                 <p className="form-error-message">{dateOneError}</p>
               )}
-              <input
-                type="date"
-                id="dateOne"
+              <DatePicker
                 name="dateOne"
-                value={this.state.dateOne}
-                onChange={this.onChange}
-                required={false}
+                id="dateOne"
+                onChange={this.onChangeDateOne}
+                selected={this.state.dateOnePicker}
+                peekNextMonth
+                showMonthDropdown
+                showYearDropdown
               />
             </div>
-
-            <div className="meetingsForm__field">
+            <div className="meetingsForm__field meetingsForm__field--time">
               <label htmlFor="timeOne">Preferred Time</label>
               {timeOneError && (
                 <p className="form-error-message">{timeOneError}</p>
               )}
-              <input
-                type="time"
-                id="timeOne"
-                name="timeOne"
-                value={this.state.timeOne}
-                onChange={this.onChange}
-                required={false}
+              <DatePicker
+                selected={this.state.timeOnePicker}
+                onChange={this.onChangeTimeOne}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={15}
+                dateFormat="h:mm aa"
+                timeCaption="Time"
               />
             </div>
 
-            <div className="meetingsForm__field">
+            <div className="meetingsForm__field meetingsForm__field--date">
               <label htmlFor="dateTwo">Alternate Date</label>
               {dateTwoError && (
                 <p className="form-error-message">{dateTwoError}</p>
               )}
-              <input
-                type="date"
-                id="dateTwo"
+              <DatePicker
                 name="dateTwo"
-                value={this.state.dateTwo}
-                onChange={this.onChange}
-                required={false}
+                id="dateTwo"
+                onChange={this.onChangeDateTwo}
+                selected={this.state.dateTwoPicker}
+                peekNextMonth
+                showMonthDropdown
+                showYearDropdown
               />
             </div>
 
-            <div className="meetingsForm__field">
+            <div className="meetingsForm__field meetingsForm__field--time">
               <label htmlFor="timeTwo">Alternate Time</label>
               {timeTwoError && (
                 <p className="form-error-message">{timeTwoError}</p>
               )}
-              <input
-                type="time"
-                id="timeTwo"
-                name="timeTwo"
-                value={this.state.timeTwo}
-                onChange={this.onChange}
-                required={false}
+              <DatePicker
+                selected={this.state.timeTwoPicker}
+                onChange={this.onChangeTimeTwo}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={15}
+                dateFormat="h:mm aa"
+                timeCaption="Time"
               />
             </div>
 
