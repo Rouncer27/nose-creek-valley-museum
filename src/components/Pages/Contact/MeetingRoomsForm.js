@@ -17,6 +17,7 @@ const StyledMeetingRoomsForm = styled.div`
   overflow-y: scroll;
 
   .meetingsForm__wrapper {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -29,6 +30,28 @@ const StyledMeetingRoomsForm = styled.div`
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       max-width: 70rem;
+    }
+  }
+
+  button.close-modal {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background: ${props => props.theme.black};
+    color: ${props => props.theme.white};
+
+    &:hover {
+      cursor: pointer;
+      background: ${props => props.theme.deepSea};
+      color: ${props => props.theme.kenyanCopper};
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 
@@ -61,7 +84,7 @@ const StyledMeetingRoomsForm = styled.div`
       color: ${props => props.theme.black};
 
       @media (min-width: ${props => props.theme.bpTablet}) {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
       }
     }
 
@@ -85,9 +108,93 @@ const StyledMeetingRoomsForm = styled.div`
       color: ${props => props.theme.grey};
       box-shadow: 0 0 0 0.2rem ${props => props.theme.black};
 
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        padding: 0.5rem;
+        font-size: 1.6rem;
+      }
+
       &:focus {
         outline: none;
         box-shadow: 0 0 0 0.2rem ${props => props.theme.neptune};
+      }
+    }
+  }
+
+  .meetingsForm__button {
+    width: calc(100% - 4rem);
+    margin: 2rem;
+    text-align: center;
+
+    .book-it-submit {
+      display: block;
+      position: relative;
+      padding: 1rem 0;
+      transition: all 0.3s ease-in-out;
+      background: transparent;
+      border: none;
+      color: ${props => props.theme.deepSea};
+      font-weight: 700;
+      text-transform: uppercase;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+      }
+      .btn-circle {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: -4.5rem;
+        width: 3.2rem;
+        height: 3.2rem;
+        transform: translate(0%, -50%);
+        transition: all 0.3s ease-in-out;
+        color: ${props => props.theme.deepSea};
+        text-align: center;
+
+        &::before {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100%;
+          height: 100%;
+          transform: translate(-50%, -50%);
+          transition: all 0.3s ease-in-out;
+          border: 0.2rem solid ${props => props.theme.deepSea};
+          border-radius: 50%;
+          content: "";
+        }
+
+        &::after {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0%;
+          transform: translate(0%, -50%);
+          transition: all 0.3s ease-in-out;
+          font-family: ${props => props.theme.fontAwesome};
+          font-size: 2.2rem;
+          font-weight: 100;
+          content: "\f178";
+        }
+      }
+
+      &:hover {
+        color: ${props => props.theme.kenyanCopper};
+        cursor: pointer;
+        .btn-circle {
+          color: ${props => props.theme.kenyanCopper};
+          &::before {
+            border-color: ${props => props.theme.kenyanCopper};
+          }
+          &::after {
+            color: ${props => props.theme.kenyanCopper};
+          }
+        }
       }
     }
   }
@@ -119,6 +226,19 @@ class MeetingRoomsForm extends Component {
       timeTwo: "",
       notes: "",
     }
+  }
+
+  componentDidMount() {
+    console.log(this.props.formRoom)
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        roomName:
+          this.props.formRoom === "Symons Valley Meeting Room"
+            ? "symonsValley"
+            : "yankeeValley",
+      }
+    })
   }
 
   onChange(e) {
@@ -262,6 +382,7 @@ class MeetingRoomsForm extends Component {
     return (
       <StyledMeetingRoomsForm>
         <div className="meetingsForm__wrapper">
+          <h3>Book a Meeting Room</h3>
           <form className="meetingsForm__form" onSubmit={this.submitTheForm}>
             <div className="meetingsForm__field meetingsForm__field--select">
               <label htmlFor="firstName">Select a room to book</label>
@@ -423,8 +544,8 @@ class MeetingRoomsForm extends Component {
                 required={false}
               />
             </div>
-            <div className="forms__curator--fields--button">
-              <button>
+            <div className="meetingsForm__button">
+              <button className="book-it-submit">
                 <span className="italic-btn">Submit</span>
                 <span className="btn-circle" />
               </button>
