@@ -21,8 +21,11 @@ const OutsideBio = ({ member, isActive, setActive }) => {
         <div className="staff__container--content--fav">
           <p>{member.favourite}</p>
         </div>
-        <div>
-          <button onClick={() => setActive(!isActive)}>Read Bio</button>
+        <div className="staff__container--content--button">
+          <button onClick={() => setActive(!isActive)}>
+            <span className="italic-btn">Read Bio</span>
+            <span className="btn-circle" />
+          </button>
         </div>
       </div>
     </div>

@@ -1,10 +1,7 @@
 import React, { Component } from "react"
-import Img from "gatsby-image"
 import styled from "styled-components"
 
 import { FullScreenWrapper } from "../../../components/styles/Commons/Wrappers"
-import OutsideBio from "./OutsideBio"
-import InsideBio from "./InsideBio"
 import SingleStaff from "./SingleStaff"
 
 const StaffStyled = styled.section`
@@ -131,6 +128,93 @@ const StaffStyled = styled.section`
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 1.8rem;
+          }
+        }
+      }
+
+      &--button {
+        width: 100%;
+        margin-top: 5rem;
+        text-align: center;
+
+        button {
+          display: inline-block;
+          position: relative;
+          padding: 1rem 0;
+          padding-right: 5rem;
+          transition: all 0.3s ease-in-out;
+          background: transparent;
+          color: ${props => props.theme.deco};
+          border: none;
+          text-transform: uppercase;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+          }
+
+          @media (min-width: ${props => props.theme.bpDesksm}) {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+          }
+
+          .italic-btn {
+            font-family: ${props => props.theme.fontSec};
+            font-style: italic;
+            text-transform: capitalize;
+          }
+
+          .btn-circle {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 3.2rem;
+            height: 3.2rem;
+            transform: translate(0%, -50%);
+            transition: all 0.3s ease-in-out;
+            color: ${props => props.theme.deco};
+            text-align: center;
+
+            &::before {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 100%;
+              height: 100%;
+              transform: translate(-50%, -50%);
+              transition: all 0.3s ease-in-out;
+              border: 0.2rem solid ${props => props.theme.deco};
+              border-radius: 50%;
+              content: "";
+            }
+
+            &::after {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 0%;
+              transform: translate(0%, -50%);
+              transition: all 0.3s ease-in-out;
+              font-family: ${props => props.theme.fontAwesome};
+              font-size: 2.2rem;
+              font-weight: 100;
+              content: "\f178";
+            }
+          }
+
+          &:hover {
+            color: ${props => props.theme.neptune};
+            cursor: pointer;
+
+            .btn-circle {
+              color: ${props => props.theme.neptune};
+              &::before {
+                border-color: ${props => props.theme.neptune};
+              }
+              &::after {
+                color: ${props => props.theme.neptune};
+              }
+            }
           }
         }
       }

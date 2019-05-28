@@ -6,9 +6,6 @@ import InsideBio from "./InsideBio"
 
 const SingleStaff = ({ member }) => {
   const [isActive, setActive] = useState(false)
-
-  console.log(isActive)
-
   return (
     <div className="staff__container">
       <OutsideBio member={member} isActive={isActive} setActive={setActive} />
