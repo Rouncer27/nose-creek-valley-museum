@@ -3,6 +3,9 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 
 import { FullScreenWrapper } from "../../../components/styles/Commons/Wrappers"
+import OutsideBio from "./OutsideBio"
+import InsideBio from "./InsideBio"
+import SingleStaff from "./SingleStaff"
 
 const StaffStyled = styled.section`
   width: 100%;
@@ -133,6 +136,10 @@ const StaffStyled = styled.section`
       }
     }
   }
+
+  .staff__container:nth-child(1) {
+    background: transparent;
+  }
 `
 
 class Staff extends Component {
@@ -148,27 +155,7 @@ class Staff extends Component {
             </div>
           </div>
           {this.props.staff.map((member, index) => {
-            return (
-              <div key={index} className="staff__container">
-                <div className="staff__container--image">
-                  <Img
-                    fluid={member.image.localFile.childImageSharp.fluid}
-                    alt={member.image.alt_text}
-                  />
-                </div>
-                <div className="staff__container--content">
-                  <div className="staff__container--content--title">
-                    <h3>{member.name}</h3>
-                  </div>
-                  <div className="staff__container--content--sub">
-                    <h4>{member.title}</h4>
-                  </div>
-                  <div className="staff__container--content--fav">
-                    <p>{member.favourite}</p>
-                  </div>
-                </div>
-              </div>
-            )
+            return <SingleStaff key={index} member={member} />
           })}
         </FullScreenWrapper>
       </StaffStyled>

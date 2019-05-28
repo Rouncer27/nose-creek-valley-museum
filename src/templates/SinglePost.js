@@ -184,7 +184,6 @@ const OtherRelatedPosts = styled.div`
 
 class SinglePost extends Component {
   render() {
-    console.log(this.props.data)
     const acf = this.props.data.wordpressPage
       ? this.props.data.wordpressPage.acf
       : false

@@ -124,6 +124,7 @@ export const query = graphql`
           title
           favourite
           icon
+          bio
         }
 
         _ncvm_coloured_links {
