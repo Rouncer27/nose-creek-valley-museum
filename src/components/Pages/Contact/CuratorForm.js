@@ -50,7 +50,7 @@ const StyledForm = styled.form`
   }
 `
 
-class StoryForm extends Component {
+class CuratorForm extends Component {
   constructor(props) {
     super(props)
     this.onChange = this.onChange.bind(this)
@@ -65,10 +65,10 @@ class StoryForm extends Component {
       formHasErrors: false,
       formSent: false,
       errors: [],
-      yourName: "",
-      yourEmail: "",
-      phoneNumber: "",
-      yourStory: "",
+      yourNameCur: "",
+      yourEmailCur: "",
+      phoneNumberCur: "",
+      question: "",
     }
   }
 
@@ -85,17 +85,17 @@ class StoryForm extends Component {
       }
     })
     const bodyFormData = new FormData()
-    bodyFormData.append("yourName", this.state.yourName)
-    bodyFormData.append("yourEmail", this.state.yourEmail)
-    bodyFormData.append("phoneNumber", this.state.phoneNumber)
-    bodyFormData.append("yourStory", this.state.yourStory)
+    bodyFormData.append("yourNameCur", this.state.yourNameCur)
+    bodyFormData.append("yourEmailCur", this.state.yourEmailCur)
+    bodyFormData.append("phoneNumberCur", this.state.phoneNumberCur)
+    bodyFormData.append("question", this.state.question)
 
     const baseURL = "https://dedi105.canspace.ca/~swbecreekvalleym/"
     const config = { headers: { "Content-Type": "multipart/form-data" } }
 
     axios
       .post(
-        `${baseURL}/wp-json/contact-form-7/v1/contact-forms/547/feedback`,
+        `${baseURL}/wp-json/contact-form-7/v1/contact-forms/548/feedback`,
         bodyFormData,
         config
       )
@@ -106,6 +106,7 @@ class StoryForm extends Component {
           }, 1000)
         } else if (res.data.status === "validation_failed") {
           setTimeout(() => {
+            console.log(res.data.invalidFields)
             this.formHaveErrors(res.data.message, res.data.invalidFields)
           }, 1000)
         }
@@ -144,10 +145,10 @@ class StoryForm extends Component {
         formHasErrors: false,
         formSent: false,
         errors: [],
-        yourName: "",
-        yourEmail: "",
-        phoneNumber: "",
-        yourStory: "",
+        yourNameCur: "",
+        yourEmailCur: "",
+        phoneNumberCur: "",
+        question: "",
       }
     })
   }
@@ -162,36 +163,35 @@ class StoryForm extends Component {
   }
 
   render() {
-    let yourNameError = false
-    let yourEmailError = false
-    let phoneNumberError = false
-    let yourStoryError = false
+    let yourNameCurError = false
+    let yourEmailCurError = false
+    let phoneNumberCurError = false
+    let questionError = false
 
     this.state.errors.forEach(error => {
-      if (error.idref === "yourName") {
-        yourNameError = "Full Name is required"
-      } else if (error.idref === "yourEmail") {
-        yourEmailError = "email is required"
-      } else if (error.idref === "phoneNumber") {
-        phoneNumberError = "Phone number is required"
-      } else if (error.idref === "yourStory") {
-        yourStoryError = "Your Story is Required"
+      if (error.idref === "yourNameCur") {
+        yourNameCurError = "Full Name is required"
+      } else if (error.idref === "yourEmailCur") {
+        yourEmailCurError = "email is required"
+      } else if (error.idref === "phoneNumberCur") {
+        phoneNumberCurError = "Phone number is required"
+      } else if (error.idref === "question") {
+        questionError = "Your Question is Required"
       }
     })
-
     return (
       <StyledForm className="storyForm" onSubmit={this.submitTheForm}>
         <div className="storyForm__field">
-          <label htmlFor="yourName">Name</label>
-          {yourNameError && (
-            <p className="form-error-message">{yourNameError}</p>
+          <label htmlFor="yourNameCur">Name</label>
+          {yourNameCurError && (
+            <p className="form-error-message">{yourNameCurError}</p>
           )}
           <div>
             <input
               type="text"
-              id="yourName"
-              name="yourName"
-              value={this.state.yourName}
+              id="yourNameCur"
+              name="yourNameCur"
+              value={this.state.yourNameCur}
               onChange={this.onChange}
               required={false}
             />
@@ -199,16 +199,16 @@ class StoryForm extends Component {
         </div>
 
         <div className="storyForm__field">
-          <label htmlFor="yourEmail">Email</label>
-          {yourEmailError && (
-            <p className="form-error-message">{yourEmailError}</p>
+          <label htmlFor="yourEmailCur">Email</label>
+          {yourEmailCurError && (
+            <p className="form-error-message">{yourEmailCurError}</p>
           )}
           <div>
             <input
               type="email"
-              id="yourEmail"
-              name="yourEmail"
-              value={this.state.yourEmail}
+              id="yourEmailCur"
+              name="yourEmailCur"
+              value={this.state.yourEmailCur}
               onChange={this.onChange}
               required={false}
             />
@@ -216,43 +216,38 @@ class StoryForm extends Component {
         </div>
 
         <div className="storyForm__field">
-          <label htmlFor="phoneNumber">Phone Number</label>
-          {phoneNumberError && (
-            <p className="form-error-message">{phoneNumberError}</p>
+          <label htmlFor="phoneNumberCur">Phone Number</label>
+          {phoneNumberCurError && (
+            <p className="form-error-message">{phoneNumberCurError}</p>
           )}
           <input
             type="phone"
-            id="phoneNumber"
-            name="phoneNumber"
-            value={this.state.phoneNumber}
+            id="phoneNumberCur"
+            name="phoneNumberCur"
+            value={this.state.phoneNumberCur}
             onChange={this.onChange}
             required={false}
           />
         </div>
 
         <div className="storyForm__field">
-          <label htmlFor="yourStory">Story</label>
-          {yourStoryError && (
-            <p className="form-error-message">{yourStoryError}</p>
+          <label htmlFor="question">Question</label>
+          {questionError && (
+            <p className="form-error-message">{questionError}</p>
           )}
           <textarea
             cols="40"
             rows="8"
-            id="yourStory"
-            name="yourStory"
-            value={this.state.yourStory}
+            id="question"
+            name="question"
+            value={this.state.question}
             onChange={this.onChange}
             required={false}
           />
         </div>
-
-        <div
-          className="forms__story--fields--smallprint"
-          dangerouslySetInnerHTML={{ __html: this.props.storySmall }}
-        />
-        <div className="forms__story--fields--button">
+        <div className="forms__curator--fields--button">
           <button>
-            Story / <span className="italic-btn">Submit</span>
+            Curator / <span className="italic-btn">Submit</span>
             <span className="btn-circle" />
           </button>
         </div>
@@ -268,4 +263,4 @@ class StoryForm extends Component {
   }
 }
 
-export default StoryForm
+export default CuratorForm

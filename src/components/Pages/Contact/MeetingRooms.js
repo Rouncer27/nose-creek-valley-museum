@@ -2,9 +2,14 @@ import React, { Component } from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
+import MeetingRoomsForm from "./MeetingRoomsForm"
 import { FullScreenWrapper } from "../../../components/styles/Commons/Wrappers"
 
+import gallery from "../../../images/icons/gallery.png"
+import pillars from "../../../images/icons/pillars.png"
+
 const MeetingRoomsStyled = styled.section`
+  position: relative;
   width: 100%;
   padding-bottom: 10rem;
   background: linear-gradient(
@@ -26,8 +31,10 @@ const MeetingRoomsStyled = styled.section`
   }
 
   .rooms__container {
+    position: relative;
     width: 100%;
     margin: 2rem 3rem;
+    padding-bottom: 4rem;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: ${props => props.theme.white};
 
@@ -98,6 +105,7 @@ const MeetingRoomsStyled = styled.section`
     }
 
     &--content {
+      position: relative;
       padding: 7.5rem 1.5rem 1.5rem;
 
       &--title {
@@ -147,12 +155,180 @@ const MeetingRoomsStyled = styled.section`
           }
         }
       }
+
+      &--button {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        text-align: center;
+
+        button {
+          display: inline-block;
+          position: relative;
+          padding: 1rem 0;
+          padding-right: 5rem;
+          transition: all 0.3s ease-in-out;
+          background: transparent;
+          color: ${props => props.theme.deepSea};
+          border: none;
+          font-family: ${props => props.theme.fontSec};
+          font-style: italic;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+          }
+
+          @media (min-width: ${props => props.theme.bpDesksm}) {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+          }
+
+          .italic-btn {
+            font-family: ${props => props.theme.fontSec};
+            font-style: italic;
+            text-transform: capitalize;
+          }
+
+          .btn-circle {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 3.2rem;
+            height: 3.2rem;
+            transform: translate(0%, -50%);
+            transition: all 0.3s ease-in-out;
+            color: ${props => props.theme.deepSea};
+            text-align: center;
+
+            &::before {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 100%;
+              height: 100%;
+              transform: translate(-50%, -50%);
+              transition: all 0.3s ease-in-out;
+              border: 0.2rem solid ${props => props.theme.deepSea};
+              border-radius: 50%;
+              content: "";
+            }
+
+            &::after {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 0%;
+              transform: translate(0%, -50%);
+              transition: all 0.3s ease-in-out;
+              font-family: ${props => props.theme.fontAwesome};
+              font-size: 2.2rem;
+              font-weight: 100;
+              content: "\f178";
+            }
+          }
+
+          &:hover {
+            color: ${props => props.theme.deco};
+            cursor: pointer;
+
+            .btn-circle {
+              color: ${props => props.theme.deco};
+              &::before {
+                border-color: ${props => props.theme.deco};
+              }
+              &::after {
+                color: ${props => props.theme.deco};
+              }
+            }
+          }
+        }
+      }
+
+      &--icon {
+        position: absolute;
+        top: -3.5rem;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        width: 7rem;
+        height: 7rem;
+        background-color: ${props => props.theme.deepSea};
+        border-radius: 50%;
+        overflow: hidden;
+
+        &::after {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 4rem;
+          height: 4rem;
+          transform: translate(-50%, -50%);
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 100%;
+          content: "";
+          z-index: 1;
+        }
+      }
+    }
+  }
+
+  .rooms__container:nth-of-type(2) {
+    .rooms__container--content--icon {
+      &::after {
+        background-image: url(${pillars});
+      }
+    }
+  }
+
+  .rooms__container:nth-of-type(3) {
+    .rooms__container--content--icon {
+      &::after {
+        background-image: url(${gallery});
+      }
     }
   }
 `
 
 class MeetingRooms extends Component {
+  constructor(props) {
+    super(props)
+
+    this.openBookItForm = this.openBookItForm.bind(this)
+    this.closeBookItForm = this.closeBookItForm.bind(this)
+
+    this.state = {
+      formOpen: false,
+      formRoom: "",
+    }
+  }
+
+  openBookItForm(roomName) {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        formOpen: true,
+        formRoom: roomName,
+      }
+    })
+  }
+
+  closeBookItForm() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        formOpen: false,
+        formRoom: "",
+      }
+    })
+  }
+
   render() {
+    console.log(this.state)
     return (
       <MeetingRoomsStyled id="factRentals" className="rooms">
         <FullScreenWrapper className="rooms__wrapper">
@@ -184,11 +360,23 @@ class MeetingRooms extends Component {
                     className="rooms__container--content--fav"
                     dangerouslySetInnerHTML={{ __html: room.capacity }}
                   />
+                  <div className="rooms__container--content--icon" />
+                </div>
+                <div className="rooms__container--content--button">
+                  <button onClick={() => this.openBookItForm(room.room_name)}>
+                    Book it <span className="btn-circle" />
+                  </button>
                 </div>
               </div>
             )
           })}
         </FullScreenWrapper>
+        {this.state.formOpen && (
+          <MeetingRoomsForm
+            closeBookItForm={this.closeBookItForm}
+            formRoom={this.state.formRoom}
+          />
+        )}
       </MeetingRoomsStyled>
     )
   }

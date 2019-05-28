@@ -2,10 +2,8 @@ import React, { Component } from "react"
 import styled from "styled-components"
 
 import { FullScreenWrapper } from "../../../components/styles/Commons/Wrappers"
-import TextField from "../../../components/styles/Commons/FormParts/TextField"
-import TextArea from "../../../components/styles/Commons/FormParts/TextArea"
-
 import StoryForm from "./StoryForm"
+import CuratorForm from "./CuratorForm"
 
 const FormsStyled = styled.section`
   position: relative;
@@ -399,52 +397,7 @@ class Forms extends Component {
               dangerouslySetInnerHTML={{ __html: this.props.curator }}
             />
             <div className="forms__curator--fields">
-              <form>
-                {this.props.curatorForm.map((field, index) => {
-                  field.value = this.state[field.field_id]
-                    ? this.state[field.field_id]
-                    : ""
-                  return (
-                    <div key={index}>
-                      <label htmlFor={field.field_id}>{field.label}</label>
-                      {field.field_type === "input" && (
-                        <TextField
-                          field={field}
-                          onChange={this.onChange}
-                          errors={[]}
-                        />
-                      )}
-                      {field.field_type === "email" && (
-                        <TextField
-                          field={field}
-                          onChange={this.onChange}
-                          errors={[]}
-                        />
-                      )}
-                      {field.field_type === "phone" && (
-                        <TextField
-                          field={field}
-                          onChange={this.onChange}
-                          errors={[]}
-                        />
-                      )}
-                      {field.field_type === "textarea" && (
-                        <TextArea
-                          field={field}
-                          onChange={this.onChange}
-                          errors={[]}
-                        />
-                      )}
-                    </div>
-                  )
-                })}
-                <div className="forms__curator--fields--button">
-                  <button>
-                    Curator / <span className="italic-btn">Submit</span>
-                    <span className="btn-circle" />
-                  </button>
-                </div>
-              </form>
+              <CuratorForm />
             </div>
           </div>
         </FullScreenWrapper>

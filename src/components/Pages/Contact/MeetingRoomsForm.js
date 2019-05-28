@@ -1,0 +1,451 @@
+import React, { Component } from "react"
+import styled from "styled-components"
+import axios from "axios"
+
+import SubmittingModal from "../Programs/SubmittingModal"
+import FormSentSuccess from "../Programs/FormSentSuccess"
+import FormErrorsModal from "../Programs/FormErrorsModal"
+
+const StyledMeetingRoomsForm = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: ${props => props.theme.deco};
+  z-index: 9999999999;
+  overflow-y: scroll;
+
+  .meetingsForm__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 60rem;
+    transform: translate(-50%, -50%);
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 70rem;
+    }
+  }
+
+  .meetingsForm__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .meetingsForm__field {
+    position: relative;
+    width: 100%;
+    padding-top: 1rem;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 4rem);
+      margin: 0 2rem;
+    }
+
+    &--select,
+    &--textarea {
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      margin-top: 2rem;
+      color: ${props => props.theme.black};
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 1.6rem;
+      }
+    }
+
+    .form-error-message {
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      color: red;
+      font-size: 1.2rem;
+    }
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0.1rem;
+      border: none;
+      color: ${props => props.theme.grey};
+      box-shadow: 0 0 0 0.2rem ${props => props.theme.black};
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.2rem ${props => props.theme.neptune};
+      }
+    }
+  }
+`
+
+class MeetingRoomsForm extends Component {
+  constructor(props) {
+    super(props)
+    this.onChange = this.onChange.bind(this)
+    this.submitTheForm = this.submitTheForm.bind(this)
+    this.formSentSuccess = this.formSentSuccess.bind(this)
+    this.formHaveErrors = this.formHaveErrors.bind(this)
+    this.resetTheForm = this.resetTheForm.bind(this)
+    this.dismissError = this.dismissError.bind(this)
+
+    this.state = {
+      submitting: false,
+      formHasErrors: false,
+      formSent: false,
+      errors: [],
+      roomName: "",
+      firstName: "",
+      lastName: "",
+      yourEmail: "",
+      phoneNumber: "",
+      dateOne: "",
+      timeOne: "",
+      dateTwo: "",
+      timeTwo: "",
+      notes: "",
+    }
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  submitTheForm(e) {
+    e.preventDefault()
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        submitting: !prevState.submitting,
+      }
+    })
+    const bodyFormData = new FormData()
+    bodyFormData.append("roomName", this.state.roomName)
+    bodyFormData.append("firstName", this.state.firstName)
+    bodyFormData.append("lastName", this.state.lastName)
+    bodyFormData.append("yourEmail", this.state.yourEmail)
+    bodyFormData.append("phoneNumber", this.state.phoneNumber)
+    bodyFormData.append("dateOne", this.state.dateOne)
+    bodyFormData.append("timeOne", this.state.timeOne)
+    bodyFormData.append("dateTwo", this.state.dateTwo)
+    bodyFormData.append("timeTwo", this.state.timeTwo)
+    bodyFormData.append("notes", this.state.notes)
+
+    const baseURL = "https://dedi105.canspace.ca/~swbecreekvalleym/"
+    const config = { headers: { "Content-Type": "multipart/form-data" } }
+
+    axios
+      .post(
+        `${baseURL}/wp-json/contact-form-7/v1/contact-forms/549/feedback`,
+        bodyFormData,
+        config
+      )
+      .then(res => {
+        if (res.data.status === "mail_sent") {
+          setTimeout(() => {
+            this.formSentSuccess(res.data.message)
+          }, 1000)
+        } else if (res.data.status === "validation_failed") {
+          setTimeout(() => {
+            console.log(res.data.invalidFields)
+            this.formHaveErrors(res.data.message, res.data.invalidFields)
+          }, 1000)
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  formSentSuccess() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        formSent: true,
+        submitting: false,
+      }
+    })
+  }
+
+  formHaveErrors(message, fields) {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        submitting: false,
+        formHasErrors: true,
+        errors: fields,
+      }
+    })
+  }
+
+  resetTheForm() {
+    this.props.closeBookItForm()
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        submitting: false,
+        formHasErrors: false,
+        formSent: false,
+        errors: [],
+        roomName: "",
+        firstName: "",
+        lastName: "",
+        yourEmail: "",
+        phoneNumber: "",
+        dateOne: "",
+        timeOne: "",
+        dateTwo: "",
+        timeTwo: "",
+        notes: "",
+      }
+    })
+  }
+
+  dismissError() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        formHasErrors: false,
+      }
+    })
+  }
+
+  render() {
+    let roomNameError = false
+    let firstNameError = false
+    let lastNameError = false
+    let yourEmailError = false
+    let phoneNumberError = false
+    let dateOneError = false
+    let timeOneError = false
+    let dateTwoError = false
+    let timeTwoError = false
+    let notesError = false
+
+    this.state.errors.forEach(error => {
+      if (error.idref === "roomName") {
+        roomNameError = "Room is required"
+      } else if (error.idref === "firstName") {
+        firstNameError = "First Name is required"
+      } else if (error.idref === "lastName") {
+        lastNameError = "Last Name is required"
+      } else if (error.idref === "yourEmail") {
+        yourEmailError = "Your Email is required"
+      } else if (error.idref === "phoneNumber") {
+        phoneNumberError = "Your phone number is required"
+      } else if (error.idref === "dateOne") {
+        dateOneError = "Your Perferred date is Required"
+      } else if (error.idref === "timeOne") {
+        timeOneError = "Your Perferred time is Required"
+      } else if (error.idref === "dateTwo") {
+        dateTwoError = "Your Alternate date is Required"
+      } else if (error.idref === "timeTwo") {
+        timeTwoError = "Your Alternate time is Required"
+      } else if (error.idref === "notes") {
+        notesError = "Your notes are Required"
+      }
+    })
+    return (
+      <StyledMeetingRoomsForm>
+        <div className="meetingsForm__wrapper">
+          <form className="meetingsForm__form" onSubmit={this.submitTheForm}>
+            <div className="meetingsForm__field meetingsForm__field--select">
+              <label htmlFor="firstName">Select a room to book</label>
+              {roomNameError && (
+                <p className="form-error-message">{roomNameError}</p>
+              )}
+              <select
+                name="roomName"
+                onChange={this.onChange}
+                value={this.state.roomName}
+                required={false}
+              >
+                <option value=""> -- select a room -- </option>
+                <option title="symonsValley" value="symonsValley">
+                  Symons Valley Meeting Room
+                </option>
+                <option title="yankeeValley" value="yankeeValley">
+                  Yankee Valley Meeting Room
+                </option>
+              </select>
+            </div>
+
+            <div className="meetingsForm__field">
+              <label htmlFor="firstName">First Name</label>
+              {firstNameError && (
+                <p className="form-error-message">{firstNameError}</p>
+              )}
+              <div>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={this.state.firstName}
+                  onChange={this.onChange}
+                  required={false}
+                />
+              </div>
+            </div>
+
+            <div className="meetingsForm__field">
+              <label htmlFor="lastName">Last Name</label>
+              {lastNameError && (
+                <p className="form-error-message">{lastNameError}</p>
+              )}
+              <div>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={this.state.lastName}
+                  onChange={this.onChange}
+                  required={false}
+                />
+              </div>
+            </div>
+
+            <div className="meetingsForm__field">
+              <label htmlFor="yourEmail">Email</label>
+              {yourEmailError && (
+                <p className="form-error-message">{yourEmailError}</p>
+              )}
+              <div>
+                <input
+                  type="email"
+                  id="yourEmail"
+                  name="yourEmail"
+                  value={this.state.yourEmail}
+                  onChange={this.onChange}
+                  required={false}
+                />
+              </div>
+            </div>
+
+            <div className="meetingsForm__field">
+              <label htmlFor="phoneNumber">Phone Number</label>
+              {phoneNumberError && (
+                <p className="form-error-message">{phoneNumberError}</p>
+              )}
+              <input
+                type="phone"
+                id="phoneNumber"
+                name="phoneNumber"
+                value={this.state.phoneNumber}
+                onChange={this.onChange}
+                required={false}
+              />
+            </div>
+
+            <div className="meetingsForm__field">
+              <label htmlFor="dateOne">Preferred Date</label>
+              {dateOneError && (
+                <p className="form-error-message">{dateOneError}</p>
+              )}
+              <input
+                type="date"
+                id="dateOne"
+                name="dateOne"
+                value={this.state.dateOne}
+                onChange={this.onChange}
+                required={false}
+              />
+            </div>
+
+            <div className="meetingsForm__field">
+              <label htmlFor="timeOne">Preferred Time</label>
+              {timeOneError && (
+                <p className="form-error-message">{timeOneError}</p>
+              )}
+              <input
+                type="time"
+                id="timeOne"
+                name="timeOne"
+                value={this.state.timeOne}
+                onChange={this.onChange}
+                required={false}
+              />
+            </div>
+
+            <div className="meetingsForm__field">
+              <label htmlFor="dateTwo">Alternate Date</label>
+              {dateTwoError && (
+                <p className="form-error-message">{dateTwoError}</p>
+              )}
+              <input
+                type="date"
+                id="dateTwo"
+                name="dateTwo"
+                value={this.state.dateTwo}
+                onChange={this.onChange}
+                required={false}
+              />
+            </div>
+
+            <div className="meetingsForm__field">
+              <label htmlFor="timeTwo">Alternate Time</label>
+              {timeTwoError && (
+                <p className="form-error-message">{timeTwoError}</p>
+              )}
+              <input
+                type="time"
+                id="timeTwo"
+                name="timeTwo"
+                value={this.state.timeTwo}
+                onChange={this.onChange}
+                required={false}
+              />
+            </div>
+
+            <div className="meetingsForm__field meetingsForm__field--textarea">
+              <label htmlFor="notes">Notes</label>
+              {notesError && <p className="form-error-message">{notesError}</p>}
+              <textarea
+                cols="40"
+                rows="8"
+                id="notes"
+                name="notes"
+                value={this.state.notes}
+                onChange={this.onChange}
+                required={false}
+              />
+            </div>
+            <div className="forms__curator--fields--button">
+              <button>
+                <span className="italic-btn">Submit</span>
+                <span className="btn-circle" />
+              </button>
+            </div>
+          </form>
+          <div>
+            <button className="close-modal" onClick={this.resetTheForm}>
+              &#x2715;
+            </button>
+          </div>
+        </div>
+        {this.state.submitting && <SubmittingModal />}
+        {this.state.formSent && (
+          <FormSentSuccess resetTheForm={this.resetTheForm} />
+        )}
+        {this.state.formHasErrors && (
+          <FormErrorsModal dismissError={this.dismissError} />
+        )}
+      </StyledMeetingRoomsForm>
+    )
+  }
+}
+
+export default MeetingRoomsForm
