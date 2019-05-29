@@ -94,15 +94,72 @@ const VolunteerStyled = styled.section`
       }
 
       a {
+        display: block;
+        position: relative;
+        padding: 1rem 5rem 1rem 1rem;
+        transition: all 0.3s ease-in-out;
+        background: transparent;
+        border: none;
         color: ${props => props.theme.deepSea};
+        font-weight: 700;
         font-size: 2.2rem;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
           font-size: 1.8rem;
         }
 
+        .btn-circle {
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 3.2rem;
+          height: 3.2rem;
+          transform: translate(0%, -50%);
+          transition: all 0.3s ease-in-out;
+          color: ${props => props.theme.deepSea};
+          text-align: center;
+
+          &::before {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease-in-out;
+            border: 0.2rem solid ${props => props.theme.deepSea};
+            border-radius: 50%;
+            content: "";
+          }
+
+          &::after {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(0%, -50%);
+            transition: all 0.3s ease-in-out;
+            font-family: ${props => props.theme.fontAwesome};
+            font-size: 2.2rem;
+            font-weight: 100;
+            content: "\f178";
+          }
+        }
+
         &:hover {
           color: ${props => props.theme.rawSienna};
+          cursor: pointer;
+          .btn-circle {
+            color: ${props => props.theme.rawSienna};
+            &::before {
+              border-color: ${props => props.theme.rawSienna};
+            }
+            &::after {
+              color: ${props => props.theme.rawSienna};
+            }
+          }
         }
       }
     }
@@ -189,7 +246,6 @@ const VolunteerStyled = styled.section`
 class Volunteer extends Component {
   render() {
     const { content, link, positions } = this.props
-
     return (
       <VolunteerStyled id="volunteerInfo" className="volunteer">
         <StandardWrapper className="volunteer__wrapper">
@@ -201,9 +257,14 @@ class Volunteer extends Component {
             <div className="volunteer__content--icon">
               <VolunteerAnimation />
               <TwoSpanButtons className="volunteer__content--link">
-                <a href={link}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={link.localFile.publicURL}
+                >
                   <span>Volunteer / </span>
-                  <span>Today</span>
+                  <span className="italic-btn">Today</span>
+                  <span className="btn-circle" />
                 </a>
               </TwoSpanButtons>
             </div>

@@ -130,7 +130,11 @@ export const query = graphql`
         _swb_donate_sec_link
 
         _ncvm_vol_sec_content
-        _ncvm_vol_sec_link
+        _ncvm_vol_sec_link {
+          localFile {
+            publicURL
+          }
+        }
         _ncvm_volunteer_positions {
           job_title
           job_description
