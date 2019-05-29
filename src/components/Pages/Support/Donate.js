@@ -5,6 +5,8 @@ import { StandardWrapper } from "../../../components/styles/Commons/Wrappers"
 import { TwoSpanButtons } from "../../../components/styles/Commons/Buttons"
 import DonateAnimation from "./DonateAnimation"
 
+import LearnMoreForm from "./LearnMoreForm"
+
 const DonateStyled = styled.section`
   padding: 5rem 0;
 
@@ -81,7 +83,7 @@ const DonateStyled = styled.section`
         margin-bottom: 0;
       }
 
-      a {
+      button {
         display: block;
         position: relative;
         padding: 1rem 5rem 1rem 1rem;
@@ -155,6 +157,25 @@ const DonateStyled = styled.section`
 `
 
 class Donate extends Component {
+  constructor(props) {
+    super(props)
+
+    this.toggleLearnMoreForm = this.toggleLearnMoreForm.bind(this)
+
+    this.state = {
+      formActive: false,
+    }
+  }
+
+  toggleLearnMoreForm() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        formActive: !this.state.formActive,
+      }
+    })
+  }
+
   render() {
     return (
       <DonateStyled className="donate">
@@ -166,11 +187,11 @@ class Donate extends Component {
             <div className="donate__content--icon">
               <DonateAnimation />
               <TwoSpanButtons className="donate__content--link">
-                <a href={this.props.link}>
+                <button onClick={this.toggleLearnMoreForm}>
                   <span>Donate / </span>
                   <span className="italic-btn">Today</span>
                   <span className="btn-circle" />
-                </a>
+                </button>
               </TwoSpanButtons>
             </div>
             <div
@@ -179,6 +200,12 @@ class Donate extends Component {
             />
           </div>
         </StandardWrapper>
+        {this.state.formActive && (
+          <LearnMoreForm
+            toggleLearnMoreForm={this.toggleLearnMoreForm}
+            subject="Learn How To Donate"
+          />
+        )}
       </DonateStyled>
     )
   }

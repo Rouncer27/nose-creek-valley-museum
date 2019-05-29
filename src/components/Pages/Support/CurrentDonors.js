@@ -7,6 +7,8 @@ import { StandardWrapper } from "../../../components/styles/Commons/Wrappers"
 import { BigHeadlines } from "../../../components/styles/Commons/Titles"
 import { TwoSpanButtons } from "../../../components/styles/Commons/Buttons"
 
+import LearnMoreForm from "./LearnMoreForm"
+
 const CurrentDonorsStyled = styled.section`
   padding: 0 0 5rem;
 
@@ -118,9 +120,11 @@ const CurrentDonorsStyled = styled.section`
         right: 0;
       }
 
-      a {
+      button {
         display: block;
+        width: 100%;
         padding: 2.5rem 2rem;
+        border: none;
         background: ${props => props.theme.deco};
         color: ${props => props.theme.grape};
 
@@ -226,6 +230,24 @@ const CurrentDonorsStyled = styled.section`
 `
 
 class CurrentDonors extends Component {
+  constructor(props) {
+    super(props)
+
+    this.toggleLearnMoreForm = this.toggleLearnMoreForm.bind(this)
+
+    this.state = {
+      formActive: false,
+    }
+  }
+
+  toggleLearnMoreForm() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        formActive: !this.state.formActive,
+      }
+    })
+  }
   render() {
     return (
       <CurrentDonorsStyled className="currdon">
@@ -244,10 +266,10 @@ class CurrentDonors extends Component {
                 dangerouslySetInnerHTML={{ __html: this.props.contentBot }}
               />
               <TwoSpanButtons className="currdon__thanks--button">
-                <Link to="">
+                <button onClick={this.toggleLearnMoreForm}>
                   <span>Learn How / </span>
                   <span>Support</span>
-                </Link>
+                </button>
               </TwoSpanButtons>
             </div>
             <div className="currdon__thanks--bgimg">
@@ -298,6 +320,12 @@ class CurrentDonors extends Component {
             </div>
           </div>
         </StandardWrapper>
+        {this.state.formActive && (
+          <LearnMoreForm
+            toggleLearnMoreForm={this.toggleLearnMoreForm}
+            subject=""
+          />
+        )}
       </CurrentDonorsStyled>
     )
   }
