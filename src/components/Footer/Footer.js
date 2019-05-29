@@ -378,25 +378,26 @@ class Footer extends Component {
                     <nav>
                       <ul>
                         <li>
-                          <Link to="/">Collections</Link>
+                          <Link to="/experience">Collections</Link>
                         </li>
                         <li>
-                          <Link to="/">Exhibits</Link>
+                          <Link to="/experience/#speicalExhibits">
+                            Exhibits
+                          </Link>
                         </li>
                         <li>
-                          <Link to="/">Past Exhibits</Link>
+                          <Link to="/experience/#pastExhibits">
+                            Past Exhibits
+                          </Link>
                         </li>
                         <li>
-                          <Link to="/">Special events</Link>
+                          <Link to="/programs/#programsList">Programs</Link>
                         </li>
                         <li>
-                          <Link to="/">Programs</Link>
+                          <Link to="/programs/">Photo gallery</Link>
                         </li>
                         <li>
-                          <Link to="/">Photo gallery</Link>
-                        </li>
-                        <li>
-                          <Link to="/">Tourist info</Link>
+                          <Link to="/programs/#touristInfo">Tourist info</Link>
                         </li>
                       </ul>
                     </nav>
@@ -406,31 +407,24 @@ class Footer extends Component {
                     <nav>
                       <ul>
                         <li>
-                          <Link to="/">Membership</Link>
+                          <Link to="/support/#membershipInfo">Membership</Link>
                         </li>
                         <li>
-                          <Link to="/">Volunteer</Link>
+                          <Link to="/support/#volunteerInfo">Volunteer</Link>
                         </li>
                         <li>
-                          <Link to="/">Info/apps</Link>
+                          <Link to="/support/#donateInfo">Donate</Link>
                         </li>
                         <li>
-                          <Link to="/">Donate</Link>
+                          <Link to="/support/#shopInfo">Shop</Link>
                         </li>
                         <li>
-                          <Link to="/">Shop</Link>
+                          <Link to="/connect/#factRentals">
+                            Facility rental
+                          </Link>
                         </li>
                         <li>
-                          <Link to="/">Facility rental</Link>
-                        </li>
-                        <li>
-                          <Link to="/">Corporate</Link>
-                        </li>
-                        <li>
-                          <Link to="/">Support</Link>
-                        </li>
-                        <li>
-                          <Link to="/">Thank yous</Link>
+                          <Link to="/support/#corporateInfo">Corporate</Link>
                         </li>
                       </ul>
                     </nav>

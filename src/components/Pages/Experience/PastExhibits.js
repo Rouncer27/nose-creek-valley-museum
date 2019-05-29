@@ -247,9 +247,8 @@ const PastExhibitStyled = styled.section`
 
 class PastExhibits extends Component {
   render() {
-    console.log(this.props.exhibits)
     return (
-      <PastExhibitStyled className="pastex">
+      <PastExhibitStyled id="pastExhibits" className="pastex">
         <Slider
           className="pastex__slider"
           slidesToShow={1}

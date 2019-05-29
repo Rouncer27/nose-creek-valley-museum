@@ -84,7 +84,7 @@ const ShopStyled = styled.section`
 class Shop extends Component {
   render() {
     return (
-      <ShopStyled className="shop">
+      <ShopStyled id="shopInfo" className="shop">
         <StandardWrapper className="shop__wrapper">
           <div className="shop__content">
             <h2>Shop</h2>

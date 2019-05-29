@@ -125,11 +125,13 @@ const CurrentDonorsStyled = styled.section`
         width: 100%;
         padding: 2.5rem 2rem;
         border: none;
+        transition: all 0.3s ease;
         background: ${props => props.theme.deco};
         color: ${props => props.theme.grape};
 
         &:hover {
-          background: ${props => props.theme.white};
+          cursor: pointer;
+          background: ${props => props.theme.neptune};
           color: ${props => props.theme.deco};
         }
       }

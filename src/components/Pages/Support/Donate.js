@@ -178,7 +178,7 @@ class Donate extends Component {
 
   render() {
     return (
-      <DonateStyled className="donate">
+      <DonateStyled id="donateInfo" className="donate">
         <StandardWrapper className="donate__wrapper">
           <div className="donate__title">
             <h2>Donate to NCVM</h2>

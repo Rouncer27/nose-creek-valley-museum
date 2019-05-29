@@ -207,7 +207,7 @@ class Corporate extends Component {
   }
   render() {
     return (
-      <CorporateStyled className="corpspon">
+      <CorporateStyled id="corporateInfo" className="corpspon">
         <StandardWrapper className="corpspon__wrapper">
           <div className="corpspon__title">
             <h2>
