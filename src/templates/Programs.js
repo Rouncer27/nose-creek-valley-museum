@@ -9,6 +9,7 @@ import Intro from "../components/Pages/Programs/Intro"
 import GuideTours from "../components/Pages/Programs/GuideTours"
 import ProgramsList from "../components/Pages/Programs/ProgramsList"
 import ColouredLinks from "../components/Templates/ColouredLinks"
+import Gallery from "../components/Pages/Programs/Gallery"
 
 class Programs extends Component {
   render() {
@@ -34,6 +35,8 @@ class Programs extends Component {
     const programs = acf ? acf._ncvm_programs : false
     const colourLinks = acf ? acf._ncvm_coloured_links : false
 
+    const galleryImages = acf ? acf._ncvm_photo_gallery : []
+
     return (
       <Layout location={this.props.location}>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -42,6 +45,7 @@ class Programs extends Component {
         <GuideTours tours={guideTours} />
         <ProgramsList tours={programs} />
         <ColouredLinks links={colourLinks} />
+        <Gallery images={galleryImages} />
       </Layout>
     )
   }
@@ -110,6 +114,20 @@ export const query = graphql`
             post_name
           }
           link_slug
+        }
+
+        _ncvm_photo_gallery {
+          image {
+            alt_text
+            localFile {
+              publicURL
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
         }
       }
     }

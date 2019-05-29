@@ -347,25 +347,25 @@ class Footer extends Component {
             <MainFooterStyled className="mainfooter">
               <StandardWrapper className="mainfooter__wrapper">
                 <div className="mainfooter__links">
-                  <Link to="/">
+                  <Link to="/programs/#programsList">
                     <span className="btn-wrapper">
                       Program Booking
                       <span className="btn-circle" />
                     </span>
                   </Link>
-                  <Link to="/">
+                  <Link to="/connect/#factRentals">
                     <span className="btn-wrapper">
                       Rental
                       <span className="btn-circle" />
                     </span>
                   </Link>
-                  <Link to="/">
+                  <Link to="/support/#donateInfo">
                     <span className="btn-wrapper">
                       Donate
                       <span className="btn-circle" />
                     </span>
                   </Link>
-                  <Link to="/">
+                  <Link to="/support/#volunteerInfo">
                     <span className="btn-wrapper">
                       Volunteer
                       <span className="btn-circle" />
