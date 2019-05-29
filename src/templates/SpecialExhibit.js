@@ -253,7 +253,6 @@ const OtherSpecialExhibits = styled.section`
 
 class SpecialExhibit extends Component {
   render() {
-    console.log(this.props)
     const acf = this.props.data.wordpressPage
       ? this.props.data.wordpressPage.acf
       : false
