@@ -414,7 +414,7 @@ class BookItFormPrograms extends Component {
               />
             </div>
             <div className="bookitform__form--field">
-              <label thmlFor="requestedDate">Tour Requested Date</label>
+              <label htmlFor="requestedDate">Tour Requested Date</label>
               {requestedDateError && (
                 <p className="form-error-message">{requestedDateError}</p>
               )}

@@ -114,7 +114,6 @@ const ColouredLinksStyled = styled.section`
 
 class Fees extends Component {
   render() {
-    console.log(this.props)
     return (
       <StaticQuery
         query={graphql`

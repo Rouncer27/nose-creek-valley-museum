@@ -328,7 +328,6 @@ class MeetingRooms extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <MeetingRoomsStyled id="factRentals" className="rooms">
         <FullScreenWrapper className="rooms__wrapper">

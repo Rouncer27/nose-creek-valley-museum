@@ -329,7 +329,6 @@ class SpecialExhibit extends Component {
           dots={true}
         >
           {this.props.speicalExhibits.map((exhibit, index) => {
-            console.log(exhibit)
             return (
               <div key={index} className="specialex__slider--item">
                 <div className="specialex__slider--item--image">

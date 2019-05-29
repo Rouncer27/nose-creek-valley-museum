@@ -1,37 +1,9 @@
-import React, { useRef, useState, useEffect } from "react"
+import React, { useRef, useState, useEffect, Component } from "react"
 import { useTransition, animated as a, config } from "react-spring"
+import useMeasure from "./useMeasure"
+import useMedia from "./useMedia"
 import shuffle from "lodash/shuffle"
 import styled from "styled-components"
-import Img from "gatsby-image"
-
-import GalleryImage from "./GalleryImage"
-
-import ResizeObserver from "resize-observer-polyfill"
-const useMeasure = () => {
-  const ref = useRef()
-  const [bounds, set] = useState({ left: 0, top: 0, width: 0, height: 0 })
-  const [ro] = useState(
-    () => new ResizeObserver(([entry]) => set(entry.contentRect))
-  )
-  useEffect(() => (ro.observe(ref.current), ro.disconnect), [])
-  return [{ ref }, bounds]
-}
-
-const useMedia = (queries, values, defaultValue) => {
-  if (typeof window !== `undefined`) {
-    const match = () =>
-      values[queries.findIndex(q => matchMedia(q).matches)] || defaultValue
-    const [value, set] = useState(match)
-    useEffect(() => {
-      const handler = () => set(match)
-      window.addEventListener("resize", handler)
-      return () => window.removeEventListener(handler)
-    }, [])
-    return value
-  } else {
-    return defaultValue
-  }
-}
 
 const StyledGallery = styled.div`
   position: relative;
@@ -103,7 +75,6 @@ const Gallery = props => {
       style={{ height: Math.max(...heights) }}
     >
       {transitions.map(({ item, props: { xy, ...rest }, key }, index) => {
-        console.log(item)
         return (
           <a.div
             key={index}

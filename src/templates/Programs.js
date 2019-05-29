@@ -45,7 +45,7 @@ class Programs extends Component {
         <GuideTours tours={guideTours} />
         <ProgramsList tours={programs} />
         <ColouredLinks links={colourLinks} />
-        <Gallery images={galleryImages} />
+        {/* <Gallery images={galleryImages} /> */}
       </Layout>
     )
   }

@@ -110,8 +110,6 @@ class Experience extends Component {
       : false
 
     const colouredLinksBot = acf ? acf._ncvm_coloured_links_bot : false
-
-    console.log(pastExhibits)
     return (
       <Layout location={this.props.location}>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
