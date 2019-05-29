@@ -32,7 +32,7 @@ const useMedia = (queries, values, defaultValue) => {
 const StyledGallery = styled.div`
   position: relative;
   width: 100%;
-  margin: 10rem auto;
+  margin: 10rem auto 5rem;
 
   .list__item {
     position: absolute;
