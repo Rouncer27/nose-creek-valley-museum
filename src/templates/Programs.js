@@ -10,6 +10,7 @@ import GuideTours from "../components/Pages/Programs/GuideTours"
 import ProgramsList from "../components/Pages/Programs/ProgramsList"
 import ColouredLinks from "../components/Templates/ColouredLinks"
 // import Gallery from "../components/Pages/Programs/Gallery"
+import DeckAnimation from "../components/Pages/Programs/DeckAnimation"
 
 class Programs extends Component {
   render() {
@@ -46,6 +47,7 @@ class Programs extends Component {
         <ProgramsList tours={programs} />
         <ColouredLinks links={colourLinks} />
         {/* <Gallery images={galleryImages} /> */}
+        <DeckAnimation images={galleryImages} />
       </Layout>
     )
   }
