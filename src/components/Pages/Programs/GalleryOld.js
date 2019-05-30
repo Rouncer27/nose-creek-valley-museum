@@ -6,9 +6,11 @@ import shuffle from "lodash/shuffle"
 import styled from "styled-components"
 
 const StyledGallery = styled.div`
-  position: relative;
-  width: 100%;
-  margin: 10rem auto 5rem;
+  .list {
+    position: relative;
+    width: 100%;
+    margin: 10rem auto 5rem;
+  }
 
   .list__item {
     position: absolute;
@@ -47,7 +49,7 @@ const Gallery = props => {
   )
   const [bind, { width }] = useMeasure()
   const [items, set] = useState(data)
-  // useEffect(() => void setInterval(() => set(shuffle), 10000), [])
+  useEffect(() => void setInterval(() => set(shuffle), 10000), [])
 
   let heights = new Array(columns).fill(0) // Each column gets a height starting with zero
   let gridItems = items.map((child, i) => {
@@ -69,30 +71,28 @@ const Gallery = props => {
   })
 
   return (
-    <StyledGallery
-      {...bind}
-      className="list"
-      style={{ height: Math.max(...heights) }}
-    >
-      {transitions.map(({ item, props: { xy, ...rest }, key }, index) => {
-        return (
-          <a.div
-            key={index}
-            className="list__item"
-            style={{
-              transform: xy.interpolate(
-                (x, y) => `translate3d(${x}px,${y}px,0)`
-              ),
-              ...rest,
-            }}
-          >
-            <div
-              className="list__item--wrapper"
-              style={{ backgroundImage: item.css }}
-            />
-          </a.div>
-        )
-      })}
+    <StyledGallery>
+      <div {...bind} className="list" style={{ height: Math.max(...heights) }}>
+        {transitions.map(({ item, props: { xy, ...rest }, key }) => {
+          return (
+            <a.div
+              key={key}
+              className="list__item"
+              style={{
+                transform: xy.interpolate(
+                  (x, y) => `translate3d(${x}px,${y}px,0)`
+                ),
+                ...rest,
+              }}
+            >
+              <div
+                className="list__item--wrapper"
+                style={{ backgroundImage: item.css }}
+              />
+            </a.div>
+          )
+        })}
+      </div>
     </StyledGallery>
   )
 }

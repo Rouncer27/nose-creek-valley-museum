@@ -91,6 +91,13 @@ const MembershipStyled = styled.section`
           }
         }
       }
+
+      p {
+        margin-top: 2rem;
+        margin-bottom: 0;
+        color: ${props => props.theme.white};
+        font-family: ${props => props.theme.fontTer};
+      }
     }
   }
 
@@ -150,10 +157,12 @@ class Membership extends Component {
                   )
                 })}
               </ul>
+              <p>Visit us at Museum Shop to purchase membership.</p>
             </div>
           </div>
           <div className="membership__gift">
             <h2>Gift a Membership</h2>
+            <p>Visit us at Museum Shop to purchase a gift membership.</p>
           </div>
         </FullScreenWrapper>
       </MembershipStyled>

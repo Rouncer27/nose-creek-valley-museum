@@ -9,7 +9,7 @@ import Intro from "../components/Pages/Programs/Intro"
 import GuideTours from "../components/Pages/Programs/GuideTours"
 import ProgramsList from "../components/Pages/Programs/ProgramsList"
 import ColouredLinks from "../components/Templates/ColouredLinks"
-import Gallery from "../components/Pages/Programs/Gallery"
+// import Gallery from "../components/Pages/Programs/Gallery"
 
 class Programs extends Component {
   render() {
