@@ -17,10 +17,10 @@ const StyledDeck = styled(animated.div)`
     background-size: auto 85%;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 45vh;
-    max-width: 400px;
+    width: 60vh;
+    max-width: 600px;
     height: 85vh;
-    max-height: 650px;
+    max-height: 800px;
     will-change: transform;
     border-radius: 10px;
     box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
