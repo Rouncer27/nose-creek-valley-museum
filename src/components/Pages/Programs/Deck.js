@@ -14,28 +14,21 @@ const StyledDeck = styled(animated.div)`
 
   .card {
     background-color: white;
-    background-size: auto 85%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 60vh;
-    max-width: 600px;
-    height: 85vh;
-    max-height: 800px;
+    width: 70vh;
+    max-width: 70rem;
+    height: 70vh;
+    max-height: 70rem;
     will-change: transform;
-    border-radius: 10px;
+    border-radius: 0.5rem;
+    border: solid 3rem ${props => props.theme.white};
+    border-bottom-color: ${props => props.theme.white};
     box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
       0 10px 10px -10px rgba(50, 50, 73, 0.3);
   }
 `
-
-// const cards = [
-//   "https://upload.wikimedia.org/wikipedia/en/f/f5/RWS_Tarot_08_Strength.jpg",
-//   "https://upload.wikimedia.org/wikipedia/en/5/53/RWS_Tarot_16_Tower.jpg",
-//   "https://upload.wikimedia.org/wikipedia/en/9/9b/RWS_Tarot_07_Chariot.jpg",
-//   "https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_06_Lovers.jpg",
-//   "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/690px-RWS_Tarot_02_High_Priestess.jpg",
-//   "https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg",
-// ]
 
 // These two are just helpers, they curate spring data, values that are later being interpolated into css
 const to = i => ({
