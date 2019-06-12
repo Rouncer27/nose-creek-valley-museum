@@ -4,6 +4,7 @@ import { Link, StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import { StandardWrapper } from "../styles/Commons/Wrappers"
+import SocialFollowButtons from "../Templates/SocialFollowButtons"
 
 const MainFooterStyled = styled.footer`
   position: relative;
@@ -459,6 +460,7 @@ class Footer extends Component {
                       className="mainfooter__connect--location"
                       dangerouslySetInnerHTML={{ __html: location }}
                     />
+                    <SocialFollowButtons />
                   </div>
                 </div>
                 <div className="mainfooter__copy">

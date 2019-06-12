@@ -4,6 +4,7 @@ import styled from "styled-components"
 import NavTop from "./NavTop"
 import NavBottom from "./NavBottom"
 import NavMobile from "./NavMobile"
+import SocialFollowButtons from "../Templates/SocialFollowButtons"
 
 const MainHeader = styled.header`
   display: block;
@@ -99,6 +100,7 @@ class Header extends Component {
           <MainNavigation>
             <NavTop location={this.props.location} />
             <NavBottom location={this.props.location} />
+            <SocialFollowButtons />
           </MainNavigation>
           <NavMobile location={this.props.location} />
           <div className="mainheader__overlay" />
