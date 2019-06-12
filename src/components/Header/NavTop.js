@@ -20,6 +20,10 @@ const NavTopLogo = styled.div`
     width: 25%;
   }
 
+  .main-home-title {
+    font-size: 0;
+  }
+
   .gatsby-image-wrapper {
     max-width: 20rem;
     margin: 0 auto;
@@ -71,9 +75,16 @@ class NavTop extends Component {
         `}
         render={data => {
           const menuItems = data.wordpressWpApiMenusMenusItems.items
+          let homePageTitle = this.props.location === "/" ? true : false
+
           return (
             <NavTopContainer>
               <NavTopLogo>
+                {homePageTitle && (
+                  <h1 className="main-home-title">
+                    Nose Creek Valley Museum: Big History. Little Museum.
+                  </h1>
+                )}
                 <Link to="/">
                   <Img
                     fluid={
