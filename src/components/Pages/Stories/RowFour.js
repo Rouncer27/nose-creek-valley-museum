@@ -52,29 +52,30 @@ class RowFour extends Component {
               <h2>{this.props.postSeven.node.title}</h2>
             </div>
           </StoryCardSmall>
-
-          <StoryCardLarge
-            to={`/stories/${this.props.postEight.node.slug}`}
-            className="rfour__atricleeight"
-          >
-            <div className="rfour__atricleeight--image storyCardImage">
-              <Img
-                fluid={
-                  this.props.postEight.node.acf._ncvm_featured_image.localFile
-                    .childImageSharp.fluid
-                }
-                alt={
-                  this.props.postEight.node.acf._ncvm_featured_image.alt_text
-                }
-              />
-            </div>
-            <div className="rfour__atricleeight--title storyCardTitle">
-              <p>
-                Written By {this.props.postEight.node.acf._ncvm_post_author}
-              </p>
-              <h2>{this.props.postEight.node.title}</h2>
-            </div>
-          </StoryCardLarge>
+          {this.props.postEight !== undefined && (
+            <StoryCardLarge
+              to={`/stories/${this.props.postEight.node.slug}`}
+              className="rfour__atricleeight"
+            >
+              <div className="rfour__atricleeight--image storyCardImage">
+                <Img
+                  fluid={
+                    this.props.postEight.node.acf._ncvm_featured_image.localFile
+                      .childImageSharp.fluid
+                  }
+                  alt={
+                    this.props.postEight.node.acf._ncvm_featured_image.alt_text
+                  }
+                />
+              </div>
+              <div className="rfour__atricleeight--title storyCardTitle">
+                <p>
+                  Written By {this.props.postEight.node.acf._ncvm_post_author}
+                </p>
+                <h2>{this.props.postEight.node.title}</h2>
+              </div>
+            </StoryCardLarge>
+          )}
         </div>
       </RowFourStyled>
     )
