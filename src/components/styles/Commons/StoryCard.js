@@ -122,7 +122,9 @@ const StoryCardMedium = styled(Link)`
     top: 5rem;
     left: 5rem;
     z-index: 5;
-    max-width: 35rem;
+    max-width: calc(35rem + 4rem);
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.75);
 
     p {
       margin: 0;
@@ -186,7 +188,9 @@ const StoryCardLarge = styled(Link)`
     top: 5rem;
     left: 5rem;
     z-index: 5;
-    max-width: 35rem;
+    max-width: calc(35rem + 4rem);
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.75);
 
     p {
       margin: 0;
