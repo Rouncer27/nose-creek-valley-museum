@@ -11,6 +11,7 @@ import SEO from "../components/Head/seo"
 import Hero from "../components/Templates/Hero"
 
 import { StandardWrapper } from "../components/styles/Commons/Wrappers"
+import SocialShareButtons from "../components/Templates/SocialShareButtons"
 
 const SpecialExhibitStyled = styled.article`
   .specialExhibit__wrapper {
@@ -337,6 +338,12 @@ class PastExhibit extends Component {
               />
               <div>
                 <p>Share</p>
+                <SocialShareButtons
+                  url={this.props.location.href}
+                  title={
+                    this.props.data.wordpressWpPastExhibits.acf._ncvm_title
+                  }
+                />
               </div>
             </aside>
           </StandardWrapper>

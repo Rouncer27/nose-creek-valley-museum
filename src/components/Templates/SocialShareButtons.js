@@ -7,7 +7,6 @@ import {
   LinkedinIcon,
   TwitterShareButton,
   TwitterIcon,
-  EmailShareButton,
 } from "react-share"
 
 const SocialShareButtonsStyled = styled.div`
@@ -37,13 +36,13 @@ const SocialShareButtons = ({ url, title }) => {
         </TwitterShareButton>
       </SocialShareButton>
       <SocialShareButton className="share-facebook">
-        <FacebookShareButton style={{ width: "32px" }} url={url} title={title}>
+        <FacebookShareButton style={{ width: "32px" }} url={url} quote={title}>
           <FacebookIcon size={32} round={true} />
         </FacebookShareButton>
       </SocialShareButton>
 
       <SocialShareButton className="share-linkedin">
-        <LinkedinShareButton style={{ width: "32px" }} url={url} title={title}>
+        <LinkedinShareButton style={{ width: "32px" }} url={url}>
           <LinkedinIcon size={32} round={true} />
         </LinkedinShareButton>
       </SocialShareButton>

@@ -11,6 +11,7 @@ import SEO from "../components/Head/seo"
 import Hero from "../components/Templates/Hero"
 
 import { StandardWrapper } from "../components/styles/Commons/Wrappers"
+import SocialShareButtons from "../components/Templates/SocialShareButtons"
 
 const ArticleStyled = styled.article`
   .singleStory__header {
@@ -232,6 +233,10 @@ class SinglePost extends Component {
             />
             <div className="singleStory__social">
               <p>Share</p>
+              <SocialShareButtons
+                url={this.props.location.href}
+                title={this.props.data.wordpressPost.title}
+              />
             </div>
           </StandardWrapper>
         </ArticleStyled>
