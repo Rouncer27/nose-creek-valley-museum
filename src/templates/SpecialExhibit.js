@@ -8,6 +8,7 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/Head/seo"
 import Hero from "../components/Templates/Hero"
+import SocialShareButtons from "../components/Templates/SocialShareButtons"
 
 import { StandardWrapper } from "../components/styles/Commons/Wrappers"
 
@@ -265,7 +266,7 @@ class SpecialExhibit extends Component {
 
     const otherSpecialExhibits = this.props.data.allWordpressWpSpecialExhibit
       .edges
-
+    console.log(this.props.location.href)
     return (
       <Layout location={this.props.location}>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -323,6 +324,12 @@ class SpecialExhibit extends Component {
               />
               <div>
                 <p>Share</p>
+                <SocialShareButtons
+                  url={this.props.location.href}
+                  title={
+                    this.props.data.wordpressWpSpecialExhibit.acf._ncvm_title
+                  }
+                />
               </div>
             </aside>
           </StandardWrapper>
