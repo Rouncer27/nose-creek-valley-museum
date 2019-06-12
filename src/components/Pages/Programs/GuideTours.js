@@ -51,7 +51,7 @@ class GuideTours extends Component {
       <GuideToursStyled id="guidedTours" className="gtours">
         <FullScreenWrapper className="gtours__wrapper">
           <div className="gtours__title">
-            <h1>Guide Tours</h1>
+            <h1>Guided Tours</h1>
           </div>
 
           {this.props.tours.map((tour, index) => {

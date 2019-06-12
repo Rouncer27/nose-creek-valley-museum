@@ -340,14 +340,13 @@ class SpecialExhibit extends Component {
                     alt={exhibit.node.acf._ncvm_featured_image.alt_text}
                   />
                   <div className="specialex__slider--item--image--title">
-                    <p>Special Exhibit</p>
+                    <p>Featuring</p>
                     <h2>{exhibit.node.acf._ncvm_title}</h2>
                   </div>
                 </div>
                 <div className="specialex__slider--item--info">
-                  <p className="special-category">Special Exhibit</p>
+                  <p className="special-category">Featuring</p>
                   <h2>{exhibit.node.acf._ncvm_title}</h2>
-                  <p className="special-opening">Exhibit Opening - </p>
                   <div
                     className="special-excerpt"
                     dangerouslySetInnerHTML={{

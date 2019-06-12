@@ -314,15 +314,6 @@ class SpecialExhibit extends Component {
               )}
             </section>
             <aside className="specialExhibit__sideContent">
-              <div className="specialExhibit__sideContent--date">
-                <p>
-                  <span>Exhibit Opening: </span>
-                  {
-                    this.props.data.wordpressWpSpecialExhibit.acf
-                      ._ncvm_exhibit_opening
-                  }
-                </p>
-              </div>
               <div
                 className="specialExhibit__sideContent--details"
                 dangerouslySetInnerHTML={{
@@ -339,7 +330,7 @@ class SpecialExhibit extends Component {
         <OtherSpecialExhibits className="otherExhibits">
           <StandardWrapper className="otherExhibits__wrapper">
             <div className="otherExhibits__title">
-              <h3>Other Special Exhibits</h3>
+              <h3>Other Featured Exhibits</h3>
             </div>
           </StandardWrapper>
           <div className="otherExhibits__container">

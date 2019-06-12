@@ -394,10 +394,10 @@ class Footer extends Component {
                           <Link to="/programs/#programsList">Programs</Link>
                         </li>
                         <li>
-                          <Link to="/programs/">Photo gallery</Link>
+                          <Link to="/programs/">Photo Gallery</Link>
                         </li>
                         <li>
-                          <Link to="/programs/#touristInfo">Tourist info</Link>
+                          <Link to="/programs/#touristInfo">Tourist Info</Link>
                         </li>
                       </ul>
                     </nav>
@@ -420,7 +420,7 @@ class Footer extends Component {
                         </li>
                         <li>
                           <Link to="/connect/#factRentals">
-                            Facility rental
+                            Facility Rental
                           </Link>
                         </li>
                         <li>

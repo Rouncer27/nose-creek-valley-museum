@@ -162,7 +162,7 @@ class Membership extends Component {
           </div>
           <div className="membership__gift">
             <h2>Gift a Membership</h2>
-            <p>Visit us at Museum Shop to purchase a gift membership.</p>
+            <p>Visit us at the Museum Shop to purchase a gift membership.</p>
           </div>
         </FullScreenWrapper>
       </MembershipStyled>
