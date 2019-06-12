@@ -45,6 +45,44 @@ const SpecialExhibitStyled = styled.article`
     .gatsby-image-wrapper {
       width: 100%;
     }
+
+    .specialex__slider {
+      .slick-dots {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center;
+        position: absolute;
+        top: 0%;
+        right: 2rem;
+        width: auto;
+        height: 100%;
+        z-index: 100;
+
+        li {
+          display: block;
+          margin-bottom: 1rem;
+          border-radius: 50%;
+          overflow: hidden;
+
+          button {
+            &::before {
+              background-color: ${props => props.theme.deco};
+              color: ${props => props.theme.deco};
+              opacity: 1;
+            }
+          }
+        }
+
+        li.slick-active {
+          button {
+            &::before {
+              background-color: ${props => props.theme.rawSienna};
+              color: ${props => props.theme.rawSienna};
+            }
+          }
+        }
+      }
+    }
   }
 
   .specialExhibit__mainContent {
