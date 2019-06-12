@@ -31,7 +31,7 @@ const NavBottomItemStyled = styled.li`
   }
 
   a.active-menu-item {
-    color: ${props => props.theme.deco};
+    color: ${props => props.theme.white};
     font-style: italic;
     font-weight: 700;
     opacity: 1;
@@ -42,7 +42,8 @@ class NavBottomItem extends Component {
   render() {
     const slug =
       this.props.object_slug === "home" ? "/" : this.props.object_slug
-    const activePage = slug === this.props.location ? "active-menu-item" : ""
+    const activePage =
+      slug === this.props.location.split("/").join("") ? "active-menu-item" : ""
     return (
       <NavBottomItemStyled>
         <Link to={slug} className={activePage}>
