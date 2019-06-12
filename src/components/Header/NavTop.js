@@ -21,7 +21,15 @@ const NavTopLogo = styled.div`
   }
 
   .main-home-title {
+    position: absolute !important;
+    left: -9999rem;
+    top: -9999rem;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
     font-size: 0;
+    color: transparent;
+    z-index: -500;
   }
 
   .gatsby-image-wrapper {
