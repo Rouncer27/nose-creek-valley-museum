@@ -221,6 +221,7 @@ const FormsStyled = styled.section`
       @media (min-width: ${props => props.theme.bpTablet}) {
         margin-bottom: 2rem;
         padding: 0;
+        text-align: left;
       }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
