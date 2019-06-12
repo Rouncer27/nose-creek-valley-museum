@@ -13,7 +13,7 @@ module.exports = {
   siteMetadata: {
     title: `Nose Creek Valley Museum`,
     description: `Big History. Little Museum.`,
-    author: `Switchback Creative Inc.`,
+    author: `Nose Creek Valley Museum`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

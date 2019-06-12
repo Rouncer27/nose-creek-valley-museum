@@ -78,7 +78,17 @@ class IndexPage extends Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title="Nose Creek Valley Museum: Big History. Little Museum."
+          description="Nose Creek Valley Museum: represents over 2000 years of local history, providing history of Airdrie, Nose Creek and surrounding areas."
+          keywords={[
+            `museum`,
+            `museum airdrie`,
+            `museum nose creek valley`,
+            `history`,
+            ` airdrie history`,
+          ]}
+        />
         <Hero {...heroData} location={this.props.location} />
         <Intro {...introData} />
         <FeaturedCollections slides={slides} />
