@@ -29,9 +29,11 @@ const StyledNavMobileItem = styled.li`
 
 class NavMobileItem extends Component {
   render() {
+    const slug =
+      this.props.object_slug === "home" ? "/" : `/${this.props.object_slug}`
     return (
       <StyledNavMobileItem>
-        <Link to={this.props.object_slug}>{this.props.title}</Link>
+        <Link to={slug}>{this.props.title}</Link>
       </StyledNavMobileItem>
     )
   }
