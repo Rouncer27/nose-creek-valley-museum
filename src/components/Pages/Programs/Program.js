@@ -250,10 +250,15 @@ const StyledProgram = styled.div`
     &--image {
       position: relative;
       align-self: center;
-      width: calc(50% - 4rem);
-      margin-right: 4rem;
+      width: calc(100%);
+      max-width: 20rem;
       transform: translateX(-10rem);
       opacity: 0;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(50% - 4rem);
+        margin-right: 4rem;
+      }
 
       .image-square {
         position: absolute;
@@ -268,10 +273,15 @@ const StyledProgram = styled.div`
     &--details {
       position: relative;
       align-self: center;
-      width: calc(50%);
-      padding: 5rem;
+      width: calc(100%);
+      padding: 2rem;
       transform: translateX(10rem);
       opacity: 0;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(50%);
+        padding: 5rem;
+      }
 
       h3 {
         margin: 0;

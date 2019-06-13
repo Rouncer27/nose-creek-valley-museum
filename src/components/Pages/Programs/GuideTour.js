@@ -232,6 +232,7 @@ const StyledTour = styled.div`
     opacity: 1;
     visibility: hidden;
     z-index: 150000;
+    overflow: scroll;
 
     &--background {
       position: absolute;
@@ -250,10 +251,16 @@ const StyledTour = styled.div`
     &--image {
       position: relative;
       align-self: center;
-      width: calc(50% - 4rem);
-      margin-right: 4rem;
+      width: calc(100%);
+      max-width: 20rem;
       transform: translateX(-10rem);
       opacity: 0;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(50% - 4rem);
+        max-width: 100%;
+        margin-right: 4rem;
+      }
 
       .image-square {
         position: absolute;
@@ -268,10 +275,15 @@ const StyledTour = styled.div`
     &--details {
       position: relative;
       align-self: center;
-      width: calc(50%);
-      padding: 5rem;
+      width: calc(100%);
+      padding: 2rem;
       transform: translateX(10rem);
       opacity: 0;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(50%);
+        padding: 5rem;
+      }
 
       h3 {
         margin: 0;
@@ -293,7 +305,7 @@ const StyledTour = styled.div`
 
       button.close-modal {
         position: absolute;
-        top: -5rem;
+        top: 0rem;
         right: 5rem;
         width: 5rem;
         height: 5rem;
@@ -301,6 +313,11 @@ const StyledTour = styled.div`
         transition: all 0.3s ease;
         background: ${props => props.theme.black};
         color: ${props => props.theme.white};
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          top: -5rem;
+          right: 5rem;
+        }
 
         &:hover {
           cursor: pointer;
