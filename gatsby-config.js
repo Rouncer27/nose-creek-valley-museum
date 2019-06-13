@@ -45,7 +45,7 @@ module.exports = {
       options: {
         trackingId: "UA-142111841-1",
         // Puts tracking script in the head instead of the body
-        head: false,
+        head: true,
       },
     },
     `gatsby-plugin-sitemap`,
