@@ -2,7 +2,7 @@ let BASE_URL = ""
 let PORTOCOL = ""
 
 if (process.env.NODE_ENV === "development") {
-  BASE_URL = "localhost/nosecreekvalleymuseum"
+  BASE_URL = "dedi105.canspace.ca/~swbecreekvalleym"
   PORTOCOL = "http"
 } else {
   BASE_URL = "dedi105.canspace.ca/~swbecreekvalleym"
@@ -37,6 +37,21 @@ module.exports = {
         theme_color: `#063044`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://nosecreekvalleymuseum.com",
+        sitemap: "https://nosecreekvalleymuseum.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://nosecreekvalleymuseum.com`,
       },
     },
     {
