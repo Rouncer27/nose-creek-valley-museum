@@ -44,7 +44,21 @@ class Contact extends Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title="Connect - Nose Creek Valley Museum"
+          description="Nose Creek Valley Museum: Ask the curator and share your stories. Connect with us."
+          keywords={[
+            `connect`,
+            `share`,
+            `ask the curator`,
+            `send a story`,
+            `room rentals`,
+            `meeting rooms`,
+            `fees`,
+            `faqs`,
+            `programs`,
+          ]}
+        />
         <Hero {...heroData} location={this.props.location} />
         <Forms {...formInfo} />
         <MeetingRooms {...meetingRooms} />

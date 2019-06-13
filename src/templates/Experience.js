@@ -112,7 +112,24 @@ class Experience extends Component {
     const colouredLinksBot = acf ? acf._ncvm_coloured_links_bot : false
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title="Experience Us - Nose Creek Valley Museum"
+          description="Nose Creek Valley Museum: Visit the past, don't live in it. Current and past exhibits."
+          keywords={[
+            `exhibits`,
+            `past exhibits`,
+            `current exhibits`,
+            `special exhibit`,
+            `collections`,
+            `history`,
+            `facility rentals`,
+            `senior centre visits`,
+            `guided school tours`,
+            `volunteer`,
+            `volunteers`,
+            `membership`,
+          ]}
+        />
         <Hero {...heroData} location={this.props.location} />
         <SpecialExhibit speicalExhibits={speicalExhibits} />
         <Collections reverse={false} {...collectionsTop} />

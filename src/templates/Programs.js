@@ -40,7 +40,21 @@ class Programs extends Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title="Programs - Nose Creek Valley Museum"
+          description="Nose Creek Valley Museum: A new way to look at old things. Explore the Past."
+          keywords={[
+            `tourist information`,
+            `programs`,
+            `guided tours`,
+            `education tours`,
+            `education programs`,
+            `travelling trunk`,
+            `school tours`,
+            `museum tours`,
+            `nose creek valley history tour`,
+          ]}
+        />
         <Hero {...heroData} location={this.props.location} />
         <Intro {...intro} />
         <GuideTours tours={guideTours} />

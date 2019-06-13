@@ -79,7 +79,26 @@ class Support extends Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title="Support and Memberships - Nose Creek Valley Museum"
+          description="Nose Creek Valley Museum: Why Become a Member? We are a little museum with a big heart."
+          keywords={[
+            `support`,
+            `memberships`,
+            `museum hours`,
+            `museum location`,
+            `buy a membership`,
+            `gift a membership`,
+            `corporate sponsorship`,
+            `corporate support`,
+            `donate`,
+            `sponsor`,
+            `volunteer`,
+            `shop`,
+            `donors`,
+            `sponsors`,
+          ]}
+        />
         <Hero {...heroData} location={this.props.location} />
         <Intro {...introData} />
         <Membership {...membership} />

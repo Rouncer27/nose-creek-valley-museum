@@ -38,7 +38,17 @@ class Stories extends Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title="Stories - Nose Creek Valley Museum"
+          description="Creating and sharing stories - Nose Creek Valley Museum"
+          keywords={[
+            `blogs`,
+            `blog posts`,
+            `stories`,
+            `share your story`,
+            `museum stories`,
+          ]}
+        />
         <Hero {...heroData} location={this.props.location} />
         {allPosts.length > 0 && (
           <RowOne postOne={allPosts[0]} postTwo={allPosts[1]} />

@@ -58,7 +58,19 @@ class About extends Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title="About the Museum - Nose Creek Valley Museum"
+          description="Nose Creek Valley Museum: The history of the museum, where our history lives."
+          keywords={[
+            `museum history`,
+            `about`,
+            `museum mission`,
+            `museum staff`,
+            `museum curator`,
+            `faqs`,
+            `assistant curator`,
+          ]}
+        />
         <Hero {...heroData} location={this.props.location} />
         <Intro {...intro} />
         <OurMission {...ourMission} />
