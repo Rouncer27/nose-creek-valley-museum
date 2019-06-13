@@ -254,6 +254,9 @@ const OtherSpecialExhibits = styled.section`
 
 class SpecialExhibit extends Component {
   render() {
+    const metaTitle = this.props.data.wordpressWpSpecialExhibit.yoast.title
+    const metaDescription = this.props.data.wordpressWpSpecialExhibit.yoast
+      .metadesc
     const acf = this.props.data.wordpressPage
       ? this.props.data.wordpressPage.acf
       : false
@@ -266,10 +269,9 @@ class SpecialExhibit extends Component {
 
     const otherSpecialExhibits = this.props.data.allWordpressWpSpecialExhibit
       .edges
-    console.log(this.props.location.href)
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO title={metaTitle} description={metaDescription} />
         <Hero {...heroData} location={this.props.location} />
         <SpecialExhibitStyled className="specialExhibit">
           <StandardWrapper className="specialExhibit__wrapper">
@@ -385,6 +387,10 @@ class SpecialExhibit extends Component {
 export const query = graphql`
   query SpecialExhibit($slug: String!) {
     wordpressWpSpecialExhibit(slug: { eq: $slug }) {
+      yoast {
+        title
+        metadesc
+      }
       title
       slug
       acf {
