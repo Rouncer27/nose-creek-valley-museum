@@ -14,6 +14,7 @@ module.exports = {
     title: `Nose Creek Valley Museum`,
     description: `Big History. Little Museum.`,
     author: `Nose Creek Valley Museum`,
+    siteUrl: `https://nosecreekvalleymuseum.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -39,6 +40,7 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sitemap`,
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
