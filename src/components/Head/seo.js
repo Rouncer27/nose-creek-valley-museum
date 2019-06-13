@@ -52,6 +52,18 @@ function SEO({ description, lang, meta, keywords, title }) {
           content: `website`,
         },
         {
+          property: `og:locale`,
+          content: `en_US`,
+        },
+        {
+          property: `og:url`,
+          content: `https://www.nosecreekvalleymuseum.com/`,
+        },
+        {
+          property: `og:site_name`,
+          content: `Nose Creek Valley Museum`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
