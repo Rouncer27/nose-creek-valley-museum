@@ -232,7 +232,6 @@ const StyledTour = styled.div`
     opacity: 1;
     visibility: hidden;
     z-index: 150000;
-    overflow: scroll;
 
     &--background {
       position: absolute;
@@ -246,6 +245,7 @@ const StyledTour = styled.div`
       justify-content: center;
       background: rgba(255, 255, 255, 1);
       opacity: 0;
+      overflow: scroll;
     }
 
     &--image {
