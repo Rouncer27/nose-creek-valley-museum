@@ -14,6 +14,7 @@ const StyledInsideBio = styled(animated.div)`
   height: 100%;
   z-index: 999999;
   visibility: hidden;
+  overflow: scroll;
 
   .insideBio__image {
     display: flex;
@@ -21,6 +22,7 @@ const StyledInsideBio = styled(animated.div)`
     flex-wrap: wrap;
     justify-content: center;
     transform: translateX(-100%);
+    width: 100%;
     opacity: 1;
     background: ${props => props.theme.deco};
 
@@ -31,6 +33,11 @@ const StyledInsideBio = styled(animated.div)`
 
     &--container {
       width: 100%;
+      max-width: 20rem;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        max-width: 100%;
+      }
     }
   }
 
@@ -39,6 +46,7 @@ const StyledInsideBio = styled(animated.div)`
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 2rem;
     transform: translateX(100%);
     opacity: 1;
     background: ${props => props.theme.neptune};
