@@ -185,6 +185,8 @@ const OtherRelatedPosts = styled.div`
 
 class SinglePost extends Component {
   render() {
+    const metaTitle = this.props.data.wordpressPost.yoast.title
+    const metaDescription = this.props.data.wordpressPost.yoast.metadesc
     const acf = this.props.data.wordpressPage
       ? this.props.data.wordpressPage.acf
       : false
@@ -201,7 +203,7 @@ class SinglePost extends Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO title={metaTitle} description={metaDescription} />
         <Hero {...heroData} location={this.props.location} />
         <ArticleStyled className="singleStory">
           <StandardWrapper className="singleStory__wrapper">
@@ -293,6 +295,10 @@ class SinglePost extends Component {
 export const query = graphql`
   query singleStory($slug: String!) {
     wordpressPost(slug: { eq: $slug }) {
+      yoast {
+        title
+        metadesc
+      }
       title
       slug
       content

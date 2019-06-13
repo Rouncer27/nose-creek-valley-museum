@@ -272,6 +272,10 @@ const OtherSpecialExhibits = styled.section`
 
 class PastExhibit extends Component {
   render() {
+    const metaTitle = this.props.data.wordpressWpPastExhibits.yoast.title
+    const metaDescription = this.props.data.wordpressWpPastExhibits.yoast
+      .metadesc
+
     const acf = this.props.data.wordpressPage
       ? this.props.data.wordpressPage.acf
       : false
@@ -298,7 +302,7 @@ class PastExhibit extends Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO title={metaTitle} description={metaDescription} />
         <Hero {...heroData} location={this.props.location} />
         <SpecialExhibitStyled className="specialExhibit">
           <StandardWrapper className="specialExhibit__wrapper">
@@ -437,6 +441,10 @@ class PastExhibit extends Component {
 export const query = graphql`
   query PastExhibit($slug: String!) {
     wordpressWpPastExhibits(slug: { eq: $slug }) {
+      yoast {
+        title
+        metadesc
+      }
       title
       slug
       acf {
