@@ -78,8 +78,6 @@ class IndexPage extends Component {
 
     const metaImage = options._ncvm_main_logo.localFile.publicURL
 
-    console.log(metaImage)
-
     return (
       <Layout location={this.props.location}>
         <SEO
