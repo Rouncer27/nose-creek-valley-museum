@@ -90,7 +90,7 @@ class CuratorForm extends Component {
     bodyFormData.append("phoneNumberCur", this.state.phoneNumberCur)
     bodyFormData.append("question", this.state.question)
 
-    const baseURL = "https://database.nosecreekvalleymuseum.com/"
+    const baseURL = "https://database.nosecreekvalleymuseum.com"
     const config = { headers: { "Content-Type": "multipart/form-data" } }
 
     axios
@@ -106,7 +106,6 @@ class CuratorForm extends Component {
           }, 1000)
         } else if (res.data.status === "validation_failed") {
           setTimeout(() => {
-            console.log(res.data.invalidFields)
             this.formHaveErrors(res.data.message, res.data.invalidFields)
           }, 1000)
         }
