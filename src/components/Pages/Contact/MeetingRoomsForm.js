@@ -28,24 +28,31 @@ const StyledMeetingRoomsForm = styled.div`
     top: 50%;
     left: 50%;
     width: 100%;
+    height: 100%;
     max-width: 60rem;
+    padding: 2rem;
     transform: translate(-50%, -50%);
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       max-width: 70rem;
+      padding: 0;
     }
   }
 
   button.close-modal {
     position: absolute;
-    top: 0rem;
-    right: 0rem;
+    top: 5rem;
+    right: 1rem;
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
     transition: all 0.3s ease;
     background: ${props => props.theme.black};
     color: ${props => props.theme.white};
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      right: 0rem;
+    }
 
     &:hover {
       cursor: pointer;
