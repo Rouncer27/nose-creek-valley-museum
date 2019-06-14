@@ -76,6 +76,10 @@ class IndexPage extends Component {
     const testimonals = {}
     testimonals.tests = acf ? acf._ncvm_testimonials : false
 
+    const metaImage = options._ncvm_main_logo.localFile.publicURL
+
+    console.log(metaImage)
+
     return (
       <Layout location={this.props.location}>
         <SEO
@@ -88,6 +92,7 @@ class IndexPage extends Component {
             `history`,
             ` airdrie history`,
           ]}
+          metaImage={metaImage}
         />
         <Hero {...heroData} location={this.props.location} />
         <Intro {...introData} />
@@ -226,6 +231,11 @@ export const homeQuery = graphql`
       options {
         ncvm_museum_hours
         ncvm_museum_location
+        _ncvm_main_logo {
+          localFile {
+            publicURL
+          }
+        }
       }
     }
   }
