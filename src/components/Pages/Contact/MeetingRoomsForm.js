@@ -360,7 +360,7 @@ class MeetingRoomsForm extends Component {
     bodyFormData.append("timeTwo", this.state.timeTwo)
     bodyFormData.append("notes", this.state.notes)
 
-    const baseURL = "https://dedi105.canspace.ca/~swbecreekvalleym/"
+    const baseURL = "https://database.nosecreekvalleymuseum.com/"
     const config = { headers: { "Content-Type": "multipart/form-data" } }
 
     axios

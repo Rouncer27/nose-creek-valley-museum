@@ -251,7 +251,7 @@ export default class LearnMoreForm extends Component {
     bodyFormData.append("subject", this.state.subject)
     bodyFormData.append("question", this.state.question)
 
-    const baseURL = "https://dedi105.canspace.ca/~swbecreekvalleym/"
+    const baseURL = "https://database.nosecreekvalleymuseum.com/"
     const config = { headers: { "Content-Type": "multipart/form-data" } }
 
     axios
