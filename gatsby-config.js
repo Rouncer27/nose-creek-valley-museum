@@ -2,11 +2,11 @@ let BASE_URL = ""
 let PORTOCOL = ""
 
 if (process.env.NODE_ENV === "development") {
-  BASE_URL = "dedi105.canspace.ca/~swbecreekvalleym"
-  PORTOCOL = "http"
+  BASE_URL = "database.nosecreekvalleymuseum.com"
+  PORTOCOL = "https"
 } else {
-  BASE_URL = "dedi105.canspace.ca/~swbecreekvalleym"
-  PORTOCOL = "http"
+  BASE_URL = "database.nosecreekvalleymuseum.com"
+  PORTOCOL = "https"
 }
 
 module.exports = {
