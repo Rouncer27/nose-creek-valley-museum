@@ -72,7 +72,11 @@ const IntroStyled = styled.section`
       p {
         color: ${props => props.theme.paraGrey};
         font-family: ${props => props.theme.fontTer};
-        font-weight: 300;
+        font-weight: 500;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-weight: 300;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 2.2rem;
