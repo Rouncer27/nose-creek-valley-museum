@@ -37,19 +37,25 @@ const StoryCardSmall = styled(Link)`
 
   .storyCardTitle {
     position: absolute;
-    top: 5rem;
-    left: 5rem;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
     z-index: 5;
+    width: 100%;
     max-width: 35rem;
     margin: auto;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.75);
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       position: relative;
       top: auto;
       left: auto;
+      right: auto;
       z-index: 5;
       max-width: 100%;
       padding: 10rem 3rem;
+      background: transparent;
     }
 
     h2 {
@@ -119,12 +125,24 @@ const StoryCardMedium = styled(Link)`
 
   .storyCardTitle {
     position: absolute;
-    top: 5rem;
-    left: 5rem;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
     z-index: 5;
+    width: 100%;
     max-width: calc(35rem + 4rem);
     padding: 2rem;
+    margin: 0 auto;
     background: rgba(0, 0, 0, 0.75);
+    text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      top: 5rem;
+      left: 5rem;
+      right: auto;
+      width: auto;
+      text-align: left;
+    }
 
     p {
       margin: 0;
