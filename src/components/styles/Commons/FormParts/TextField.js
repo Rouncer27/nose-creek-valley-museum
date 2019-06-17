@@ -3,8 +3,16 @@ import styled from "styled-components"
 
 const TextFieldStyled = styled.div`
   position: relative;
-  width: 100%;
+  width: 60%;
+  margin-right: 20%;
+  margin-left: 20%;
   padding-top: 0.5rem;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    width: 100%;
+    margin-right: 0%;
+    margin-left: 0%;
+  }
 
   p.error-warning {
     position: absolute;

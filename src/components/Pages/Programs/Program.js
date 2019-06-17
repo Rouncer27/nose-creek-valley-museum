@@ -17,7 +17,8 @@ const StyledProgram = styled.div`
   margin: 3.5rem 1.5rem;
   transition: all 0.3s ease;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  z-index: ${props => (props.isActive ? "999999999999999" : "1")};
+  z-index: ${props =>
+    props.isActive || props.isFormActive ? "999999999999999" : "1"};
 
   @media (min-width: ${props => props.theme.bpTablet}) {
     width: calc(33.3333% - 3rem);
@@ -446,7 +447,11 @@ const Program = ({ tour }) => {
       : [showBackgroundRef, showModelRef]
   )
   return (
-    <StyledProgram className="ptours__tour" isActive={isActive}>
+    <StyledProgram
+      className="ptours__tour"
+      isActive={isActive}
+      isFormActive={isFormActive}
+    >
       <div
         className="ptours__tour--container"
         onClick={() => setActive(!isActive)}

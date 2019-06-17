@@ -20,7 +20,7 @@ const StyledBookItForm = styled.div`
   background: ${props => props.theme.deco};
   opacity: 0;
   visibility: hidden;
-  z-index: 2500;
+  z-index: 9999999999999999;
 
   &.formActive {
     opacity: 1;

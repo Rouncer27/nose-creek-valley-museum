@@ -74,7 +74,9 @@ const StyledMeetingRoomsForm = styled.div`
 
   .meetingsForm__field {
     position: relative;
-    width: 100%;
+    width: 60%;
+    margin-right: 20%;
+    margin-left: 20%;
     padding-top: 1rem;
 
     @media (min-width: ${props => props.theme.bpTablet}) {

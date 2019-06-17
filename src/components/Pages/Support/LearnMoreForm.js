@@ -26,10 +26,12 @@ const StyledForm = styled.div`
     left: 50%;
     width: 100%;
     max-width: 60rem;
+    padding: 2rem;
     transform: translate(-50%, -50%);
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       max-width: 70rem;
+      padding: 0;
     }
   }
 
@@ -64,7 +66,9 @@ const StyledForm = styled.div`
 
   .learnForm__field {
     position: relative;
-    width: 100%;
+    width: 60%;
+    margin-right: 20%;
+    margin-left: 20%;
     padding-top: 1rem;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
