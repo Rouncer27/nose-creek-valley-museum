@@ -227,11 +227,11 @@ const StyledProgram = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: transparent;
     opacity: 1;
     visibility: hidden;
-    z-index: 150000;
+    z-index: 99999999;
 
     &--background {
       position: absolute;
@@ -244,6 +244,7 @@ const StyledProgram = styled.div`
       flex-wrap: wrap;
       justify-content: center;
       background: rgba(255, 255, 255, 1);
+      overflow: scroll;
       opacity: 0;
     }
 
