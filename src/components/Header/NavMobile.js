@@ -62,6 +62,7 @@ const NavMobileStyled = styled.div`
     }
 
     &__button {
+      ${props => console.log(props)}
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -69,14 +70,15 @@ const NavMobileStyled = styled.div`
       position: fixed;
       top: 0.25rem;
       left: 0.25rem;
-      width: 7.5rem;
-      height: 7.5rem;
+      width: 5.5rem;
+      height: 5.5rem;
       margin: 0 auto;
       padding: 0;
       background: ${props => props.theme.deepSea};
       border: 0.1rem solid ${props => props.theme.white};
       box-shadow: 0.25rem 0.25rem 0.25rem ${props => props.theme.black};
-      color: ${props => props.theme.white};
+      color: ${props =>
+        props.isOpen ? props.theme.deepSea : props.theme.white};
       text-align: center;
       z-index: 99999999;
 
@@ -97,21 +99,23 @@ const NavMobileStyled = styled.div`
       }
 
       &::before {
-        top: 1rem;
+        top: ${props => (props.isOpen ? "50%" : "1rem")};
+        transform: rotate(${props => (props.isOpen ? "135deg" : "0deg")});
       }
 
       &::after {
-        bottom: 1rem;
+        bottom: ${props => (props.isOpen ? "50%" : "1rem")};
+        transform: rotate(${props => (props.isOpen ? "-135deg" : "0deg")});
       }
 
       &:hover {
         cursor: pointer;
         &::before {
-          top: 0.5rem;
+          top: ${props => (props.isOpen ? "50%" : "0.5rem")};
         }
 
         &::after {
-          bottom: 0.5rem;
+          bottom: ${props => (props.isOpen ? "50%" : "0.5rem")};
         }
       }
 
@@ -128,6 +132,7 @@ const NavMobileStyled = styled.div`
 
 const NavMobile = props => {
   const [isOpen, setOpen] = useState(false)
+  console.log(isOpen)
 
   const slideNavOpen = useSpring({
     transform: isOpen ? "translateX(0%)" : "translateX(-100%)",
@@ -163,7 +168,7 @@ const NavMobile = props => {
       render={data => {
         const menuItems = data.wordpressWpApiMenusMenusItems.items
         return (
-          <NavMobileStyled>
+          <NavMobileStyled isOpen={isOpen}>
             <div className="mobile-logo">
               <Link to="/">
                 <Img
