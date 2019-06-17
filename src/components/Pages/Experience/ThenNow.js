@@ -11,7 +11,15 @@ const ThenNowStyled = styled.section`
   position: relative;
   flex-wrap: wrap;
   justify-content: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   width: 100%;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    display: flex;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
   .thennow__collection {
     width: 100%;
@@ -69,7 +77,7 @@ const ThenNowStyled = styled.section`
   }
 
   .thennow__slider {
-    display: none;
+    display: flex;
     position: relative;
     flex-wrap: wrap;
     justify-content: center;
