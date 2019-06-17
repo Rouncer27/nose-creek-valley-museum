@@ -109,10 +109,15 @@ const FeaturedSliderContent = styled(Slider)`
 
         p {
           display: block;
-
           color: ${props => props.theme.white};
           font-family: ${props => props.theme.fontTer};
-          font-weight: 100;
+          font-size: 1.8rem;
+          font-weight: 500;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.6rem;
+            font-weight: 100;
+          }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 2rem;

@@ -71,9 +71,15 @@ const DesignationsStyled = styled.section`
       p {
         color: ${props => props.theme.white};
         font-family: ${props => props.theme.fontTer};
-        font-weight: 100;
+        font-size: 1.8rem;
+        font-weight: 500;
         line-height: 1.3;
         letter-spacing: normal;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-weight: 100;
+          font-size: 1.6rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 2.2rem;

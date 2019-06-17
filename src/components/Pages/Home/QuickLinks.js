@@ -191,13 +191,15 @@ const QuickLinksStyled = styled.section`
         p {
           color: ${props => props.theme.paraGrey};
           font-family: ${props => props.theme.fontTer};
-          font-weight: 300;
+          font-size: 2rem;
+          font-weight: 500;
           text-align: center;
           line-height: 1.3;
           letter-spacing: normal;
 
           @media (min-width: ${props => props.theme.bpTablet}) {
             font-size: 1.6rem;
+            font-weight: 300;
           }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
