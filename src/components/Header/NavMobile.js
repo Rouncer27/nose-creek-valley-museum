@@ -62,7 +62,6 @@ const NavMobileStyled = styled.div`
     }
 
     &__button {
-      ${props => console.log(props)}
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
