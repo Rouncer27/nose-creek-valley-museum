@@ -39,18 +39,22 @@ const ArticleStyled = styled.article`
     }
 
     &--date {
-      position: absolute;
-      top: 40rem;
-      left: -2rem;
-      margin: 0;
-      transform-origin: center left;
-      transform: rotate(-90deg);
+      margin-bottom: 1rem;
       color: ${props => props.theme.deco};
       font-family: ${props => props.theme.fontSec};
       font-style: italic;
       font-size: 2rem;
       z-index: 100;
       line-height: 1;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        position: absolute;
+        top: 40rem;
+        left: -2rem;
+        margin: 0;
+        transform-origin: center left;
+        transform: rotate(-90deg);
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 2rem;
@@ -72,7 +76,16 @@ const ArticleStyled = styled.article`
     p {
       color: ${props => props.theme.paraGrey};
       font-family: ${props => props.theme.fontPrim};
+      font-size: 1.8rem;
       font-weight: 300;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 1.6rem;
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        font-size: 1.8rem;
+      }
     }
   }
 `

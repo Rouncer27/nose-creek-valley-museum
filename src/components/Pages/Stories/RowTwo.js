@@ -16,9 +16,10 @@ const RowTwoStyled = styled.section`
 
   .rtwo__testimoinals {
     width: 100%;
-    padding: 5rem 10rem;
+    padding: 5rem 2rem;
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: 50%;
+      padding: 5rem 10rem;
     }
 
     &--item {

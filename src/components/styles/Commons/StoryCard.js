@@ -73,7 +73,7 @@ const StoryCardSmall = styled(Link)`
 
     p {
       color: ${props => props.theme.white};
-      text-align: left;
+      text-align: center;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
         text-align: center;
@@ -185,16 +185,24 @@ const StoryCardLarge = styled(Link)`
 
   .storyCardTitle {
     position: absolute;
-    top: 5rem;
-    left: 5rem;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     z-index: 5;
     max-width: calc(35rem + 4rem);
     padding: 2rem;
     background: rgba(255, 255, 255, 0.75);
 
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      top: 5rem;
+      left: 5rem;
+      right: auto;
+    }
+
     p {
       margin: 0;
-      color: ${props => props.theme.white};
+      color: ${props => props.theme.deepSea};
       font-weight: 300;
       text-transform: uppercase;
 
@@ -206,7 +214,7 @@ const StoryCardLarge = styled(Link)`
 
     h2 {
       margin: 0;
-      color: ${props => props.theme.white};
+      color: ${props => props.theme.deepSea};
       font-family: ${props => props.theme.fontPrim};
       font-weight: 700;
 
