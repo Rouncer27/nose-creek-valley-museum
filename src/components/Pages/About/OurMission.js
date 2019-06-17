@@ -15,7 +15,7 @@ const OurMissionStyled = styled.section`
   .mission__glasses {
     position: absolute;
     top: 24rem;
-    right: -7rem;
+    right: -15rem;
     width: 30rem;
     height: 10rem;
     background-image: url(${glasses});
