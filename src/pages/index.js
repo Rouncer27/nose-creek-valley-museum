@@ -76,7 +76,7 @@ class IndexPage extends Component {
     const testimonals = {}
     testimonals.tests = acf ? acf._ncvm_testimonials : false
 
-    const metaImage = options._ncvm_main_logo.localFile.publicURL
+    const metaImage = options._ncvm_facebook_share.localFile.publicURL
 
     return (
       <Layout location={this.props.location}>
@@ -230,6 +230,12 @@ export const homeQuery = graphql`
         ncvm_museum_hours
         ncvm_museum_location
         _ncvm_main_logo {
+          localFile {
+            publicURL
+          }
+        }
+
+        _ncvm_facebook_share {
           localFile {
             publicURL
           }
