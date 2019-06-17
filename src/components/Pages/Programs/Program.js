@@ -258,6 +258,7 @@ const StyledProgram = styled.div`
 
       @media (min-width: ${props => props.theme.bpTablet}) {
         width: calc(50% - 4rem);
+        max-width: 50rem;
         margin-right: 4rem;
       }
 
