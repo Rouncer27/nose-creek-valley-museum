@@ -12,10 +12,12 @@ import pillars from "../../../images/icons/pillars.png"
 import BookItForm from "./BookItForm"
 
 const StyledTour = styled.div`
+  position: relative;
   width: 100%;
   margin: 3.5rem 1.5rem;
   transition: all 0.3s ease;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  z-index: ${props => (props.isActive ? "999999999999999" : "1")};
 
   @media (min-width: ${props => props.theme.bpTablet}) {
     width: calc(33.3333% - 3rem);
@@ -450,7 +452,7 @@ const GuideTour = ({ tour }) => {
   )
 
   return (
-    <StyledTour className="gtours__tour">
+    <StyledTour className="gtours__tour" isActive={isActive}>
       <div
         className="gtours__tour--container"
         onClick={() => setActive(!isActive)}

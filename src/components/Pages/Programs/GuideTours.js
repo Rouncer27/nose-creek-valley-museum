@@ -6,6 +6,7 @@ import GuideTour from "./GuideTour"
 
 const GuideToursStyled = styled.section`
   margin-top: 0;
+
   @media (min-width: ${props => props.theme.bpTablet}) {
     margin-top: -10rem;
   }
