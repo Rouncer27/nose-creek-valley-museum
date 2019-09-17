@@ -19,6 +19,7 @@ class Support extends Component {
     const options = this.props.data.wordpressAcfOptions.options
     const museumHours = options.ncvm_museum_hours
     const museumLocation = options.ncvm_museum_location
+    const museumPricing = options.ncvm_museum_pricing
 
     const acf = this.props.data.wordpressPage
       ? this.props.data.wordpressPage.acf
@@ -34,6 +35,7 @@ class Support extends Component {
     const introData = {}
     introData.hours = museumHours
     introData.location = museumLocation
+    introData.pricing = museumPricing
     introData.topTitle = acf._ncvm_intro_sec_tt ? acf._ncvm_intro_sec_tt : false
     introData.mainTitle = acf._ncvm_intro_sec_title
       ? acf._ncvm_intro_sec_title
@@ -184,6 +186,7 @@ export const query = graphql`
       options {
         ncvm_museum_hours
         ncvm_museum_location
+        ncvm_museum_pricing
       }
     }
   }

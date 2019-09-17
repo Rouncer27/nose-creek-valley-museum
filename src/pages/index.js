@@ -16,6 +16,7 @@ class IndexPage extends Component {
   render() {
     const options = this.props.data.wordpressAcfOptions.options
     const museumHours = options.ncvm_museum_hours
+    const museumPricing = options.ncvm_museum_pricing
     const museumLocation = options.ncvm_museum_location
 
     const acf = this.props.data.wordpressPage
@@ -32,6 +33,7 @@ class IndexPage extends Component {
     const introData = {}
     introData.hours = museumHours
     introData.location = museumLocation
+    introData.pricing = museumPricing
     introData.topTitle = acf._ncvm_intro_sec_tt ? acf._ncvm_intro_sec_tt : false
     introData.mainTitle = acf._ncvm_intro_sec_title
       ? acf._ncvm_intro_sec_title
@@ -228,6 +230,7 @@ export const homeQuery = graphql`
     wordpressAcfOptions {
       options {
         ncvm_museum_hours
+        ncvm_museum_pricing
         ncvm_museum_location
         _ncvm_main_logo {
           localFile {

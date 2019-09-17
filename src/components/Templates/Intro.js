@@ -113,7 +113,8 @@ const IntroStyled = styled.section`
       }
     }
 
-    &--details {
+    &--details,
+    &--pricing {
       p {
         margin-bottom: 2rem;
         color: ${props => props.theme.white};
@@ -175,6 +176,10 @@ class Intro extends Component {
             <div
               className="intro__hours--location"
               dangerouslySetInnerHTML={{ __html: this.props.location }}
+            />
+            <div
+              className="intro__hours--pricing"
+              dangerouslySetInnerHTML={{ __html: this.props.pricing }}
             />
           </div>
         </FullScreenWrapper>

@@ -325,7 +325,7 @@ class CurrentDonors extends Component {
         {this.state.formActive && (
           <LearnMoreForm
             toggleLearnMoreForm={this.toggleLearnMoreForm}
-            subject=""
+            subject="Learn How To Support / Sponsor Info"
           />
         )}
       </CurrentDonorsStyled>
