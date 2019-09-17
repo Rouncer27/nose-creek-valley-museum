@@ -207,7 +207,7 @@ const SpecialExhibitStyled = styled.section`
           p {
             color: ${props => props.theme.paraGrey};
             font-family: ${props => props.theme.fontTer};
-            font-weight: 100;
+            font-weight: normal;
             font-size: 1.4rem;
 
             @media (min-width: ${props => props.theme.bpTablet}) {

@@ -72,7 +72,7 @@ const IntroStyled = styled.section`
       p {
         color: ${props => props.theme.paraGrey};
         font-family: ${props => props.theme.fontTer};
-        font-weight: 300;
+        font-weight: normal;
         font-size: 2rem;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
@@ -119,7 +119,7 @@ const IntroStyled = styled.section`
         margin-bottom: 2rem;
         color: ${props => props.theme.white};
         font-family: ${props => props.theme.fontTer};
-        font-weight: 100;
+        font-weight: normal;
         font-size: 2rem;
         opacity: 0.8;
 
@@ -134,7 +134,7 @@ const IntroStyled = styled.section`
         color: ${props => props.theme.deco};
         font-family: ${props => props.theme.fontSec};
         font-style: italic;
-        font-weight: 100;
+        font-weight: normal;
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.8rem;

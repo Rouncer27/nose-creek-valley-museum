@@ -89,7 +89,7 @@ const DesignationsStyled = styled.section`
       p {
         display: inline;
         color: ${props => props.theme.paraGrey};
-        font-weight: 100;
+        font-weight: normal;
         font-size: 2rem;
 
         @media (min-width: ${props => props.theme.bpTablet}) {

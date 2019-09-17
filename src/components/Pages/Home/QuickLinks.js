@@ -199,7 +199,7 @@ const QuickLinksStyled = styled.section`
 
           @media (min-width: ${props => props.theme.bpTablet}) {
             font-size: 1.6rem;
-            font-weight: 300;
+            font-weight: normal;
           }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {

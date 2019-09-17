@@ -72,7 +72,7 @@ const VolunteerStyled = styled.section`
       p {
         color: ${props => props.theme.paraGrey};
         font-family: ${props => props.theme.fontTer};
-        font-weight: 300;
+        font-weight: normal;
         font-size: 2rem;
         line-height: 1.2;
         opacity: 0.85;

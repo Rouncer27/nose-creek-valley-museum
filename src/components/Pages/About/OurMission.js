@@ -125,7 +125,7 @@ const OurMissionStyled = styled.section`
         margin: 0;
         color: ${props => props.theme.white};
         font-family: ${props => props.theme.fontTer};
-        font-weight: 300;
+        font-weight: normal;
         opacity: 0.8;
 
         @media (min-width: ${props => props.theme.bpDesksm}) {

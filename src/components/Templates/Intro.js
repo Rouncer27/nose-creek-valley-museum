@@ -123,7 +123,7 @@ const IntroStyled = styled.section`
         opacity: 0.8;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
-          font-weight: 100;
+          font-weight: normal;
           font-size: 1.6rem;
         }
 
@@ -138,7 +138,7 @@ const IntroStyled = styled.section`
         color: ${props => props.theme.deco};
         font-family: ${props => props.theme.fontSec};
         font-style: italic;
-        font-weight: 100;
+        font-weight: normal;
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.8rem;

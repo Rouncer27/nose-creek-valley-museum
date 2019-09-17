@@ -129,9 +129,8 @@ const ThenNowStyled = styled.section`
       flex-wrap: wrap;
       justify-content: center;
       width: 100%;
-      height: 60rem;
+      height: 70rem;
       min-height: 60rem;
-      max-height: 60rem;
 
       &:focus {
         outline: none !important;

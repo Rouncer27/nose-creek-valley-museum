@@ -55,6 +55,12 @@ const SFBStyled = styled.div`
         content: "\f16d";
       }
     }
+
+    .intro-social__list--tw a {
+      &::before {
+        content: "\f099";
+      }
+    }
   }
 `
 
@@ -78,6 +84,16 @@ const SocialFollowButtons = () => {
             title="Follow us on Instagram"
             target="_blank"
             href="https://www.instagram.com/nosecreekvalleymuseum/"
+          >
+            Instagram
+          </a>
+        </li>
+        <li className="intro-social__list--item intro-social__list--tw">
+          <a
+            rel="noopener noreferrer"
+            title="Follow us on Twitter"
+            target="_blank"
+            href="https://twitter.com/NCVMuseum/"
           >
             Instagram
           </a>

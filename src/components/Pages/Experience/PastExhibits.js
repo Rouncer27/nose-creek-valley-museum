@@ -167,7 +167,7 @@ const PastExhibitStyled = styled.section`
           p {
             color: ${props => props.theme.paraGrey};
             font-family: ${props => props.theme.fontTer};
-            font-weight: 100;
+            font-weight: normal;
           }
         }
 

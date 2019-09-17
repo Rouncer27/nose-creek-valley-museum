@@ -71,7 +71,7 @@ const StaffStyled = styled.section`
           margin-bottom: 1.6rem;
           color: ${props => props.theme.neptune};
           font-family: ${props => props.theme.fontTer};
-          font-weight: 400;
+          font-weight: normal;
           text-transform: uppercase;
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -121,7 +121,7 @@ const StaffStyled = styled.section`
         p {
           color: ${props => props.theme.paraGrey};
           font-family: ${props => props.theme.fontTer};
-          font-weight: 300;
+          font-weight: normal;
           text-align: center;
           line-height: 1.3;
           letter-spacing: normal;

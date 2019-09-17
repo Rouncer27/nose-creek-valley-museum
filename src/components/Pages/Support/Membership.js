@@ -74,7 +74,7 @@ const MembershipStyled = styled.section`
           position: relative;
           color: ${props => props.theme.white};
           font-family: ${props => props.theme.fontTer};
-          font-weight: 300;
+          font-weight: normal;
           line-height: 1.25;
           opacity: 0.75;
 

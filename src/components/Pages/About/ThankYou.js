@@ -101,7 +101,7 @@ const ThankYouStyled = styled.section`
         margin: 0;
         color: ${props => props.theme.white};
         font-family: ${props => props.theme.fontTer};
-        font-weight: 300;
+        font-weight: normal;
         font-size: 2rem;
         opacity: 0.8;
 
