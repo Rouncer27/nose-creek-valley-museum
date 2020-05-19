@@ -481,7 +481,7 @@ class Footer extends Component {
                     >
                       Switchback Creative{" "}
                     </a>
-                    © {new Date().getFullYear()}, with
+                    © 2019 - {new Date().getFullYear()}, with
                     {` `}
                     <a href="https://www.gatsbyjs.org">Gatsby</a>
                   </p>
