@@ -465,7 +465,15 @@ class Footer extends Component {
                 </div>
                 <div className="mainfooter__copy">
                   <p>
-                    Built proudly in Airdrie Alberta by{" "}
+                    Built proudly in Airdrie Alberta. Designed, developed and{" "}
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://switchbackcreative.ca/trailblazer-fund/"
+                    >
+                      donated
+                    </a>{" "}
+                    by{" "}
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
