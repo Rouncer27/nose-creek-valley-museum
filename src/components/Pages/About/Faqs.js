@@ -169,7 +169,7 @@ class Faqs extends Component {
       <FaqsStyled id="faqsInfo" className="faqs">
         <StandardWrapper className="faqs__wrapper">
           <div className="faqs__title">
-            <h2>Faqs</h2>
+            <h2>Faq</h2>
           </div>
           <div className="faqs__container">
             {this.props.faqs.map((faq, index) => {
