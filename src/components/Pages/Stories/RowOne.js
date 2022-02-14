@@ -75,7 +75,7 @@ class RowOne extends Component {
                 <p>
                   Written By {this.props.postOne.node.acf._ncvm_post_author}
                 </p>
-                <h2>{this.props.postOne.node.title}</h2>
+                <h2 dangerouslySetInnerHTML={{ __html: this.props.postOne.node.title }} />
               </div>
             </StoryCardLarge>
 
