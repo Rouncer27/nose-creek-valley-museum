@@ -229,16 +229,26 @@ class SinglePost extends Component {
                 <span>Date / </span>
                 {moment(this.props.data.wordpressPost.date).format("LL")}
               </p>
-              <Img
-                fluid={
-                  this.props.data.wordpressPost.acf._ncvm_featured_image
-                    .localFile.childImageSharp.fluid
-                }
-                alt={
-                  this.props.data.wordpressPost.acf._ncvm_featured_image
-                    .alt_text
-                }
-              />
+              {this.props.data.wordpressPost.acf._ncvm_featured_image &&
+              this.props.data.wordpressPost.acf._ncvm_featured_image
+                .localFile &&
+              this.props.data.wordpressPost.acf._ncvm_featured_image.localFile
+                .childImageSharp &&
+              this.props.data.wordpressPost.acf._ncvm_featured_image.localFile
+                .childImageSharp.fluid ? (
+                <>
+                  <Img
+                    fluid={
+                      this.props.data.wordpressPost.acf._ncvm_featured_image
+                        .localFile.childImageSharp.fluid
+                    }
+                    alt={
+                      this.props.data.wordpressPost.acf._ncvm_featured_image
+                        .alt_text
+                    }
+                  />
+                </>
+              ) : null}
             </header>
             <section
               className="singleStory__wysiwyg"
