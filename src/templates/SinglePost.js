@@ -286,13 +286,20 @@ class SinglePost extends Component {
                     className="otherExhibits__item"
                   >
                     <div className="otherExhibits__item--featuredImg">
-                      <Img
-                        fluid={
-                          post.node.acf._ncvm_featured_image.localFile
-                            .childImageSharp.fluid
-                        }
-                        alt={post.node.acf._ncvm_featured_image.alt_text}
-                      />
+                      {post.node.acf._ncvm_featured_image &&
+                      post.node.acf._ncvm_featured_image.localFile &&
+                      post.node.acf._ncvm_featured_image.localFile
+                        .childImageSharp ? (
+                        <>
+                          <Img
+                            fluid={
+                              post.node.acf._ncvm_featured_image.localFile
+                                .childImageSharp.fluid
+                            }
+                            alt={post.node.acf._ncvm_featured_image.alt_text}
+                          />
+                        </>
+                      ) : null}
                     </div>
                     <div className="otherExhibits__item--title">
                       <h2>{post.node.title}</h2>
