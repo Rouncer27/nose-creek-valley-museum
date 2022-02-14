@@ -55,16 +55,22 @@ class RowOne extends Component {
               to={`/stories/${this.props.postOne.node.slug}`}
               className="rone__atricleone"
             >
-              <div className="rone__atricleone--image storyCardImage">
-                <Img
-                  fluid={
-                    this?.props?.postOne?.node?.acf?._ncvm_featured_image?.localFile?.childImageSharp?.fluid
-                  }
-                  alt={
-                    this?.props?.postOne?.node?.acf?._ncvm_featured_image?.alt_text
-                  }
-                />
-              </div>
+                {this.props.postOne.node.acf._ncvm_featured_image &&
+              this.props.postOne.node.acf._ncvm_featured_image.localFile &&
+              this.props.postOne.node.acf._ncvm_featured_image.localFile
+                .childImageSharp ? (
+                <div className="rone__atricleone--image storyCardImage">
+                  <Img
+                    fluid={
+                      this.props.postOne.node.acf._ncvm_featured_image.localFile
+                        .childImageSharp.fluid
+                    }
+                    alt={
+                      this.props.postOne.node.acf._ncvm_featured_image.alt_text
+                    }
+                  />
+                </div>
+              ) : null}
               <div className="rone__atricleone--title storyCardTitle">
                 <p>
                   Written By {this.props.postOne.node.acf._ncvm_post_author}
