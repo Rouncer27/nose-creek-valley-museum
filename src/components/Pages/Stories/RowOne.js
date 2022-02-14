@@ -58,11 +58,10 @@ class RowOne extends Component {
               <div className="rone__atricleone--image storyCardImage">
                 <Img
                   fluid={
-                    this.props.postOne.node.acf._ncvm_featured_image.localFile
-                      .childImageSharp.fluid
+                    this?.props?.postOne?.node?.acf?._ncvm_featured_image?.localFile?.childImageSharp?.fluid
                   }
                   alt={
-                    this.props.postOne.node.acf._ncvm_featured_image.alt_text
+                    this?.props?.postOne?.node?.acf?._ncvm_featured_image?.alt_text
                   }
                 />
               </div>
