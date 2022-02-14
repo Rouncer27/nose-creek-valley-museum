@@ -221,7 +221,11 @@ class SinglePost extends Component {
         <ArticleStyled className="singleStory">
           <StandardWrapper className="singleStory__wrapper">
             <header className="singleStory__header">
-              <h1>{this.props.data.wordpressPost.title}</h1>
+              <h1
+                dangerouslySetInnerHTML={{
+                  __html: this.props.data.wordpressPost.title,
+                }}
+              />
               <p className="singleStory__header--author">
                 {this.props.data.wordpressPost.acf._ncvm_post_author}
               </p>
