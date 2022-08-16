@@ -193,7 +193,7 @@ class FeaturedCollections extends Component {
     const currentSlide = [
       ...document.querySelectorAll(".slider-content .fcslider__slide"),
     ]
-    if (!currentSlide) return
+    if (!currentSlide[0][current]) return
     currentSlide[0][current].classList.add("slider-before-change")
   }
 
