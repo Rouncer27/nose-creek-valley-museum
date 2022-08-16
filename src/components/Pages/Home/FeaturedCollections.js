@@ -180,7 +180,7 @@ class FeaturedCollections extends Component {
       const parent = slide.parentElement.parentElement
       parent.id = ""
 
-      if (slide.classList.contains("slider-before-change")) {
+      if (slide && slide.classList.contains("slider-before-change")) {
         slide.classList.remove("slider-before-change")
       }
     })
@@ -193,6 +193,7 @@ class FeaturedCollections extends Component {
     const currentSlide = [
       ...document.querySelectorAll(".slider-content .fcslider__slide"),
     ]
+    if (!currentSlide) return
     currentSlide[0][current].classList.add("slider-before-change")
   }
 
