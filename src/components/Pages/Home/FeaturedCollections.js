@@ -176,7 +176,8 @@ class FeaturedCollections extends Component {
       ...document.querySelectorAll(".slider-content .fcslider__slide"),
     ]
 
-    currentSlide[0].forEach(slide => {
+    if (!currentSlide) return
+    currentSlide.forEach(slide => {
       const parent = slide.parentElement.parentElement
       parent.id = ""
 
@@ -185,16 +186,15 @@ class FeaturedCollections extends Component {
       }
     })
 
-    currentSlide[0][current].parentElement.parentElement.id =
-      "slider-after-change"
+    currentSlide[current].parentElement.parentElement.id = "slider-after-change"
   }
 
   changeBeforeTheSlide(current) {
     const currentSlide = [
       ...document.querySelectorAll(".slider-content .fcslider__slide"),
     ]
-    if (!currentSlide[0][current]) return
-    currentSlide[0][current].classList.add("slider-before-change")
+    if (!currentSlide[current]) return
+    currentSlide[current].classList.add("slider-before-change")
   }
 
   render() {
