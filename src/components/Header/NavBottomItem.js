@@ -46,7 +46,7 @@ class NavBottomItem extends Component {
       slug === this.props.location.split("/").join("") ? "active-menu-item" : ""
     return (
       <NavBottomItemStyled>
-        <Link to={slug} className={activePage}>
+         <Link to={`/${slug}`} className={activePage}>
           {this.props.title}
         </Link>
       </NavBottomItemStyled>
