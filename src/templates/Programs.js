@@ -8,6 +8,7 @@ import Hero from "../components/Templates/Hero"
 import Intro from "../components/Pages/Programs/Intro"
 import GuideTours from "../components/Pages/Programs/GuideTours"
 import ProgramsList from "../components/Pages/Programs/ProgramsList"
+import EventsList from "../components/Pages/Programs/EventsList"
 import ColouredLinks from "../components/Templates/ColouredLinks"
 // import Gallery from "../components/Pages/Programs/Gallery"
 import DeckAnimation from "../components/Pages/Programs/DeckAnimation"
@@ -34,6 +35,7 @@ class Programs extends Component {
 
     const guideTours = acf ? acf._ncvm_guide_tours : false
     const programs = acf ? acf._ncvm_programs : false
+    const events = acf ? acf._ncvm_events : false
     const colourLinks = acf ? acf._ncvm_coloured_links : false
 
     const galleryImages = acf ? acf._ncvm_photo_gallery : []
@@ -59,6 +61,7 @@ class Programs extends Component {
         <Intro {...intro} />
         <GuideTours tours={guideTours} />
         <ProgramsList tours={programs} />
+        <EventsList tours={events} />
         <ColouredLinks links={colourLinks} />
         {/* <Gallery images={galleryImages} /> */}
         <DeckAnimation images={galleryImages} />
@@ -122,6 +125,25 @@ export const query = graphql`
             }
           }
         }
+
+        _ncvm_events {
+          name
+          tour_type
+          icon
+          main_content
+          more_information
+          image {
+            alt_text
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+
         _ncvm_coloured_links {
           title
           colour
