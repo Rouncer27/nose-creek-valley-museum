@@ -500,7 +500,7 @@ class MeetingRoomsForm extends Component {
     let timeTwoError = false
     let notesError = false
 
-    this.state.errors.forEach(error => {
+    this?.state?.errors?.forEach(error => {
       if (error.idref === "roomName") {
         roomNameError = "Room is required"
       } else if (error.idref === "firstName") {
@@ -537,7 +537,7 @@ class MeetingRoomsForm extends Component {
                 name="roomName"
                 onChange={this.onChange}
                 value={this.state.roomName}
-                required={false}
+                required={true}
               >
                 <option value=""> -- select a room -- </option>
                 <option title="symonsValley" value="symonsValley">
