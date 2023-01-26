@@ -561,7 +561,7 @@ class MeetingRoomsForm extends Component {
                   name="firstName"
                   value={this.state.firstName}
                   onChange={this.onChange}
-                  required={false}
+                  required={true}
                 />
               </div>
             </div>
@@ -578,7 +578,7 @@ class MeetingRoomsForm extends Component {
                   name="lastName"
                   value={this.state.lastName}
                   onChange={this.onChange}
-                  required={false}
+                  required={true}
                 />
               </div>
             </div>
@@ -595,7 +595,7 @@ class MeetingRoomsForm extends Component {
                   name="yourEmail"
                   value={this.state.yourEmail}
                   onChange={this.onChange}
-                  required={false}
+                  required={true}
                 />
               </div>
             </div>
@@ -611,7 +611,7 @@ class MeetingRoomsForm extends Component {
                 name="phoneNumber"
                 value={this.state.phoneNumber}
                 onChange={this.onChange}
-                required={false}
+                required={true}
               />
             </div>
 
@@ -688,7 +688,7 @@ class MeetingRoomsForm extends Component {
                 name="notes"
                 value={this.state.notes}
                 onChange={this.onChange}
-                required={false}
+               required={true}
               />
             </div>
             <div className="meetingsForm__button">
