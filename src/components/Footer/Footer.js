@@ -22,6 +22,11 @@ const MainFooterStyled = styled.footer`
 
   .mainfooter__land {
       width: 100%;
+
+      p {
+        color: ${props => props.theme.deco};
+        font-style: italic;
+      }
    } 
 
   .mainfooter__phone {
