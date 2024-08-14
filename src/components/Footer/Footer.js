@@ -20,6 +20,10 @@ const MainFooterStyled = styled.footer`
     }
   }
 
+  .mainfooter__land {
+      width: 100%;
+   } 
+
   .mainfooter__phone {
     display: none;
     position: absolute;
@@ -347,7 +351,7 @@ class Footer extends Component {
           return (
             <MainFooterStyled className="mainfooter">
               <StandardWrapper className="mainfooter__wrapper">
-                <div>
+                <div className="mainfooter__land">
                   <p><i>Nose Creek Valley Museum acknowledges that our work takes place within the historical and contemporary Indigenous lands, and is situated on Treaty 7, the traditional lands of the Siksika, Kainai, Piikani, Stoney Nakoda, and Tsuut’ina peoples. We also respectfully acknowledge that we serve the homelands of the Métis Nation, Districts 4 and 5. We recognize the enduring presence and stewardship of Indigenous peoples on this land, which we all share, celebrate, and care for. By making this acknowledgement, we hope to illustrate our commitment to reconciliation.</i></p>  
                 </div>
                 <div className="mainfooter__links">
