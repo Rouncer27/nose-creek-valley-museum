@@ -105,6 +105,9 @@ class Designations extends Component {
     return (
       <DesignationsStyled className="designations">
         <StandardWrapper className="designations__wrapper">
+          <div>
+            <h3>Less than 10% of the museum's annual operating expenses are covered by contributions from municipal, provincial, or federal governments.</h3>
+          </div>
           <div className="designations__title">
             <h2>Designations</h2>
           </div>
