@@ -107,33 +107,33 @@ class Donors extends Component {
               </p>
             </div>
           </div>
-          <div className="donors__logos">
-            {this.props.logos.map((logo, index) => {
-              let logoDisplay = false
-              if (logo.url === "") {
-                logoDisplay = (
-                  <Img
-                    fluid={logo.logo.localFile.childImageSharp.fluid}
-                    alt={logo.logo.alt_text}
-                  />
-                )
-              } else {
-                logoDisplay = (
-                  <a target="_blank" rel="noopener noreferrer" href={logo.url}>
-                    <Img
-                      fluid={logo.logo.localFile.childImageSharp.fluid}
-                      alt={logo.logo.alt_text}
-                    />
-                  </a>
-                )
-              }
-              return (
-                <div className="donors__logos--item" key={index}>
-                  {logoDisplay}
-                </div>
-              )
-            })}
-          </div>
+          // <div className="donors__logos">
+          //   {this.props.logos.map((logo, index) => {
+          //     let logoDisplay = false
+          //     if (logo.url === "") {
+          //       logoDisplay = (
+          //         <Img
+          //           fluid={logo.logo.localFile.childImageSharp.fluid}
+          //           alt={logo.logo.alt_text}
+          //         />
+          //       )
+          //     } else {
+          //       logoDisplay = (
+          //         <a target="_blank" rel="noopener noreferrer" href={logo.url}>
+          //           <Img
+          //             fluid={logo.logo.localFile.childImageSharp.fluid}
+          //             alt={logo.logo.alt_text}
+          //           />
+          //         </a>
+          //       )
+          //     }
+          //     return (
+          //       <div className="donors__logos--item" key={index}>
+          //         {logoDisplay}
+          //       </div>
+          //     )
+          //   })}
+          // </div>
         </FullScreenWrapper>
       </DonorsStyled>
     )
