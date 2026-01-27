@@ -69,6 +69,7 @@ class Support extends Component {
     volunteer.content = acf ? acf._ncvm_vol_sec_content : false
     volunteer.link = acf ? acf._ncvm_vol_sec_link : false
     volunteer.positions = acf ? acf._ncvm_volunteer_positions : []
+    volunteer.donorsList = acf ? acf.donors_list : []
 
     const shop = {}
     shop.content = acf ? acf._ncvm_shop_sec_content : false
@@ -156,6 +157,11 @@ export const query = graphql`
             publicURL
           }
         }
+
+        donors_list {
+          name
+        }
+
         _ncvm_volunteer_positions {
           job_title
           job_description

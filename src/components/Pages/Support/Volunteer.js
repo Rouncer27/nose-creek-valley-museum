@@ -239,11 +239,41 @@ const VolunteerStyled = styled.section`
       }
     }
   }
+
+  .donors__wrapper {
+  }
+
+  .donors__title {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    text-align: center;
+
+    h2 {
+      font-family: "Libre Baskerville";
+      color: #143042;
+      font-weight: 600;
+    }
+  }
+
+  .donors__list {
+    width: 100%;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      li {
+        width: calc(33.333333% - 2rem);
+        margin: 0.5rem 1rem;
+      }
+    }
+  }
 `
 
 class Volunteer extends Component {
   render() {
-    const { content, link, positions } = this.props
+    const { content, link, positions, donorsList } = this.props
     return (
       <VolunteerStyled id="volunteerInfo" className="volunteer">
         <StandardWrapper className="volunteer__wrapper">
@@ -286,6 +316,21 @@ class Volunteer extends Component {
             </div>
           </div>
         )} */}
+        <StandardWrapper className="donors__wrapper">
+          <div className="donors__title">
+            <h2>Donors</h2>
+          </div>
+          {donorsList.length > 0 && (
+            <div className="donors__list">
+              <ul>
+                {donorsList.map((item, index) => {
+                  return <li>{item.name}</li>
+                })}
+              </ul>
+            </div>
+          )}
+          <div></div>
+        </StandardWrapper>
       </VolunteerStyled>
     )
   }
