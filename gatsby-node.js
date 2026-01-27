@@ -104,6 +104,14 @@ exports.createPages = ({ graphql, actions }) => {
               id: edge.node.wordpress_id,
             },
           })
+        } else if (edge.node.template === "tpl-page-support-v2.php") {
+          createPage({
+            path: `/${edge.node.slug}`,
+            component: path.resolve(`./src/templates/Supportv2.js`),
+            context: {
+              id: edge.node.wordpress_id,
+            },
+          })
         } else if (edge.node.template === "tpl-page-privacy.php") {
           createPage({
             path: `/${edge.node.slug}`,
