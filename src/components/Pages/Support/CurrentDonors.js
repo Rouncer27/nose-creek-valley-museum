@@ -285,11 +285,13 @@ class CurrentDonors extends Component {
           </div>
           <div className="currdon__logos">
             <BigHeadlines className="currdon__logos--title">
-              <h2>Donors / Sponsors</h2>
-              <p>The uncommon beauty, of common things.</p>
-              <p>Charles Eames</p>
+              <h2>Thank you for support</h2>
+              <p>
+                “Real museums are places where Time is transformed into Space.”
+              </p>
+              <p>- Orhan Pamuk</p>
             </BigHeadlines>
-            <div className="currdon__logos--container">
+            {/* <div className="currdon__logos--container">
               {this.props.logos.map((logo, index) => {
                 let logoDisplay = false
                 if (logo.url === "") {
@@ -319,7 +321,7 @@ class CurrentDonors extends Component {
                   </div>
                 )
               })}
-            </div>
+            </div> */}
           </div>
         </StandardWrapper>
         {this.state.formActive && (

@@ -5,6 +5,7 @@ import { FullScreenWrapper } from "../../../components/styles/Commons/Wrappers"
 
 import buyMembership from "../../../images/support/ncvm-icons_buymember.png"
 import giftMembership from "../../../images/support/ncvm-icons_gift.png"
+import { Link } from "gatsby"
 
 const MembershipStyled = styled.section`
   @media (min-width: ${props => props.theme.bpTablet}) {
@@ -133,6 +134,76 @@ const MembershipStyled = styled.section`
         font-size: 3rem;
       }
     }
+
+    a {
+      display: inline-block;
+      position: relative;
+      padding: 1rem 5rem 1rem 1rem;
+      transition: all 0.3s ease-in-out;
+      background: transparent;
+      border: none;
+      color: ${props => props.theme.deepSea};
+      font-weight: 700;
+      font-size: 2.2rem;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 1.8rem;
+      }
+
+      .btn-circle {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 3.2rem;
+        height: 3.2rem;
+        transform: translate(0%, -50%);
+        transition: all 0.3s ease-in-out;
+        color: ${props => props.theme.deepSea};
+        text-align: center;
+
+        &::before {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100%;
+          height: 100%;
+          transform: translate(-50%, -50%);
+          transition: all 0.3s ease-in-out;
+          border: 0.2rem solid ${props => props.theme.deepSea};
+          border-radius: 50%;
+          content: "";
+        }
+
+        &::after {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0%;
+          transform: translate(0%, -50%);
+          transition: all 0.3s ease-in-out;
+          font-family: ${props => props.theme.fontAwesome};
+          font-size: 2.2rem;
+          font-weight: 100;
+          content: "\f178";
+        }
+      }
+
+      &:hover {
+        color: ${props => props.theme.rawSienna};
+        cursor: pointer;
+        .btn-circle {
+          color: ${props => props.theme.rawSienna};
+          &::before {
+            border-color: ${props => props.theme.rawSienna};
+          }
+          &::after {
+            color: ${props => props.theme.rawSienna};
+          }
+        }
+      }
+    }
   }
 `
 
@@ -161,8 +232,17 @@ class Membership extends Component {
             </div>
           </div>
           <div className="membership__gift">
-            <h2>Gift a Membership</h2>
-            <p>Visit us at the Museum Shop to purchase a gift membership.</p>
+            <h2>Donate to Museum</h2>
+            <p>Use the link below to donate to the museum.</p>
+
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.canadahelps.org/en/"
+            >
+              <span>Donate</span>
+              <span className="btn-circle" />
+            </a>
           </div>
         </FullScreenWrapper>
       </MembershipStyled>

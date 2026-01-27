@@ -55,8 +55,6 @@ const DonateStyled = styled.section`
       @media (min-width: ${props => props.theme.bpDesksm}) {
         width: calc(65% - 5rem);
         margin: 0 2.5rem;
-        columns: 2;
-        column-gap: 3.5rem;
       }
 
       p {
@@ -181,7 +179,7 @@ class Donate extends Component {
       <DonateStyled id="donateInfo" className="donate">
         <StandardWrapper className="donate__wrapper">
           <div className="donate__title">
-            <h2>Donate to NCVM</h2>
+            <h2>Donate to the NCVM</h2>
           </div>
           <div className="donate__content">
             <div className="donate__content--icon">

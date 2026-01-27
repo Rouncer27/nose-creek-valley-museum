@@ -359,7 +359,7 @@ class Hero extends Component {
     } else if (slug === "support") {
       actionSection = (
         <div className="pagehero__action--title">
-          <h1>Support</h1>
+          <h1>Donate</h1>
         </div>
       )
     } else if (slug === "about") {

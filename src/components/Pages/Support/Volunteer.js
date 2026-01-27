@@ -65,8 +65,6 @@ const VolunteerStyled = styled.section`
       @media (min-width: ${props => props.theme.bpDesksm}) {
         width: calc(65% - 5rem);
         margin: 0 2.5rem;
-        columns: 2;
-        column-gap: 3.5rem;
       }
 
       p {
@@ -250,7 +248,7 @@ class Volunteer extends Component {
       <VolunteerStyled id="volunteerInfo" className="volunteer">
         <StandardWrapper className="volunteer__wrapper">
           <div className="volunteer__title">
-            <h2>Volunteer</h2>
+            <h2>Donate Artifacts & Archival Items</h2>
             <p>Your greatness is not what you have, but what you give.</p>
           </div>
           <div className="volunteer__content">
@@ -262,7 +260,7 @@ class Volunteer extends Component {
                   rel="noopener noreferrer"
                   href={link.localFile.publicURL}
                 >
-                  <span>Volunteer / </span>
+                  <span>Contact Us / </span>
                   <span className="italic-btn">Today</span>
                   <span className="btn-circle" />
                 </a>
@@ -274,7 +272,7 @@ class Volunteer extends Component {
             />
           </div>
         </StandardWrapper>
-        {positions.length > 0 && (
+        {/* {positions.length > 0 && (
           <div className="volunteer__positions">
             <div className="volunteer__positions--title">
               <h2>
@@ -287,7 +285,7 @@ class Volunteer extends Component {
               })}
             </div>
           </div>
-        )}
+        )} */}
       </VolunteerStyled>
     )
   }

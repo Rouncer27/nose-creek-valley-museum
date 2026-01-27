@@ -104,7 +104,7 @@ class Support extends Component {
         <Hero {...heroData} location={this.props.location} />
         <Intro {...introData} />
         <Membership {...membership} />
-        <Corporate {...corporateSponsorship} />
+        {/* <Corporate {...corporateSponsorship} /> */}
         <Donate {...donate} />
         <Volunteer {...volunteer} />
         <Shop {...shop} />
