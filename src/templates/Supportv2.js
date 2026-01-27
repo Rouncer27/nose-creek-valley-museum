@@ -64,7 +64,7 @@ class Supportv2 extends Component {
 
     const donate = {}
     donate.content = acf ? acf._ncvm_donate_sec_content : false
-    donate.link = acf ? acf._swb_donate_sec_link : false
+    donate.link = acf ? acf.sponsor_brochure_pdf : false
 
     const volunteer = {}
     volunteer.content = acf ? acf._ncvm_vol_sec_content : false
@@ -151,7 +151,13 @@ export const query = graphql`
         _ncvm_corp_spon_link
 
         _ncvm_donate_sec_content
-        _swb_donate_sec_link
+        sponsor_brochure_pdf {
+          url {
+            localFile {
+              publicURL
+            }
+          }
+        }
 
         _ncvm_vol_sec_content
         _ncvm_vol_sec_link {

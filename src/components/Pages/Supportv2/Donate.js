@@ -69,6 +69,79 @@ const DonateStyled = styled.section`
           font-size: 1.8rem;
         }
       }
+
+      .donate__content--paragraph-button {
+        margin-top: 5rem;
+        a {
+          display: inline-block;
+          position: relative;
+          padding: 1rem 5rem 1rem 1rem;
+          transition: all 0.3s ease-in-out;
+          background: transparent;
+          border: none;
+          color: ${props => props.theme.deepSea};
+          font-weight: 700;
+          font-size: 2.2rem;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.8rem;
+          }
+
+          .btn-circle {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 3.2rem;
+            height: 3.2rem;
+            transform: translate(0%, -50%);
+            transition: all 0.3s ease-in-out;
+            color: ${props => props.theme.deepSea};
+            text-align: center;
+
+            &::before {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 100%;
+              height: 100%;
+              transform: translate(-50%, -50%);
+              transition: all 0.3s ease-in-out;
+              border: 0.2rem solid ${props => props.theme.deepSea};
+              border-radius: 50%;
+              content: "";
+            }
+
+            &::after {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 0%;
+              transform: translate(0%, -50%);
+              transition: all 0.3s ease-in-out;
+              font-family: ${props => props.theme.fontAwesome};
+              font-size: 2.2rem;
+              font-weight: 100;
+              content: "\f178";
+            }
+          }
+
+          &:hover {
+            color: ${props => props.theme.rawSienna};
+            cursor: pointer;
+            .btn-circle {
+              color: ${props => props.theme.rawSienna};
+              &::before {
+                border-color: ${props => props.theme.rawSienna};
+              }
+              &::after {
+                color: ${props => props.theme.rawSienna};
+              }
+            }
+          }
+        }
+      }
     }
 
     &--link {
@@ -175,6 +248,7 @@ class Donate extends Component {
   }
 
   render() {
+    console.log("props", this.props)
     return (
       <DonateStyled id="donateInfo" className="donate">
         <StandardWrapper className="donate__wrapper">
@@ -191,10 +265,19 @@ class Donate extends Component {
                 </button>
               </TwoSpanButtons>
             </div>
-            <div
-              className="donate__content--paragraph"
-              dangerouslySetInnerHTML={{ __html: this.props.content }}
-            />
+            <div className="donate__content--paragraph">
+              <div dangerouslySetInnerHTML={{ __html: this.props.content }} />
+              <TwoSpanButtons className="donate__content--paragraph-button">
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={this.props.link.url.localFile.publicURL}
+                >
+                  <span>Learn More</span>
+                  <span className="btn-circle" />
+                </a>
+              </TwoSpanButtons>
+            </div>
           </div>
         </StandardWrapper>
         {this.state.formActive && (
