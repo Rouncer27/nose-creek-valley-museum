@@ -356,7 +356,7 @@ class Hero extends Component {
           <h1>Programs</h1>
         </div>
       )
-    } else if (slug === "support") {
+    } else if (slug === "donate") {
       actionSection = (
         <div className="pagehero__action--title">
           <h1>Donate</h1>
