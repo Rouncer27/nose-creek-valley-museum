@@ -11,6 +11,7 @@ import Membership from "../components/Pages/Support/Membership"
 import Corporate from "../components/Pages/Support/Corporate"
 import Donate from "../components/Pages/Supportv2/Donate"
 import Volunteer from "../components/Pages/Supportv2/Volunteer"
+import SponsorLogos from "../components/Pages/Supportv2/SponsorLogos"
 import Shop from "../components/Pages/Support/Shop"
 import CurrentDonors from "../components/Pages/Supportv2/CurrentDonors"
 
@@ -108,6 +109,7 @@ class Supportv2 extends Component {
         {/* <Corporate {...corporateSponsorship} /> */}
         <Donate {...donate} />
         <Volunteer {...volunteer} />
+        <SponsorLogos data={acf.sponsor_logos} />
         {/* <Shop {...shop} /> */}
         <CurrentDonors {...currentDonors} />
       </Layout>
@@ -155,6 +157,21 @@ export const query = graphql`
         _ncvm_vol_sec_link {
           localFile {
             publicURL
+          }
+        }
+
+        sponsor_logos {
+          level
+          url
+          logo {
+            alt_text
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
 
