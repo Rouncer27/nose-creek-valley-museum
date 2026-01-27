@@ -315,18 +315,18 @@ class SpecialExhibit extends Component {
   render() {
     return (
       <SpecialExhibitStyled id="speicalExhibits" className="specialex">
-        <Slider
+        <div
           className="specialex__slider"
-          slidesToShow={1}
-          autoplay={false}
-          autoplaySpeed={10000}
-          speed={750}
-          arrows={false}
-          vertical={true}
-          adaptiveHeight={false}
-          centerPadding={`0px`}
-          centerMode={false}
-          dots={true}
+          // slidesToShow={1}
+          // autoplay={false}
+          // autoplaySpeed={10000}
+          // speed={750}
+          // arrows={false}
+          // vertical={true}
+          // adaptiveHeight={false}
+          // centerPadding={`0px`}
+          // centerMode={false}
+          // dots={true}
         >
           {this.props.speicalExhibits.map((exhibit, index) => {
             return (
@@ -369,7 +369,7 @@ class SpecialExhibit extends Component {
               </div>
             )
           })}
-        </Slider>
+        </div>
       </SpecialExhibitStyled>
     )
   }

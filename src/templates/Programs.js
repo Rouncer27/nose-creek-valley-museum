@@ -128,6 +128,7 @@ export const query = graphql`
 
         _ncvm_events {
           name
+          current_event
           tour_type
           icon
           main_content

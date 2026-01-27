@@ -380,6 +380,12 @@ class Hero extends Component {
           <h1>Connect</h1>
         </div>
       )
+    } else if (slug === "privacy-policy") {
+      actionSection = (
+        <div className="pagehero__action--title">
+          <h1>Privacy Policy</h1>
+        </div>
+      )
     }
 
     return (

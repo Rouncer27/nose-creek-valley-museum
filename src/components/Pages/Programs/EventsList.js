@@ -51,13 +51,26 @@ const ProgramsListStyled = styled.section`
 
 class EventsList extends Component {
   render() {
+    const firstThree = this.props.tours.filter(item => item.current_event)
+    const remaining = this.props.tours.filter(item => !item.current_event)
+
     return (
       <ProgramsListStyled id="programsList" className="ptours">
         <FullScreenWrapper className="ptours__wrapper">
           <div className="ptours__title">
-            <h1>Events</h1>
+            <h1>Current Events</h1>
           </div>
-          {this.props.tours.map((tour, index) => {
+          {firstThree.map((tour, index) => {
+            return <Event key={index} tour={tour} />
+          })}
+        </FullScreenWrapper>
+
+        <FullScreenWrapper className="ptours__wrapper">
+          <div className="ptours__title">
+            <h1>Previous Events</h1>
+          </div>
+
+          {remaining.map((tour, index) => {
             return <Event key={index} tour={tour} />
           })}
         </FullScreenWrapper>

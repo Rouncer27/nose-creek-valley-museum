@@ -500,29 +500,31 @@ class MeetingRoomsForm extends Component {
     let timeTwoError = false
     let notesError = false
 
-    this?.state?.errors?.forEach(error => {
-      if (error.idref === "roomName") {
-        roomNameError = "Room is required"
-      } else if (error.idref === "firstName") {
-        firstNameError = "First Name is required"
-      } else if (error.idref === "lastName") {
-        lastNameError = "Last Name is required"
-      } else if (error.idref === "yourEmail") {
-        yourEmailError = "Your Email is required"
-      } else if (error.idref === "phoneNumber") {
-        phoneNumberError = "Your phone number is required"
-      } else if (error.idref === "dateOne") {
-        dateOneError = "Your Perferred date is Required"
-      } else if (error.idref === "timeOne") {
-        timeOneError = "Your Perferred time is Required"
-      } else if (error.idref === "dateTwo") {
-        dateTwoError = "Your Alternate date is Required"
-      } else if (error.idref === "timeTwo") {
-        timeTwoError = "Your Alternate time is Required"
-      } else if (error.idref === "notes") {
-        notesError = "Your notes are Required"
-      }
-    })
+    if (this && this.state && Array.isArray(this.state.errors)) {
+      this.state.errors.forEach(error => {
+        if (error.idref === "roomName") {
+          roomNameError = "Room is required"
+        } else if (error.idref === "firstName") {
+          firstNameError = "First Name is required"
+        } else if (error.idref === "lastName") {
+          lastNameError = "Last Name is required"
+        } else if (error.idref === "yourEmail") {
+          yourEmailError = "Your Email is required"
+        } else if (error.idref === "phoneNumber") {
+          phoneNumberError = "Your phone number is required"
+        } else if (error.idref === "dateOne") {
+          dateOneError = "Your Perferred date is Required"
+        } else if (error.idref === "timeOne") {
+          timeOneError = "Your Perferred time is Required"
+        } else if (error.idref === "dateTwo") {
+          dateTwoError = "Your Alternate date is Required"
+        } else if (error.idref === "timeTwo") {
+          timeTwoError = "Your Alternate time is Required"
+        } else if (error.idref === "notes") {
+          notesError = "Your notes are Required"
+        }
+      })
+    }
     return (
       <StyledMeetingRoomsForm>
         <div className="meetingsForm__wrapper">
@@ -688,7 +690,7 @@ class MeetingRoomsForm extends Component {
                 name="notes"
                 value={this.state.notes}
                 onChange={this.onChange}
-               required={true}
+                required={true}
               />
             </div>
             <div className="meetingsForm__button">

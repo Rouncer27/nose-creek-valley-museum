@@ -21,13 +21,13 @@ const MainFooterStyled = styled.footer`
   }
 
   .mainfooter__land {
-      width: 100%;
+    width: 100%;
 
-      p {
-        color: ${props => props.theme.deco};
-        font-style: italic;
-      }
-   } 
+    p {
+      color: ${props => props.theme.deco};
+      font-style: italic;
+    }
+  }
 
   .mainfooter__phone {
     display: none;
@@ -357,7 +357,18 @@ class Footer extends Component {
             <MainFooterStyled className="mainfooter">
               <StandardWrapper className="mainfooter__wrapper">
                 <div className="mainfooter__land">
-                  <p>Nose Creek Valley Museum acknowledges that our work takes place within the historical and contemporary Indigenous lands, and is situated on Treaty 7, the traditional lands of the Siksika, Kainai, Piikani, Stoney Nakoda, and Tsuut’ina peoples. We also respectfully acknowledge that we serve the homelands of the Métis Nation, Districts 4 and 5. We recognize the enduring presence and stewardship of Indigenous peoples on this land, which we all share, celebrate, and care for. By making this acknowledgement, we hope to illustrate our commitment to reconciliation.</p>  
+                  <p>
+                    Nose Creek Valley Museum acknowledges that our work takes
+                    place within the historical and contemporary Indigenous
+                    lands, and is situated on Treaty 7, the traditional lands of
+                    the Siksika, Kainai, Piikani, Stoney Nakoda, and Tsuut’ina
+                    peoples. We also respectfully acknowledge that we serve the
+                    homelands of the Métis Nation, Districts 4 and 5. We
+                    recognize the enduring presence and stewardship of
+                    Indigenous peoples on this land, which we all share,
+                    celebrate, and care for. By making this acknowledgement, we
+                    hope to illustrate our commitment to reconciliation.
+                  </p>
                 </div>
                 <div className="mainfooter__links">
                   <Link to="/programs/#programsList">
@@ -493,9 +504,10 @@ class Footer extends Component {
                     >
                       Switchback Creative{" "}
                     </a>
-                    © 2019 - {new Date().getFullYear()}, with
-                    {` `}
-                    <a href="https://www.gatsbyjs.org">Gatsby</a>
+                    © 2019 - {new Date().getFullYear()}
+                  </p>
+                  <p>
+                    <Link to="/privacy-policy/">Privacy Policy</Link>
                   </p>
                 </div>
                 <div className={`mainfooter__phone mainfooter__phone--${slug}`}>
