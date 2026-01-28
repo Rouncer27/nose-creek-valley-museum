@@ -8,7 +8,6 @@ import Hero from "../components/Templates/Hero"
 import Intro from "../components/Templates/Intro"
 
 import Membership from "../components/Pages/Support/Membership"
-import Corporate from "../components/Pages/Support/Corporate"
 import Donate from "../components/Pages/Support/Donate"
 import Volunteer from "../components/Pages/Support/Volunteer"
 import Shop from "../components/Pages/Support/Shop"
@@ -63,7 +62,6 @@ class Support extends Component {
 
     const donate = {}
     donate.content = acf ? acf._ncvm_donate_sec_content : false
-    donate.link = acf ? acf._swb_donate_sec_link : false
 
     const volunteer = {}
     volunteer.content = acf ? acf._ncvm_vol_sec_content : false
@@ -77,8 +75,6 @@ class Support extends Component {
     const currentDonors = {}
     currentDonors.contentTop = acf ? acf._ncvm_donors_top_content : false
     currentDonors.contentBot = acf ? acf._ncvm_donors_bot_content : false
-    currentDonors.link = acf ? acf._ncvm_donors_link : false
-    currentDonors.logos = acf ? acf._ncvm_current_donors : false
 
     return (
       <Layout location={this.props.location}>
@@ -105,7 +101,6 @@ class Support extends Component {
         <Hero {...heroData} location={this.props.location} />
         <Intro {...introData} />
         <Membership {...membership} />
-        {/* <Corporate {...corporateSponsorship} /> */}
         <Donate {...donate} />
         <Volunteer {...volunteer} />
         <Shop {...shop} />
@@ -141,15 +136,7 @@ export const query = graphql`
           point
         }
 
-        _ncvm_corp_sponsor_intro
-        _ncvm_corp_sponsor_benefactor
-        _ncvm_corp_sponsor_contributor
-        _ncvm_corp_sponsor_patron
-        _ncvm_corp_sponsor_friend
-        _ncvm_corp_spon_link
-
         _ncvm_donate_sec_content
-        _swb_donate_sec_link
 
         _ncvm_vol_sec_content
         _ncvm_vol_sec_link {
@@ -171,20 +158,6 @@ export const query = graphql`
 
         _ncvm_donors_top_content
         _ncvm_donors_bot_content
-        _ncvm_donors_link
-        _ncvm_current_donors {
-          logo {
-            alt_text
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 400) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          url
-        }
       }
     }
 

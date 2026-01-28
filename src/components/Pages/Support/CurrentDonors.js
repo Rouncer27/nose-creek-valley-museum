@@ -275,10 +275,6 @@ class CurrentDonors extends Component {
               </TwoSpanButtons>
             </div>
             <div className="currdon__thanks--bgimg">
-              {/* <Img
-                fluid={this.props.bgImage.localFile.childImageSharp.fluid}
-                alt={this.props.bgImage.alt_text}
-              /> */}
               <div className="currdon__thanks--bgimg--color" />
             </div>
             <div className="currdon__thanks--background" />
@@ -291,37 +287,6 @@ class CurrentDonors extends Component {
               </p>
               <p>- Orhan Pamuk</p>
             </BigHeadlines>
-            {/* <div className="currdon__logos--container">
-              {this.props.logos.map((logo, index) => {
-                let logoDisplay = false
-                if (logo.url === "") {
-                  logoDisplay = (
-                    <Img
-                      fluid={logo.logo.localFile.childImageSharp.fluid}
-                      alt={logo.logo.alt_text}
-                    />
-                  )
-                } else {
-                  logoDisplay = (
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={logo.url}
-                    >
-                      <Img
-                        fluid={logo.logo.localFile.childImageSharp.fluid}
-                        alt={logo.logo.alt_text}
-                      />
-                    </a>
-                  )
-                }
-                return (
-                  <div className="currdon__logos--item" key={index}>
-                    {logoDisplay}
-                  </div>
-                )
-              })}
-            </div> */}
           </div>
         </StandardWrapper>
         {this.state.formActive && (
