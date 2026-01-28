@@ -5,6 +5,7 @@ import { StandardWrapper } from "../../../components/styles/Commons/Wrappers"
 import { TwoSpanButtons } from "../../../components/styles/Commons/Buttons"
 import VolunteerAnimation from "./VolunteerAnimation"
 import Position from "./Position"
+import { Link } from "gatsby"
 
 const VolunteerStyled = styled.section`
   padding: 0 0 5rem;
@@ -285,15 +286,16 @@ class Volunteer extends Component {
             <div className="volunteer__content--icon">
               <VolunteerAnimation />
               <TwoSpanButtons className="volunteer__content--link">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={link.localFile.publicURL}
+                <Link
+                  // target="_blank"
+                  // rel="noopener noreferrer"
+                  // href={link.localFile.publicURL}
+                  href="/connect"
                 >
-                  <span>Contact Us / </span>
+                  <span>Contact / </span>
                   <span className="italic-btn">Today</span>
                   <span className="btn-circle" />
-                </a>
+                </Link>
               </TwoSpanButtons>
             </div>
             <div

@@ -12,7 +12,7 @@ const SponsorLogos = ({ data }) => {
     <SponsorLogosStyled>
       <div className="sponsor-logos_wrapper">
         <div className="sponsor-logos_title">
-          <h2>sponsor logos</h2>
+          <h2>Sponsors</h2>
         </div>
         <div className="sponsor-logos_level">
           <h3>Level One</h3>
@@ -165,6 +165,7 @@ const SponsorLogosStyled = styled.section`
 
   .sponsor-logos_title {
     width: 100%;
+    margin-bottom: 4rem;
 
     h2 {
       text-align: center;
@@ -176,6 +177,7 @@ const SponsorLogosStyled = styled.section`
 
     h3 {
       text-align: center;
+      font-family: "Libre Baskerville";
     }
 
     &-logos {

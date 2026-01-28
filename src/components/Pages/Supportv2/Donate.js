@@ -70,6 +70,37 @@ const DonateStyled = styled.section`
         }
       }
 
+      ol {
+        list-style: none;
+        padding-left: 0;
+        counter-reset: item;
+        max-width: 600px;
+
+        li {
+          counter-increment: item;
+          margin-bottom: 0.75rem;
+          padding-left: 2.5rem;
+          position: relative;
+          line-height: 1.5;
+        }
+      }
+
+      ol li::before {
+        content: counter(item);
+        position: absolute;
+        left: 0;
+        top: 0.6rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        background: #f2f2f2;
+        color: #333;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 1.75rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
       .donate__content--paragraph-button {
         margin-top: 5rem;
         a {
@@ -248,7 +279,6 @@ class Donate extends Component {
   }
 
   render() {
-    console.log("props", this.props)
     return (
       <DonateStyled id="donateInfo" className="donate">
         <StandardWrapper className="donate__wrapper">
@@ -273,7 +303,7 @@ class Donate extends Component {
                   rel="noreferrer"
                   href={this.props.link.url.localFile.publicURL}
                 >
-                  <span>Learn More</span>
+                  <span>Sponsorship Brochure</span>
                   <span className="btn-circle" />
                 </a>
               </TwoSpanButtons>
