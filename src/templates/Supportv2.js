@@ -7,12 +7,9 @@ import SEO from "../components/Head/seo"
 import Hero from "../components/Templates/Hero"
 import Intro from "../components/Templates/Intro"
 
-import Membership from "../components/Pages/Support/Membership"
-import Corporate from "../components/Pages/Support/Corporate"
 import Donate from "../components/Pages/Supportv2/Donate"
 import Volunteer from "../components/Pages/Supportv2/Volunteer"
 import SponsorLogos from "../components/Pages/Supportv2/SponsorLogos"
-import Shop from "../components/Pages/Support/Shop"
 import CurrentDonors from "../components/Pages/Supportv2/CurrentDonors"
 
 class Supportv2 extends Component {
@@ -45,23 +42,6 @@ class Supportv2 extends Component {
       ? acf._ncvm_intro_sec_content
       : false
 
-    const membership = {}
-    membership.titleTop = acf ? acf._ncvm_mem_title_top : false
-    membership.titleBot = acf ? acf._ncvm_mem_title_bot : false
-    membership.points = acf ? acf._ncvm_mem_points : false
-
-    const corporateSponsorship = {}
-    corporateSponsorship.intro = acf ? acf._ncvm_corp_sponsor_intro : false
-    corporateSponsorship.benefactor = acf
-      ? acf._ncvm_corp_sponsor_benefactor
-      : false
-    corporateSponsorship.contributor = acf
-      ? acf._ncvm_corp_sponsor_contributor
-      : false
-    corporateSponsorship.patron = acf ? acf._ncvm_corp_sponsor_patron : false
-    corporateSponsorship.friend = acf ? acf._ncvm_corp_sponsor_friend : false
-    corporateSponsorship.link = acf ? acf._ncvm_corp_spon_link : false
-
     const donate = {}
     donate.content = acf ? acf._ncvm_donate_sec_content : false
     donate.link = acf ? acf.sponsor_brochure_pdf : false
@@ -71,9 +51,6 @@ class Supportv2 extends Component {
     volunteer.link = acf ? acf._ncvm_vol_sec_link : false
     volunteer.positions = acf ? acf._ncvm_volunteer_positions : []
     volunteer.donorsList = acf ? acf.donors_list : []
-
-    const shop = {}
-    shop.content = acf ? acf._ncvm_shop_sec_content : false
 
     const currentDonors = {}
     currentDonors.contentTop = acf ? acf._ncvm_donors_top_content : false
@@ -105,12 +82,9 @@ class Supportv2 extends Component {
         />
         <Hero {...heroData} location={this.props.location} />
         <Intro {...introData} />
-        {/* <Membership {...membership} /> */}
-        {/* <Corporate {...corporateSponsorship} /> */}
         <Donate {...donate} />
         <Volunteer {...volunteer} />
         <SponsorLogos data={acf.sponsor_logos} />
-        {/* <Shop {...shop} /> */}
         <CurrentDonors {...currentDonors} />
       </Layout>
     )
@@ -136,19 +110,6 @@ export const query = graphql`
         _ncvm_intro_sec_tt
         _ncvm_intro_sec_title
         _ncvm_intro_sec_content
-
-        _ncvm_mem_title_top
-        _ncvm_mem_title_bot
-        _ncvm_mem_points {
-          point
-        }
-
-        _ncvm_corp_sponsor_intro
-        _ncvm_corp_sponsor_benefactor
-        _ncvm_corp_sponsor_contributor
-        _ncvm_corp_sponsor_patron
-        _ncvm_corp_sponsor_friend
-        _ncvm_corp_spon_link
 
         _ncvm_donate_sec_content
         sponsor_brochure_pdf {
@@ -181,16 +142,10 @@ export const query = graphql`
           }
         }
 
-        donors_list {
-          name
-        }
-
         _ncvm_volunteer_positions {
           job_title
           job_description
         }
-
-        _ncvm_shop_sec_content
 
         _ncvm_donors_top_content
         _ncvm_donors_bot_content
