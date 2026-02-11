@@ -81,7 +81,8 @@ const DonateStyled = styled.section`
         margin-bottom: 0;
       }
 
-      button {
+      button,
+      a {
         display: block;
         position: relative;
         padding: 1rem 5rem 1rem 1rem;
@@ -185,11 +186,20 @@ class Donate extends Component {
             <div className="donate__content--icon">
               <DonateAnimation />
               <TwoSpanButtons className="donate__content--link">
-                <button onClick={this.toggleLearnMoreForm}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.zeffy.com/en-CA/donation-form/donate-to-nose-creek-valley-museum"
+                >
                   <span>Donate / </span>
                   <span className="italic-btn">Today</span>
                   <span className="btn-circle" />
-                </button>
+                </a>
+                {/* <button onClick={this.toggleLearnMoreForm}>
+                  <span>Donate / </span>
+                  <span className="italic-btn">Today</span>
+                  <span className="btn-circle" />
+                </button> */}
               </TwoSpanButtons>
             </div>
             <div

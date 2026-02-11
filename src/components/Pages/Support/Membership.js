@@ -238,7 +238,7 @@ class Membership extends Component {
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://www.canadahelps.org/en/"
+              href="https://www.zeffy.com/en-CA/donation-form/donate-to-nose-creek-valley-museum"
             >
               <span>Donate</span>
               <span className="btn-circle" />
