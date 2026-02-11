@@ -15,7 +15,7 @@ const QuickTourist = props => {
   return (
     <Link
       className="quicklinks__container quicklinks__tourist"
-      to="/programs/#touristInfo"
+      to="/sponsor"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
@@ -26,7 +26,7 @@ const QuickTourist = props => {
           style={slideDown}
         >
           <p>
-            Tourist Information
+            Sponsorship Info
             <span className="btn-circle" />
           </p>
         </animated.div>
@@ -34,7 +34,7 @@ const QuickTourist = props => {
       <animated.div className="quicklinks__container--content" style={slideUp}>
         <div className="quicklinks__container--content--title">
           <h2>
-            Tourist <br /> Information
+            Sponsorship <br /> Information
           </h2>
         </div>
         <div className="quicklinks__container--content--sub">
