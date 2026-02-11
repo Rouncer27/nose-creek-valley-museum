@@ -361,7 +361,10 @@ class SpecialExhibit extends Component {
                   />
 
                   <div className="special-learnmore">
-                    <Link to={`/special-exhibits/${exhibit.node.slug}`}>
+                    {/* <Link to={`/special-exhibits/${exhibit.node.slug}`}>
+                      Learn More <span className="btn-circle" />
+                    </Link> */}
+                    <Link to={`/programs/`}>
                       Learn More <span className="btn-circle" />
                     </Link>
                   </div>

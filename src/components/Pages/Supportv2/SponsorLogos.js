@@ -7,6 +7,7 @@ const SponsorLogos = ({ data }) => {
   const levelTwo = data.filter(item => item.level === "two")
   const levelThree = data.filter(item => item.level === "three")
   const levelFour = data.filter(item => item.level === "four")
+  const levelFive = data.filter(item => item.level === "five")
 
   return (
     <SponsorLogosStyled>
@@ -15,7 +16,7 @@ const SponsorLogos = ({ data }) => {
           <h2>Sponsors</h2>
         </div>
         <div className="sponsor-logos_level">
-          <h3>Level One</h3>
+          <h3>Category One</h3>
           <div className="sponsor-logos_level-logos">
             {levelOne.map((item, index) => {
               let logoDisplay = false
@@ -46,7 +47,7 @@ const SponsorLogos = ({ data }) => {
         </div>
 
         <div className="sponsor-logos_level">
-          <h3>Level Two</h3>
+          <h3>Category Two</h3>
           <div className="sponsor-logos_level-logos">
             {levelTwo.map((item, index) => {
               let logoDisplay = false
@@ -77,7 +78,7 @@ const SponsorLogos = ({ data }) => {
         </div>
 
         <div className="sponsor-logos_level">
-          <h3>Level Three</h3>
+          <h3>Category Three</h3>
           <div className="sponsor-logos_level-logos">
             {levelThree.map((item, index) => {
               let logoDisplay = false
@@ -108,9 +109,40 @@ const SponsorLogos = ({ data }) => {
         </div>
 
         <div className="sponsor-logos_level">
-          <h3>Level Four</h3>
+          <h3>Category Four</h3>
           <div className="sponsor-logos_level-logos">
             {levelFour.map((item, index) => {
+              let logoDisplay = false
+              if (item.url === "") {
+                logoDisplay = (
+                  <Img
+                    fluid={item.logo.localFile.childImageSharp.fluid}
+                    alt={item.logo.alt_text}
+                  />
+                )
+              } else {
+                logoDisplay = (
+                  <a target="_blank" rel="noopener noreferrer" href={item.url}>
+                    <Img
+                      fluid={item.logo.localFile.childImageSharp.fluid}
+                      alt={item.logo.alt_text}
+                    />
+                  </a>
+                )
+              }
+              return (
+                <div className="sponsor-logos_level-item" key={index}>
+                  {logoDisplay}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        <div className="sponsor-logos_level">
+          <h3>Friends of the Museum</h3>
+          <div className="sponsor-logos_level-logos">
+            {levelFive.map((item, index) => {
               let logoDisplay = false
               if (item.url === "") {
                 logoDisplay = (
