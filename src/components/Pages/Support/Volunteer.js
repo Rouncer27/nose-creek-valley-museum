@@ -279,7 +279,7 @@ class Volunteer extends Component {
       <VolunteerStyled id="volunteerInfo" className="volunteer">
         <StandardWrapper className="volunteer__wrapper">
           <div className="volunteer__title">
-            <h2>Donate Artifacts & Archival Items</h2>
+            <h2>Donate an Object</h2>
             <p>Your greatness is not what you have, but what you give.</p>
           </div>
           <div className="volunteer__content">
