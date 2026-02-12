@@ -283,7 +283,7 @@ class Donate extends Component {
       <DonateStyled id="donateInfo" className="donate">
         <StandardWrapper className="donate__wrapper">
           <div className="donate__title">
-            <h2>Sponsorship Level Options</h2>
+            <h2>Sponsor Categories</h2>
           </div>
           <div className="donate__content">
             <div className="donate__content--icon">
